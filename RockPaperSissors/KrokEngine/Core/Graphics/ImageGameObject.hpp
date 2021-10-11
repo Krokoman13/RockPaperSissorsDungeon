@@ -13,7 +13,8 @@ public:
     void SetHeight(float height);
     void SetSize(float width, float height);
 
-    sf::Sprite* Render() override;
+    sf::Sprite* GetSprite() override;
+    void CenterImageAround(Vec2 position);
 
 private:
     float width = 0;
@@ -21,7 +22,5 @@ private:
 
     sf::Texture texture;
     sf::Sprite sprite;
-
-    void centerImage();
 };
 

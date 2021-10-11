@@ -33,15 +33,15 @@
     <ClCompile Include="KrokEngine\Essentials\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KrokEngine\Core\UpdateManager\UpdateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KrokEngine\Core\Graphics\Renderer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderLayer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KrokEngine\Core\Graphics\ImageGameObject.hpp">
@@ -51,6 +51,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KrokEngine\Essentials\Vec2.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UpdateManager\UpdateManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\Graphics\RenderLayer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,6 @@
 #include <cmath>
 #include "Vec2.hpp"
 #define M_PI          3.141592653589793238462643383279502884L /* pi */
-
 //------------------------------------------------------------------------------------------------------------------------
 //														+ operator
 //------------------------------------------------------------------------------------------------------------------------
@@ -419,4 +418,10 @@ Vec2 Vec2::Normal()
 void Vec2::Reflect(Vec2 pNormal, float pBounciness)
 {
 	*this -= (1 + pBounciness) * (Dot(pNormal) * pNormal);
+}
+
+std::ostream& operator<<(std::ostream& out, const Vec2& vec)
+{
+	out << '(' << vec.x << ',' << vec.y << ')';
+	return out;
 }

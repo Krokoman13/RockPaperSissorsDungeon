@@ -1,23 +1,26 @@
 #include "GameObject.hpp"
 
-GameObject::GameObject(Vec2 position)
+GameObject::GameObject(Vec2 position, std::string name)
 {
-	this->_position = position;
-	this->name = "GameObject";
+	this->localPosition = position;
+	this->name = name;
 }
 
-GameObject::GameObject(float x, float y) : GameObject (Vec2(x, y))
+GameObject::GameObject(float x, float y, std::string name) : GameObject(Vec2(x, y))
 {
-
 }
 
 GameObject::~GameObject()
 {
 }
 
-const sf::Sprite* GameObject::Render()
+sf::Sprite* GameObject::GetSprite()
 {
 	return nullptr;
+}
+
+void GameObject::Update()
+{
 }
 
 int GameObject::getPositionAsChild(GameObject& toFind)
@@ -40,7 +43,26 @@ GameObject* GameObject::GetParent()
 
 void GameObject::SetParent(GameObject& parent)
 {
-	parent.AddChild(this);
+	this->SetParent(&parent);
+}
+
+void GameObject::SetParent(GameObject* newParent)
+{
+	if (newParent == nullptr)
+	{
+		ClearParent();
+		return;
+	}
+
+	newParent->AddChild(this);
+}
+
+void GameObject::ClearParent()
+{
+	if (_parent != nullptr)
+	{
+		_parent->RemoveChild(this);
+	}
 }
 
 const std::vector<GameObject*> GameObject::GetChildren()
@@ -63,12 +85,11 @@ void GameObject::AddChild(GameObject& toAdd)
 
 void GameObject::AddChild(GameObject* toAdd)
 {
-	GameObject* parent = toAdd->GetParent();
+	if (toAdd == nullptr) throw std::invalid_argument("Cannot add a non-existing GameObject");
 
-	if (parent != nullptr)
-	{
-		parent->RemoveChild(toAdd);
-	}
+	toAdd->ClearParent();
+
+	if (toAdd == this) throw std::invalid_argument("Cannot add a GameObject to itself");
 
 	_children.push_back(toAdd);
 	toAdd->_parent = this;
@@ -93,3 +114,40 @@ void GameObject::RemoveChild(GameObject* toRemove)
 
 	throw std::invalid_argument("Could not remove a non-existent child");
 }
+
+const Vec2 GameObject::GetGlobaPosition()
+{
+	return GameObject::GetAllTransformations(this->_parent) + localPosition;
+}
+
+void GameObject::SetGlobalPosition(Vec2 position)
+{
+	Vec2 transformation = GetAllTransformations(this->_parent);
+	this->localPosition = position - transformation;
+}
+
+const Vec2 GameObject::GetAllTransformations(GameObject* parent, Vec2 transformation)
+{
+	if (parent == nullptr) return transformation;
+
+	GameObject* nextParent = parent->GetParent();
+
+	if (nextParent == nullptr) return transformation + parent->localPosition;
+	return GetAllTransformations(nextParent, transformation + parent->localPosition);
+}
+
+int GameObject::GetRenderLayer()
+{
+	GameObject* parent = this->_parent;
+
+	if (this->_renderLayer >= 0 || parent == nullptr) return this->_renderLayer;
+
+	return this->_parent->GetRenderLayer();
+}
+
+void GameObject::SetRenderLayer(int renderLayer)
+{
+	if (renderLayer < -1) renderLayer == -1;
+	this->_renderLayer = renderLayer;
+}
+

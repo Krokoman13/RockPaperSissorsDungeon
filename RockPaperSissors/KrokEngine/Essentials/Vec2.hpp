@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 /// <summary>
 /// 2D Vector. Meant for 2D physics calculations.
@@ -40,8 +41,11 @@ struct Vec2
 
 	float Dot(Vec2 other);
 	static float VectorDotProduct(Vec2 a, Vec2 b);
+
 	Vec2 Normal();
 	void Reflect(Vec2 pNormal, float pBounciness = 1);
+
+	friend std::ostream& operator << (std::ostream& out, const Vec2& vec);
 };
 
 Vec2 operator +(Vec2 left, Vec2 right);

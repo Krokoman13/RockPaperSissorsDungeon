@@ -7,6 +7,8 @@ ImageGameObject::ImageGameObject(std::string path, float x, float y) : GameObjec
 	if (texture.loadFromFile(path))
 	{
 		sprite.setTexture(texture);
+		
+		canRender = true;
 
 		width = (float)sprite.getTextureRect().width;
 		height = (float)sprite.getTextureRect().height;
@@ -35,13 +37,12 @@ void ImageGameObject::SetSize(float width, float height)
 	sprite.setTextureRect(rect);
 }
 
-sf::Sprite* ImageGameObject::Render()
+sf::Sprite* ImageGameObject::GetSprite()
 {
-	centerImage();
 	return &sprite;
 }
 
-void ImageGameObject::centerImage()
+void ImageGameObject::CenterImageAround(Vec2 position)
 {
-	sprite.setPosition(this->_position.x - width / 2, this->_position.y - height / 2);
+	sprite.setPosition(position.x - width / 2, position.y - height / 2);
 }

@@ -8,14 +8,17 @@
 class GameObject
 {
 public:
-	GameObject(Vec2 position);
-	GameObject(float x, float y);
+	GameObject(Vec2 position = Vec2(0,0), std::string name = "GameObject");
+	GameObject(float x, float y, std::string name = "GameObject");
 	~GameObject();
 
 	std::string name;
 
 	GameObject* GetParent();
 	void SetParent(GameObject& parent);
+	void SetParent(GameObject* parent);
+
+	void ClearParent();
 
 	const std::vector <GameObject*> GetChildren();
 	GameObject* GetChild(unsigned int i);
@@ -28,16 +31,19 @@ public:
 	const Vec2 GetGlobaPosition();
 	void SetGlobalPosition(Vec2 position);
 
-	const Vec2 GetLocalPosition();
-	void SetLocalPosition(Vec2 position);
+	static const Vec2 GetAllTransformations(GameObject* parent, Vec2 transformation = Vec2(0, 0));
 
-	virtual const sf::Sprite* Render();
+	Vec2 localPosition;
+
+	int GetRenderLayer();
+	void SetRenderLayer(int renderLayer);
+	bool canRender = false;
+
+	virtual sf::Sprite* GetSprite();
+	virtual void Update();
 
 protected:
-	Vec2 _position;
-
-	Vec2 parentTransformations();
-
+	int _renderLayer = -1;
 	GameObject* _parent = nullptr;
 	std::vector <GameObject*> _children;
 	int getPositionAsChild(GameObject& toFind);

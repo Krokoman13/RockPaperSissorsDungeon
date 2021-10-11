@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "../Core/Graphics/Renderer.hpp"
+#include "../Core/UpdateManager/UpdateManager.hpp"
 
 
 class Game : public GameObject
@@ -14,6 +14,6 @@ public:
 
 private:
 	Renderer _renderer;
-	//UpdateManager _updateManger;
+	UpdateManager _updateManger;
 };
 
