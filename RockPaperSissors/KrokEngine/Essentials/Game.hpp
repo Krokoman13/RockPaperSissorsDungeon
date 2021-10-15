@@ -10,7 +10,7 @@ public:
 	Game(const Game& game);
 	~Game();
 
-	void Start();
+	void Run();
 
 private:
 	Renderer _renderer;

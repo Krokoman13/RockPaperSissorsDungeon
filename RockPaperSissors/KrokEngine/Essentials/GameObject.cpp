@@ -1,12 +1,17 @@
 #include "GameObject.hpp"
 
-GameObject::GameObject(Vec2 position, std::string name)
+GameObject::GameObject(Vec2 position, std::string name, GameObject* parent)
 {
 	this->localPosition = position;
 	this->name = name;
+
+	if (parent != nullptr)
+	{
+		parent->AddChild(this);
+	}
 }
 
-GameObject::GameObject(float x, float y, std::string name) : GameObject(Vec2(x, y))
+GameObject::GameObject(float x, float y, std::string name, GameObject* parent) : GameObject(Vec2(x, y), name, parent)
 {
 }
 

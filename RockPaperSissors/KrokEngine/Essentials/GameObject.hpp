@@ -8,8 +8,8 @@
 class GameObject
 {
 public:
-	GameObject(Vec2 position = Vec2(0,0), std::string name = "GameObject");
-	GameObject(float x, float y, std::string name = "GameObject");
+	GameObject(Vec2 position = Vec2(0,0), std::string name = "GameObject", GameObject* parent = nullptr);
+	GameObject(float x, float y, std::string name = "GameObject", GameObject* parent = nullptr);
 	~GameObject();
 
 	std::string name;

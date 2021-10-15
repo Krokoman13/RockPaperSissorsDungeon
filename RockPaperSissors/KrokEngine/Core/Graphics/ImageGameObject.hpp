@@ -6,8 +6,14 @@ class ImageGameObject :
 {
 
 public:
-    ImageGameObject(std::string path, float x = 0, float y = 0);
+    ImageGameObject(std::string name, std::string path, GameObject* parent = nullptr, float x = 0, float y = 0, int renderlayer = -1);
+    ImageGameObject(std::string name, GameObject* parent = nullptr, float x = 0, float y = 0, int renderlayer = -1);
+    ImageGameObject(std::string name, GameObject& parent, float x = 0, float y = 0, int renderlayer = -1);
+    ImageGameObject(std::string name, float x, float y);
     ~ImageGameObject();
+
+    static std::string ASSET_PATH;
+    static std::string FILE_TYPE;
 
     void SetWidth(float width);
     void SetHeight(float height);
@@ -17,10 +23,12 @@ public:
     void CenterImageAround(Vec2 position);
 
 private:
-    float width = 0;
-    float height = 0;
+    float _width = 0;
+    float _height = 0;
 
-    sf::Texture texture;
-    sf::Sprite sprite;
+    sf::Texture _texture;
+    sf::Sprite _sprite;
+
+    void loadTexture(std::string path);
 };
 

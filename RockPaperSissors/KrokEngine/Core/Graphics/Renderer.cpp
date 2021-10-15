@@ -7,6 +7,7 @@ Renderer::Renderer(std::string name, unsigned int width, unsigned int height)
 
 	_renderLayers.push_back(RenderLayer(0));
 
+	if (ImageGameObject::ASSET_PATH == "") 	std::cout << "WARNING: Asset path is not defined\n";
 	std::cout << "Renderer initialized.\n";
 }
 

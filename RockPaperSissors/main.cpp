@@ -4,24 +4,16 @@
 
 int main()
 {
+	ImageGameObject::ASSET_PATH = "Assets/";
 	Game myGame("Rock-Paper-Sissors-Dungeon", 1920 / 2, 1080 / 2, 60);
 
-	ImageGameObject background("Assets/Background.png");
-	background.SetRenderLayer(0);
-	background.name = "background";
-	myGame.AddChild(background);
+	ImageGameObject background("Background", &myGame, 0, 0, 0);
 
-	ImageGameObject character("Assets/Blank Fighter - without arm.png", 200, 150);
-	character.SetRenderLayer(1);
-	myGame.AddChild(character);
+	ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", &myGame, 200, 150, 1);
+	ImageGameObject scissor("Scissor", "Assets/", &character, 0, 50);
+	ImageGameObject arm("R - Arm", "Assets/Blank Fighter - arm.png", &character);
 
-	ImageGameObject scissor("Assets/Scissor.png", 0, 50);
-	character.AddChild(scissor);
-
-	ImageGameObject arm("Assets/Blank Fighter - arm.png");
-	character.AddChild(arm);
-
-	myGame.Start();
+	myGame.Run();
 
 	return 0;
 }

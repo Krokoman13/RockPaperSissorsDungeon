@@ -24,7 +24,7 @@ void UpdateManager::update(GameObject* toUpdate)
 	toUpdate->Update();
 
 	std::vector<sf::Sprite*> sprites;
-	//int parentRenderLayer = toUpdate->GetRenderLayer();
+	int parentRenderLayer = toUpdate->GetRenderLayer();
 	Vec2 transformation = GameObject::GetAllTransformations(toUpdate);
 
 	for (int i = toUpdate->GetChildren().size() - 1; i >= 0; --i) {
@@ -39,11 +39,11 @@ void UpdateManager::update(GameObject* toUpdate)
 			sprite->setPosition(transformation.x + gameObject->localPosition.x, transformation.y + gameObject->localPosition.y);
 
 			int currentRenderLayer = gameObject->GetRenderLayer();
-			//if (parentRenderLayer == currentRenderLayer) sprites.push_back(sprite);
+			if (parentRenderLayer == currentRenderLayer) sprites.push_back(sprite);
 			_renderer->ToRender(sprite, currentRenderLayer);
 			continue;
 		}
 	}
 
-	//_renderer->ToRender(sprites, parentRenderLayer);
+	_renderer->ToRender(sprites, parentRenderLayer);
 }
