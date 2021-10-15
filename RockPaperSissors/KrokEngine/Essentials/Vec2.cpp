@@ -184,7 +184,7 @@ Vec2 Vec2::LinInt(Vec2 left, Vec2 right, float interpolater)
 /// </param>
 float Vec2::Deg2Rad(float degree)
 {
-	return (M_PI / 180) * degree;
+	return ((float)M_PI / 180.0f) * degree;
 }
 
 //------------------------------------------------------------------------------------------------------------------------
@@ -198,7 +198,7 @@ float Vec2::Deg2Rad(float degree)
 /// </param>
 float Vec2::Rad2Deg(float radians)
 {
-	return (180 / M_PI) * radians;
+	return (180.0f / (float)M_PI) * radians;
 }
 
 //------------------------------------------------------------------------------------------------------------------------

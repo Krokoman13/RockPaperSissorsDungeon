@@ -12,16 +12,14 @@ int main()
 	myGame.AddChild(background);
 
 	ImageGameObject character("Assets/Blank Fighter - without arm.png", 200, 150);
-	character.SetRenderLayer(2);
+	character.SetRenderLayer(1);
 	myGame.AddChild(character);
 
-	ImageGameObject arm("Assets/Blank Fighter - arm.png");
-	arm.SetRenderLayer(2);
-	character.AddChild(arm);
-
 	ImageGameObject scissor("Assets/Scissor.png", 0, 50);
-	scissor.SetRenderLayer(1);
 	character.AddChild(scissor);
+
+	ImageGameObject arm("Assets/Blank Fighter - arm.png");
+	character.AddChild(arm);
 
 	myGame.Start();
 
