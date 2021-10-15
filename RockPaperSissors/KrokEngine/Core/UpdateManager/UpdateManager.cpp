@@ -27,8 +27,9 @@ void UpdateManager::update(GameObject* toUpdate)
 	//int parentRenderLayer = toUpdate->GetRenderLayer();
 	Vec2 transformation = GameObject::GetAllTransformations(toUpdate);
 
-	for (GameObject* gameObject : toUpdate->GetChildren())
-	{
+	for (int i = toUpdate->GetChildren().size() - 1; i >= 0; --i) {
+		GameObject* gameObject = toUpdate->GetChildren()[i];
+
 		this->update(gameObject);
 
 		if (gameObject->canRender)
