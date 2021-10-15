@@ -25,7 +25,7 @@ void GameObject::Update()
 
 int GameObject::getPositionAsChild(GameObject& toFind)
 {
-	for (int i = 0; i < _children.size(); i++)
+	for (unsigned int i = 0; i < _children.size(); i++)
 	{
 		if (_children[i] == &toFind)
 		{
@@ -102,7 +102,7 @@ void GameObject::RemoveChild(GameObject& toRemove)
 
 void GameObject::RemoveChild(GameObject* toRemove)
 {
-	for (int i = 0; i < _children.size(); i++)
+	for (unsigned int i = 0; i < _children.size(); i++)
 	{
 		if (_children[i] == toRemove)
 		{
@@ -147,7 +147,7 @@ int GameObject::GetRenderLayer()
 
 void GameObject::SetRenderLayer(int renderLayer)
 {
-	if (renderLayer < -1) renderLayer == -1;
+	if (renderLayer < -1) renderLayer = -1;
 	this->_renderLayer = renderLayer;
 }
 
