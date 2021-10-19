@@ -167,7 +167,6 @@
     <ClInclude Include="KrokEngine\Essentials\Game.hpp" />
     <ClInclude Include="KrokEngine\Essentials\GameObject.hpp" />
     <ClInclude Include="KrokEngine\Essentials\Vec2.hpp" />
-    <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

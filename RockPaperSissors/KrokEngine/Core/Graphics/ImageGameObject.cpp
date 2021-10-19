@@ -66,8 +66,20 @@ void ImageGameObject::SetSize(float width, float height)
 {
 	if (width < 0 || height < 0) return;
 
-	sf::IntRect rect(0, 0, (int)width, (int)height);
-	_sprite.setTextureRect(rect);
+	this->SetScale(width / this->_width, height / this->_height);
+
+	//sf::IntRect rect(0, 0, (int)width, (int)height);
+	//_sprite.setTextureRect(rect);
+}
+
+float ImageGameObject::GetWidth()
+{
+	return _width * _scale.x;
+}
+
+float ImageGameObject::GetHeight()
+{
+	return _height * _scale.y;
 }
 
 sf::Sprite* ImageGameObject::GetSprite()

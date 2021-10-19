@@ -49,6 +49,10 @@ Vec2 operator *(float left, Vec2 right)
 {
 	return right * left;
 }
+Vec2 operator*(Vec2 left, Vec2 right)
+{
+	return Vec2(left.x * right.x, left.y * right.y);
+}
 bool operator ==(Vec2 left, Vec2 right)
 {
 	return left.x == right.x && left.y == right.y;

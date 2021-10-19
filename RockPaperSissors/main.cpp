@@ -1,6 +1,5 @@
 #include "KrokEngine/Essentials/Game.hpp"
 #include <iostream>
-#include "main.h"
 
 int main()
 {
@@ -10,9 +9,9 @@ int main()
 	ImageGameObject background("Background", &myGame, 0, 0, 0);
 
 	ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", &myGame, 200, 150, 1);
+
 	ImageGameObject scissor("Scissor", "Assets/", &character, 0, 50);
 	ImageGameObject arm("R - Arm", "Assets/Blank Fighter - arm.png", &character);
-
 	myGame.Run();
 
 	return 0;

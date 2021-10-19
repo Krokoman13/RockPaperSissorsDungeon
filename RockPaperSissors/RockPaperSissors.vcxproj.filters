@@ -56,9 +56,6 @@
     <ClInclude Include="KrokEngine\Core\UpdateManager\UpdateManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="KrokEngine\Core\Graphics\RenderLayer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

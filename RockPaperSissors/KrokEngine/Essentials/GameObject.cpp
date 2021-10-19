@@ -107,11 +107,11 @@ void GameObject::RemoveChild(GameObject& toRemove)
 
 void GameObject::RemoveChild(GameObject* toRemove)
 {
-	for (unsigned int i = 0; i < _children.size(); i++)
+	for (unsigned int i = 0; i < this->_children.size(); i++)
 	{
-		if (_children[i] == toRemove)
+		if (this->_children[i] == toRemove)
 		{
-			_children.erase(_children.begin()+i);
+			this->_children.erase(this->_children.begin()+i);
 			toRemove->_parent = nullptr;
 			return;
 		}
@@ -129,6 +129,31 @@ void GameObject::SetGlobalPosition(Vec2 position)
 {
 	Vec2 transformation = GetAllTransformations(this->_parent);
 	this->localPosition = position - transformation;
+}
+
+const Vec2 GameObject::GetAllScaleing(GameObject* parent, Vec2 scaling)
+{
+	if (parent == nullptr) return scaling;
+
+	GameObject* nextParent = parent->GetParent();
+
+	if (nextParent == nullptr) return scaling * parent->GetScale();
+	return GetAllTransformations(nextParent, scaling * parent->GetScale());
+}
+
+void GameObject::SetScale(float xScale, float yScale)
+{
+	this->_scale.SetXY(xScale, yScale);
+}
+
+void GameObject::SetScale(float uniformScale)
+{
+	this->SetScale(uniformScale, uniformScale);
+}
+
+Vec2 GameObject::GetScale()
+{
+	return this->_scale;
 }
 
 const Vec2 GameObject::GetAllTransformations(GameObject* parent, Vec2 transformation)

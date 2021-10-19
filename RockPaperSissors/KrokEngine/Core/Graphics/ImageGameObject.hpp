@@ -19,6 +19,9 @@ public:
     void SetHeight(float height);
     void SetSize(float width, float height);
 
+    float GetWidth();
+    float GetHeight();
+
     sf::Sprite* GetSprite() override;
     void CenterImageAround(Vec2 position);
 

@@ -35,6 +35,12 @@ public:
 
 	Vec2 localPosition;
 
+	static const Vec2 GetAllScaleing(GameObject* parent, Vec2 startScale = Vec2(1, 1));
+
+	virtual void SetScale(float xScale, float yScale);
+	void SetScale(float uniformScale = 1.0f);
+	Vec2 GetScale();
+
 	int GetRenderLayer();
 	void SetRenderLayer(int renderLayer);
 	bool canRender = false;
@@ -47,5 +53,7 @@ protected:
 	GameObject* _parent = nullptr;
 	std::vector <GameObject*> _children;
 	int getPositionAsChild(GameObject& toFind);
+
+	Vec2 _scale = Vec2(1.0f, 1.0f);
 };
 
