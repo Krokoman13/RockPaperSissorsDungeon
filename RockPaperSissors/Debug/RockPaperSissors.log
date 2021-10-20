@@ -1,2 +1,10 @@
-﻿  Game.cpp
-  RockPaperSissors.vcxproj -> D:\Files\GitFork\RockPaperSissorsDungeon\Debug\RockPaperSissors.exe
+﻿  Renderer.cpp
+  ImageGameObject.cpp
+  UpdateManager.cpp
+  Game.cpp
+  GameObject.cpp
+  Vec2.cpp
+  main.cpp
+  Generating Code...
+  LINK : D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\Debug\RockPaperSissors.exe not found or not built by the last incremental link; performing full link
+  RockPaperSissors.vcxproj -> D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\Debug\RockPaperSissors.exe

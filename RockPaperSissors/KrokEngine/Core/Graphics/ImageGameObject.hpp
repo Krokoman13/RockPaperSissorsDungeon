@@ -7,6 +7,7 @@ class ImageGameObject :
 
 public:
     ImageGameObject(std::string name, std::string path, GameObject* parent = nullptr, float x = 0, float y = 0, int renderlayer = -1);
+    ImageGameObject(std::string name, std::string path, GameObject& parent, float x = 0, float y = 0, int renderlayer = -1);
     ImageGameObject(std::string name, GameObject* parent = nullptr, float x = 0, float y = 0, int renderlayer = -1);
     ImageGameObject(std::string name, GameObject& parent, float x = 0, float y = 0, int renderlayer = -1);
     ImageGameObject(std::string name, float x, float y);

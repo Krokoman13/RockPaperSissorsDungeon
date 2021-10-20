@@ -17,6 +17,10 @@ GameObject::GameObject(float x, float y, std::string name, GameObject* parent) :
 
 GameObject::~GameObject()
 {
+	if (_parent != nullptr)
+	{
+		_parent->RemoveChild(this);
+	}
 }
 
 sf::Sprite* GameObject::GetSprite()
