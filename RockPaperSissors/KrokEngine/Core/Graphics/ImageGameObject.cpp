@@ -19,6 +19,10 @@ ImageGameObject::ImageGameObject(std::string name, std::string path, GameObject*
 	loadTexture(path);
 }
 
+ImageGameObject::ImageGameObject(std::string name, std::string path, GameObject& parent, float x, float y, int renderlayer) : ImageGameObject(name, path, &parent, x, y, renderlayer)
+{
+}
+
 ImageGameObject::ImageGameObject(std::string name, GameObject* parent, float x, float y, int renderlayer) : ImageGameObject(name, ASSET_PATH, parent, x, y, renderlayer)
 {
 }
