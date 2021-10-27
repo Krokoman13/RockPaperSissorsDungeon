@@ -1,15 +1,3 @@
-
-
 # VS Files
 .vs/
 *.user
-
-# Build files
-*.exe
-*.exp
-
-# Log files
-*.log
-
-# OSX
-*.DS_Store
