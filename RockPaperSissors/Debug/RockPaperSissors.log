@@ -1,9 +1,0 @@
-﻿  ImageGameObject.cpp
-  Renderer.cpp
-  UpdateManager.cpp
-  Game.cpp
-  GameObject.cpp
-  Vec2.cpp
-  main.cpp
-  Generating Code...
-  RockPaperSissors.vcxproj -> D:\Files\GitFork\RockPaperSissorsDungeon\Debug\RockPaperSissors.exe
