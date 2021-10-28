@@ -1,4 +1,5 @@
 #include "UpdateManager.hpp"
+#include "../../Essentials/GameObject.hpp"
 
 UpdateManager::UpdateManager()
 {

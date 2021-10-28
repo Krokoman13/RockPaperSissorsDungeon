@@ -1,5 +1,4 @@
 #pragma once
-#include "ImageGameObject.hpp"
 #include "RenderLayer.hpp"
 
 class Renderer

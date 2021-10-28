@@ -1,4 +1,4 @@
-#include "KrokEngine/Essentials/Game.hpp"
+#include "KrokEngine/KrokEngine.hpp"
 #include <iostream>
 
 int main()
@@ -6,11 +6,20 @@ int main()
 	ImageGameObject::ASSET_PATH = "Assets/";
 	Game myGame("Rock-Paper-Sissors-Dungeon", 1920 / 2, 1080 / 2, 60);
 
-	ImageGameObject background("Background", myGame, 0, 0, 0);
+	Scene arena("Arena");
+	myGame.AddScene(arena);
 
-	ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", myGame, 200, 150, 1);
-	ImageGameObject scissor("Scissor", "Assets/", character, 0, 50);
-	ImageGameObject arm("R - Arm", "Assets/Blank Fighter - arm.png", character);
+	ImageGameObject background("Background");
+	myGame.GetScene("Arena")->AddChild(background);
+
+	
+	ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", 200, 150, 1);
+	character.AddChild(new ImageGameObject("Scissor", "Assets/", 0, 50));
+	character.AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png"));
+
+	myGame.GetScene("Arena")->AddChild(character);
+	
+	myGame.GoToScene("Arena");
 	myGame.Run();
 
 	return 0;

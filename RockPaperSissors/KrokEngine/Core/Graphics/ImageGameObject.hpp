@@ -6,11 +6,10 @@ class ImageGameObject :
 {
 
 public:
-    ImageGameObject(std::string name, std::string path, GameObject* parent = nullptr, float x = 0, float y = 0, int renderlayer = -1);
-    ImageGameObject(std::string name, std::string path, GameObject& parent, float x = 0, float y = 0, int renderlayer = -1);
-    ImageGameObject(std::string name, GameObject* parent = nullptr, float x = 0, float y = 0, int renderlayer = -1);
-    ImageGameObject(std::string name, GameObject& parent, float x = 0, float y = 0, int renderlayer = -1);
-    ImageGameObject(std::string name, float x, float y);
+    ImageGameObject(std::string name, std::string path, float x = 0, float y = 0, int renderlayer = -1);
+    ImageGameObject(std::string name, float x = 0, float y = 0, int renderlayer = -1);
+    ImageGameObject(const ImageGameObject& other);
+    ImageGameObject operator=(const ImageGameObject& other);
     ~ImageGameObject();
 
     static std::string ASSET_PATH;
@@ -25,8 +24,11 @@ public:
 
     sf::Sprite* GetSprite() override;
     void CenterImageAround(Vec2 position);
+    const std::string GetFullPath();
 
 private:
+    std::string fullpath;
+
     float _width = 0;
     float _height = 0;
 

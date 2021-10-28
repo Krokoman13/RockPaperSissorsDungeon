@@ -1,4 +1,5 @@
 #include "Renderer.hpp"
+#include "ImageGameObject.hpp"
 #include <iostream>
 
 Renderer::Renderer(std::string name, unsigned int width, unsigned int height)

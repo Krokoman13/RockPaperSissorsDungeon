@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="KrokEngine\Core\Graphics\Renderer.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\ImageGameObject.cpp" />
+    <ClCompile Include="KrokEngine\Core\SceneManager\SceneManager.cpp" />
     <ClCompile Include="KrokEngine\Core\UpdateManager\UpdateManager.cpp" />
     <ClCompile Include="KrokEngine\Essentials\Game.cpp" />
     <ClCompile Include="KrokEngine\Essentials\GameObject.cpp" />
@@ -163,10 +164,12 @@
     <ClInclude Include="KrokEngine\Core\Graphics\Renderer.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\ImageGameObject.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\RenderLayer.hpp" />
+    <ClInclude Include="KrokEngine\Core\SceneManager\SceneManager.hpp" />
     <ClInclude Include="KrokEngine\Core\UpdateManager\UpdateManager.hpp" />
     <ClInclude Include="KrokEngine\Essentials\Game.hpp" />
     <ClInclude Include="KrokEngine\Essentials\GameObject.hpp" />
     <ClInclude Include="KrokEngine\Essentials\Vec2.hpp" />
+    <ClInclude Include="KrokEngine\KrokEngine.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

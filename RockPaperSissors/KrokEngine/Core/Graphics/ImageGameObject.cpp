@@ -1,6 +1,9 @@
 #include "ImageGameObject.hpp"
 
-ImageGameObject::ImageGameObject(std::string name, std::string path, GameObject* parent, float x, float y, int renderlayer) : GameObject(Vec2(x, y), name, parent)
+std::string ImageGameObject::ASSET_PATH = "";
+std::string ImageGameObject::FILE_TYPE = ".png";
+
+ImageGameObject::ImageGameObject(std::string name, std::string path, float x, float y, int renderlayer) : GameObject(Vec2(x, y), name)
 {
 	this->name = name;
 	this->_renderLayer = renderlayer;
@@ -19,20 +22,18 @@ ImageGameObject::ImageGameObject(std::string name, std::string path, GameObject*
 	loadTexture(path);
 }
 
-ImageGameObject::ImageGameObject(std::string name, std::string path, GameObject& parent, float x, float y, int renderlayer) : ImageGameObject(name, path, &parent, x, y, renderlayer)
+ImageGameObject::ImageGameObject(std::string name, float x, float y, int renderlayer) : ImageGameObject(name, ASSET_PATH, x, y, renderlayer)
 {
 }
 
-ImageGameObject::ImageGameObject(std::string name, GameObject* parent, float x, float y, int renderlayer) : ImageGameObject(name, ASSET_PATH, parent, x, y, renderlayer)
+ImageGameObject::ImageGameObject(const ImageGameObject& other)
 {
+	operator=(other);
 }
 
-ImageGameObject::ImageGameObject(std::string name, GameObject& parent, float x, float y, int renderlayer) : ImageGameObject(name, ASSET_PATH, &parent, x, y, renderlayer)
+ImageGameObject ImageGameObject::operator=(const ImageGameObject& other)
 {
-}
-
-ImageGameObject::ImageGameObject(std::string name, float x, float y) : ImageGameObject(name, ASSET_PATH, nullptr, x, y)
-{
+	return ImageGameObject(other.name, other.fullpath, other.localPosition.x, other.localPosition.y, other._renderLayer);
 }
 
 void ImageGameObject::loadTexture(std::string path)
@@ -42,6 +43,7 @@ void ImageGameObject::loadTexture(std::string path)
 		_sprite.setTexture(_texture);
 
 		canRender = true;
+		fullpath = path;
 
 		_width = (float)_sprite.getTextureRect().width;
 		_height = (float)_sprite.getTextureRect().height;
@@ -52,9 +54,6 @@ void ImageGameObject::loadTexture(std::string path)
 ImageGameObject::~ImageGameObject()
 {
 }
-
-std::string ImageGameObject::ASSET_PATH = "";
-std::string ImageGameObject::FILE_TYPE = ".png";
 
 void ImageGameObject::SetWidth(float width)
 {
@@ -94,4 +93,9 @@ sf::Sprite* ImageGameObject::GetSprite()
 void ImageGameObject::CenterImageAround(Vec2 position)
 {
 	_sprite.setPosition(position.x - _width / 2, position.y - _height / 2);
+}
+
+const std::string ImageGameObject::GetFullPath()
+{
+	return fullpath;
 }

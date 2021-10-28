@@ -7,7 +7,7 @@ GameObject::GameObject(Vec2 position, std::string name, GameObject* parent)
 
 	if (parent != nullptr)
 	{
-		parent->AddChild(this);
+		parent->AddChild(new GameObject(*this));
 	}
 }
 

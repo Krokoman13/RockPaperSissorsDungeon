@@ -1,6 +1,8 @@
 #pragma once
 #include "../Graphics/Renderer.hpp"
 
+class GameObject;
+
 class UpdateManager
 {
 public:
