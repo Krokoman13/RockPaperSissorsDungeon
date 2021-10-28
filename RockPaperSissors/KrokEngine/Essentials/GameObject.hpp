@@ -46,6 +46,7 @@ public:
 	bool canRender = false;
 
 	virtual sf::Sprite* GetSprite();
+	//void RenerateSprites(std::vector<sf::Sprite*>& sprites, Vec2 pos = Vec2(0, 0), Vec2 scale = Vec2(1, 1));
 	virtual void Update();
 
 protected:

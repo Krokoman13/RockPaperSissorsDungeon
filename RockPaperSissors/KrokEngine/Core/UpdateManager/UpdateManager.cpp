@@ -38,8 +38,11 @@ void UpdateManager::update(GameObject* toUpdate)
 		{
 			sf::Sprite* sprite = gameObject->GetSprite();
 
-			sprite->setScale(gameObject->GetScale().x * scaleTransf.x, gameObject->GetScale().y * scaleTransf.y);
-			sprite->setPosition(transformation.x + gameObject->localPosition.x, transformation.y + gameObject->localPosition.y);
+			Vec2 newScale = Vec2(gameObject->GetScale().x * scaleTransf.x, gameObject->GetScale().y * scaleTransf.y);
+			Vec2 newPos = Vec2(transformation.x + gameObject->localPosition.x * scaleTransf.x, transformation.y + gameObject->localPosition.y * scaleTransf.y);
+
+			sprite->setScale(newScale.x, newScale.y);
+			sprite->setPosition(newPos.x, newPos.y);
 
 			//std::cout << gameObject->name;
 			//std::cout << ", Position: " << (transformation.x + gameObject->localPosition.x, transformation.y + gameObject->localPosition.y);
