@@ -1,14 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "../../Essentials/GameObject.hpp"
-
-class Scene : public GameObject
-{
-public:
-	Scene(std::string Name = "Scene");
-	unsigned int identifier = 0;
-};
+#include "Scene.hpp"
 
 class SceneManager
 {
