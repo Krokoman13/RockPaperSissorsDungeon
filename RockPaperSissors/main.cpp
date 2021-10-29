@@ -12,13 +12,14 @@ int main()
 	ImageGameObject background("Background");
 	myGame.GetScene("Arena")->AddChild(background);
 
-	
-	ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", 200, 150, 1);
-	character.AddChild(new ImageGameObject("Scissor", "Assets/", 0, 50));
-	character.AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png"));
+	{
+		ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", 200, 150, 1);
+		character.AddChild(new ImageGameObject("Scissor", "Assets/", 0, 50));
+		character.AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png"));
 
-	myGame.GetScene("Arena")->AddChild(character);
-	
+		myGame.GetScene("Arena")->AddChild(new ImageGameObject(character));
+	}
+
 	myGame.GoToScene("Arena");
 	myGame.Run();
 

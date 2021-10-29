@@ -15,8 +15,40 @@ GameObject::GameObject(float x, float y, std::string name, GameObject* parent) :
 {
 }
 
+GameObject::GameObject(const GameObject& other)
+{
+	operator=(other);
+}
+
+GameObject& GameObject::operator=(const GameObject& other)
+{
+	if (this != &other)
+	{
+		this->name = name;
+		this->_renderLayer = other._renderLayer;
+		this->localPosition = other.localPosition;
+
+		for (int i = 0; i < other._children.size(); i++)
+		{
+			this->AddChild(other._children[i]->Copy());
+		}
+	}
+
+	return *this;
+}
+
+GameObject* GameObject::Copy()
+{
+	return new GameObject(*this);
+}
+
 GameObject::~GameObject()
 {
+	for (GameObject* child : _children)
+	{
+		delete child;
+	}
+
 	if (_parent != nullptr)
 	{
 		_parent->RemoveChild(this);
@@ -111,6 +143,8 @@ void GameObject::RemoveChild(GameObject& toRemove)
 
 void GameObject::RemoveChild(GameObject* toRemove)
 {
+	if (toRemove == nullptr) return;
+
 	for (unsigned int i = 0; i < this->_children.size(); i++)
 	{
 		if (this->_children[i] == toRemove)

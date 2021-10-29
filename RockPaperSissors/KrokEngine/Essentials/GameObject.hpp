@@ -10,6 +10,9 @@ class GameObject
 public:
 	GameObject(Vec2 position = Vec2(0,0), std::string name = "GameObject", GameObject* parent = nullptr);
 	GameObject(float x, float y, std::string name = "GameObject", GameObject* parent = nullptr);
+	GameObject(const GameObject& other);
+	GameObject& operator=(const GameObject& other);
+	virtual GameObject* Copy();
 	~GameObject();
 
 	std::string name;
@@ -54,7 +57,6 @@ protected:
 	GameObject* _parent = nullptr;
 	std::vector <GameObject*> _children;
 	int getPositionAsChild(GameObject& toFind);
-
 	Vec2 _scale = Vec2(1.0f, 1.0f);
 };
 
