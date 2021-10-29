@@ -58,10 +58,6 @@ void ImageGameObject::loadTexture(std::string path)
 	}
 }
 
-ImageGameObject::~ImageGameObject()
-{
-}
-
 void ImageGameObject::SetWidth(float width)
 {
 	SetSize(width, this->_height);
@@ -77,9 +73,6 @@ void ImageGameObject::SetSize(float width, float height)
 	if (width < 0 || height < 0) return;
 
 	this->SetScale(width / this->_width, height / this->_height);
-
-	//sf::IntRect rect(0, 0, (int)width, (int)height);
-	//_sprite.setTextureRect(rect);
 }
 
 float ImageGameObject::GetWidth()

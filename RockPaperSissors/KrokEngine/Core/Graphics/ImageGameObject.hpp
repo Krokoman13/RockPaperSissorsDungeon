@@ -11,7 +11,6 @@ public:
     ImageGameObject(const ImageGameObject& other);
     ImageGameObject& operator=(const ImageGameObject& other);
     virtual GameObject* Copy() override;
-    ~ImageGameObject();
 
     static std::string ASSET_PATH;
     static std::string FILE_TYPE;

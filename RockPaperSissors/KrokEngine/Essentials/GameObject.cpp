@@ -27,6 +27,7 @@ GameObject& GameObject::operator=(const GameObject& other)
 		this->name = name;
 		this->_renderLayer = other._renderLayer;
 		this->localPosition = other.localPosition;
+		this->_scale = other._scale;
 
 		for (int i = 0; i < other._children.size(); i++)
 		{
@@ -218,4 +219,3 @@ void GameObject::SetRenderLayer(int renderLayer)
 	if (renderLayer < -1) renderLayer = -1;
 	this->_renderLayer = renderLayer;
 }
-

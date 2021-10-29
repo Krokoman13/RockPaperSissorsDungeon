@@ -6,6 +6,8 @@
 class SceneManager
 {
 public:
+	SceneManager(Scene* startScene);
+	SceneManager(Scene& startScene);
 	Scene* GetCurrentScene();
 
 	Scene* GetScene(std::string SceneName);
@@ -16,9 +18,13 @@ public:
 
 	void AddScene(Scene& scene);
 
+protected:
+	void closeScene(Scene* scene);
+	void openScene(Scene* scene);
+
 private:
 	unsigned int findIdentifier(std::string name);
-	std::vector<Scene*> scenes = {new Scene("StartScreen")};
+	std::vector<Scene*> scenes = {};
 	Scene* currentScene;
 };
 

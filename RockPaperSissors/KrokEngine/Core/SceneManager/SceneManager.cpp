@@ -1,8 +1,13 @@
 #include "SceneManager.hpp"
 
-Scene::Scene(std::string Name) : GameObject(0, 0, "Scene")
+SceneManager::SceneManager(Scene* startScene)
 {
-	this->name = Name;
+	scenes.push_back(startScene);
+	openScene(startScene);
+}
+
+SceneManager::SceneManager(Scene& startScene) : SceneManager(&startScene)
+{
 }
 
 Scene* SceneManager::GetCurrentScene()
@@ -33,7 +38,10 @@ void SceneManager::GoToScene(std::string SceneName)
 
 void SceneManager::GoToScene(unsigned int SceneIdentifier)
 {
-	currentScene = GetScene(SceneIdentifier);
+	Scene* nextScene = GetScene(SceneIdentifier);
+	if (currentScene == nextScene) return;
+
+	currentScene = nextScene;
 }
 
 void SceneManager::AddScene(Scene& scene)
@@ -59,6 +67,28 @@ void SceneManager::AddScene(Scene& scene)
 
 	scene.identifier++;
 	AddScene(scene);
+}
+
+void SceneManager::closeScene(Scene* scene)
+{
+	if (currentScene != scene) return;
+
+	std::cout << "Closing scene: " << scene->name << '\n';
+	scene->Close();
+	currentScene = nullptr;
+}
+
+void SceneManager::openScene(Scene* scene)
+{
+	std::cout << "Opening scene: " << scene->name << '\n';
+
+	if (!scene->loaded)
+	{
+		scene->Load();
+		std::cout << scene->name << " loaded\n";
+	}
+
+	currentScene = scene;
 }
 
 unsigned int SceneManager::findIdentifier(std::string name)
