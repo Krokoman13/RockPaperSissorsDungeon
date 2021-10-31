@@ -16,7 +16,6 @@ void Game::Run()
 {
 	while (_renderer.IsWindowActive())
 	{
-		//sceneManager.currentscene.Update();
 		_updateManger.Update(GetCurrentScene());
 		_renderer.Render();
 	}

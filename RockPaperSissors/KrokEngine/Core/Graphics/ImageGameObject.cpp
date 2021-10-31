@@ -14,12 +14,9 @@ ImageGameObject::ImageGameObject(std::string name, std::string path, float x, fl
 
 		if (path.size() < 4) path += FILE_TYPE;
 		else if (path[path.size() - 4] != '.') path += FILE_TYPE;;
-
-		loadTexture(path);
-		return;
 	}
 
-	loadTexture(path);
+	this->loadTexture(path);
 }
 
 ImageGameObject::ImageGameObject(std::string name, float x, float y, int renderlayer) : ImageGameObject(name, ASSET_PATH, x, y, renderlayer)
@@ -45,27 +42,27 @@ ImageGameObject& ImageGameObject::operator=(const ImageGameObject& other)
 
 void ImageGameObject::loadTexture(std::string path)
 {
-	if (_texture.loadFromFile(path))
+	if (this->_texture.loadFromFile(path))
 	{
-		_sprite.setTexture(_texture);
+		this->_sprite.setTexture(_texture);
 
-		canRender = true;
-		_fullpath = path;
+		this->canRender = true;
+		this->_fullpath = path;
 
-		_width = (float)_sprite.getTextureRect().width;
-		_height = (float)_sprite.getTextureRect().height;
+		this->_width = (float)_sprite.getTextureRect().width;
+		this->_height = (float)_sprite.getTextureRect().height;
 		return;
 	}
 }
 
 void ImageGameObject::SetWidth(float width)
 {
-	SetSize(width, this->_height);
+	this->SetSize(width, this->_height);
 }
 
 void ImageGameObject::SetHeight(float height)
 {
-	SetSize(this->_width, height);
+	this->SetSize(this->_width, height);
 }
 
 void ImageGameObject::SetSize(float width, float height)
@@ -77,27 +74,27 @@ void ImageGameObject::SetSize(float width, float height)
 
 float ImageGameObject::GetWidth()
 {
-	return _width * _scale.x;
+	return this->_width * this->_scale.x;
 }
 
 float ImageGameObject::GetHeight()
 {
-	return _height * _scale.y;
+	return this->_height * this->_scale.y;
 }
 
 sf::Sprite* ImageGameObject::GetSprite()
 {
-	return &_sprite;
+	return &this->_sprite;
 }
 
 void ImageGameObject::CenterImageAround(Vec2 position)
 {
-	_sprite.setPosition(position.x - _width / 2, position.y - _height / 2);
+	this->_sprite.setPosition(position.x - _width / 2, position.y - _height / 2);
 }
 
 const std::string ImageGameObject::GetFullPath()
 {
-	return _fullpath;
+	return this->_fullpath;
 }
 
 GameObject* ImageGameObject::Copy()

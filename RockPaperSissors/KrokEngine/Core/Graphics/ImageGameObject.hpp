@@ -1,8 +1,7 @@
 #pragma once
 #include "../../Essentials/GameObject.hpp"
 
-class ImageGameObject :
-    public GameObject
+class ImageGameObject : public GameObject
 {
 
 public:

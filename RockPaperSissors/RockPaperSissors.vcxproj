@@ -155,6 +155,8 @@
     <ClCompile Include="KrokEngine\Core\Graphics\ImageGameObject.cpp" />
     <ClCompile Include="KrokEngine\Core\SceneManager\Scene.cpp" />
     <ClCompile Include="KrokEngine\Core\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="KrokEngine\Core\UI\UI.cpp" />
+    <ClCompile Include="KrokEngine\Core\UI\UIElement.cpp" />
     <ClCompile Include="KrokEngine\Core\UpdateManager\UpdateManager.cpp" />
     <ClCompile Include="KrokEngine\Essentials\Game.cpp" />
     <ClCompile Include="KrokEngine\Essentials\GameObject.cpp" />
@@ -167,6 +169,8 @@
     <ClInclude Include="KrokEngine\Core\Graphics\RenderLayer.hpp" />
     <ClInclude Include="KrokEngine\Core\SceneManager\Scene.hpp" />
     <ClInclude Include="KrokEngine\Core\SceneManager\SceneManager.hpp" />
+    <ClInclude Include="KrokEngine\Core\UI\UI.hpp" />
+    <ClInclude Include="KrokEngine\Core\UI\UIElement.hpp" />
     <ClInclude Include="KrokEngine\Core\UpdateManager\UpdateManager.hpp" />
     <ClInclude Include="KrokEngine\Essentials\Game.hpp" />
     <ClInclude Include="KrokEngine\Essentials\GameObject.hpp" />

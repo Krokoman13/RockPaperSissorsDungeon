@@ -12,12 +12,12 @@ SceneManager::SceneManager(Scene& startScene) : SceneManager(&startScene)
 
 Scene* SceneManager::GetCurrentScene()
 {
-	if (currentScene == nullptr)
+	if (_currentScene == nullptr)
 	{
-		currentScene = scenes[0];
+		_currentScene = scenes[0];
 	}
 
-	return currentScene;
+	return _currentScene;
 }
 
 Scene* SceneManager::GetScene(std::string SceneName)
@@ -39,9 +39,9 @@ void SceneManager::GoToScene(std::string SceneName)
 void SceneManager::GoToScene(unsigned int SceneIdentifier)
 {
 	Scene* nextScene = GetScene(SceneIdentifier);
-	if (currentScene == nextScene) return;
+	if (_currentScene == nextScene) return;
 
-	currentScene = nextScene;
+	_currentScene = nextScene;
 }
 
 void SceneManager::AddScene(Scene& scene)
@@ -71,11 +71,11 @@ void SceneManager::AddScene(Scene& scene)
 
 void SceneManager::closeScene(Scene* scene)
 {
-	if (currentScene != scene) return;
+	if (_currentScene != scene) return;
 
 	std::cout << "Closing scene: " << scene->name << '\n';
 	scene->Close();
-	currentScene = nullptr;
+	_currentScene = nullptr;
 }
 
 void SceneManager::openScene(Scene* scene)
@@ -88,7 +88,7 @@ void SceneManager::openScene(Scene* scene)
 		std::cout << scene->name << " loaded\n";
 	}
 
-	currentScene = scene;
+	_currentScene = scene;
 }
 
 unsigned int SceneManager::findIdentifier(std::string name)

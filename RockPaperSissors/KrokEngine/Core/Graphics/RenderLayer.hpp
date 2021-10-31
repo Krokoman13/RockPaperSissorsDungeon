@@ -6,7 +6,7 @@
 struct RenderLayer
 {
 	int layer = -1;
-	std::vector<sf::Sprite*> sprites;
+	std::vector<sf::Drawable*> sprites;
 
 	RenderLayer(int layer)
 	{
@@ -15,22 +15,22 @@ struct RenderLayer
 		std::cout << "New layer created: "<< this->layer <<".\n";
 	}
 
-	RenderLayer(int layer, std::vector<sf::Sprite*>& sprites) : RenderLayer(layer)
+	RenderLayer(int layer, std::vector<sf::Drawable*>& sprites) : RenderLayer(layer)
 	{
 		this->sprites.insert(this->sprites.end(), sprites.begin(), sprites.end());
 	}
 
-	RenderLayer(int layer, sf::Sprite* sprite) : RenderLayer(layer)
+	RenderLayer(int layer, sf::Drawable* sprite) : RenderLayer(layer)
 	{
 		this->sprites.push_back(sprite);
 	}
 
-	void Add(std::vector<sf::Sprite*>& toAdd)
+	void Add(std::vector<sf::Drawable*>& toAdd)
 	{
 		this->sprites.insert(this->sprites.end(), toAdd.begin(), toAdd.end());
 	}
 
-	void Add(sf::Sprite* toAdd)
+	void Add(sf::Drawable* toAdd)
 	{
 		this->sprites.push_back(toAdd);
 	}

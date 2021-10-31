@@ -25,6 +25,6 @@ protected:
 private:
 	unsigned int findIdentifier(std::string name);
 	std::vector<Scene*> scenes = {};
-	Scene* currentScene;
+	Scene* _currentScene;
 };
 

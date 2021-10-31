@@ -10,6 +10,7 @@ public:
 	~Game();
 
 	void Run();
+
 private:
 	Renderer _renderer;
 	UpdateManager _updateManger;
