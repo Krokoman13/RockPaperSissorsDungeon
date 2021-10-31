@@ -2,6 +2,8 @@
 #include "../../Essentials/GameObject.hpp"
 #include "../UI/UI.hpp"
 
+class SceneManager;
+
 class Scene : public GameObject
 {
 public:
@@ -13,6 +15,8 @@ public:
 
 	void Load();
 	void Close();
+
+	SceneManager* scenemanager;
 
 protected:
 	virtual void load();

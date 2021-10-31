@@ -17,6 +17,10 @@ void Game::Run()
 	while (_renderer.IsWindowActive())
 	{
 		_updateManger.Update(GetCurrentScene());
+
+		std::vector<sf::Drawable*> drawables = (GetCurrentScene()->ui.GetDrawables());
+
+		_renderer.ToRender(drawables, INT_MAX);
 		_renderer.Render();
 	}
 }

@@ -10,8 +10,8 @@ public :
 	void Render();
 	bool IsWindowActive();
 
-	void ToRender(std::vector<sf::Sprite*>& sprites, int layer);
-	void ToRender(sf::Sprite* sprite, int layer);
+	void ToRender(std::vector<sf::Drawable*>& sprites, int layer);
+	void ToRender(sf::Drawable* sprite, int layer);
 
 private :
 	sf::RenderWindow _window;

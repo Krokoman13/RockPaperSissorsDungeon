@@ -30,9 +30,14 @@ void UI::SetDefaultFont(std::string fontFile)
     }
 }
 
-void UI::AddElement(UIElement& UIelement)
+void UI::AddElement(UIElement& uiElement)
 {
-    _elements.push_back(&UIelement);
+    AddElement(&uiElement);
+}
+
+void UI::AddElement(UIElement* uiElement)
+{
+    _elements.push_back(uiElement);
 }
 
 void UI::RemoveElement(UIElement& uiElement)

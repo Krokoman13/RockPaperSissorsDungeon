@@ -20,6 +20,11 @@ Scene* SceneManager::GetCurrentScene()
 	return _currentScene;
 }
 
+Scene* SceneManager::GetScene(Scene& scene)
+{
+	return GetScene(scene.identifier);
+}
+
 Scene* SceneManager::GetScene(std::string SceneName)
 {
 	return GetScene(findIdentifier(SceneName));
@@ -29,6 +34,11 @@ Scene* SceneManager::GetScene(unsigned int SceneIdentifier)
 {
 	if (SceneIdentifier >= scenes.size()) return nullptr;
 	return scenes[SceneIdentifier];
+}
+
+void SceneManager::GoToScene(Scene& scene)
+{
+	GoToScene(scene.identifier);
 }
 
 void SceneManager::GoToScene(std::string SceneName)
@@ -46,6 +56,8 @@ void SceneManager::GoToScene(unsigned int SceneIdentifier)
 
 void SceneManager::AddScene(Scene& scene)
 {
+	scene.scenemanager = this;
+
 	if (scene.identifier == scenes.size())
 	{
 		scenes.push_back(&scene);

@@ -19,8 +19,8 @@ public:
     static std::string FILE_TYPE;
     static sf::Font DEFAULT_FONT;
 
-    void setText(std::string text, int characterSize = 12, sf::Uint32 style = sf::Style::Default, sf::Color fillColor = sf::Color::Black);
-    void setText(std::string text, sf::Font font, int characterSize = 12, sf::Uint32 style = sf::Style::Default, sf::Color fillColor = sf::Color::Black);
+    void SetText(std::string text, int characterSize = 24, sf::Uint32 style = sf::Text::Style::Regular, sf::Color fillColor = sf::Color::Black);
+    void SetText(std::string text, sf::Font& font, int characterSize = 24, sf::Uint32 style = sf::Text::Style::Regular, sf::Color fillColor = sf::Color::Black);
 
     void SetWidth(float width);
     void SetHeight(float height);
@@ -38,6 +38,7 @@ private:
 
     float _originalWidth = 0;
     float _originalHeight = 0;
+    int _originalTextCharacterSize;
 
     float _xScale = 1;
     float _yScale = 1;

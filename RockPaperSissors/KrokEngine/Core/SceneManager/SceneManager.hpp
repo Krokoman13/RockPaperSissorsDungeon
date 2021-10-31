@@ -10,9 +10,11 @@ public:
 	SceneManager(Scene& startScene);
 	Scene* GetCurrentScene();
 
+	Scene* GetScene(Scene& scene);
 	Scene* GetScene(std::string SceneName);
 	Scene* GetScene(unsigned int SceneIdentifier);
 
+	void GoToScene(Scene& scene);
 	void GoToScene(std::string SceneName);
 	void GoToScene(unsigned int ScineIdentifier);
 

@@ -1,26 +1,37 @@
 #include "KrokEngine/KrokEngine.hpp"
 #include <iostream>
+#include "main.h"
 
 int main()
 {
 	ImageGameObject::ASSET_PATH = "Assets/";
+	UIElement::ASSET_PATH = "Assets/UI/";
+	UIElement::DEFAULT_FONT.loadFromFile("arial.ttf");
+
 	Game myGame("Rock-Paper-Sissors-Dungeon", 1920 / 2, 1080 / 2, 60);
 
 	Scene arena("Arena");
 	myGame.AddScene(arena);
 
 	ImageGameObject background("Background");
-	myGame.GetScene("Arena")->AddChild(background);
+	arena.AddChild(background);
 
 	{
 		ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", 200, 150, 1);
 		character.AddChild(new ImageGameObject("Scissor", "Assets/", 0, 50));
 		character.AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png"));
 
-		myGame.GetScene("Arena")->AddChild(new ImageGameObject(character));
+		arena.AddChild(new ImageGameObject(character));
 	}
+	
+	UIElement defaultButton("Default Button", 0, 0);
 
-	myGame.GoToScene("Arena");
+	defaultButton.SetText("HI!", 50);
+	defaultButton.SetScale(0.5f);
+
+	arena.ui.AddElement(defaultButton);
+
+	myGame.GoToScene(arena);
 	myGame.Run();
 
 	return 0;

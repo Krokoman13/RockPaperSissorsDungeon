@@ -8,7 +8,7 @@ Renderer::Renderer(std::string name, unsigned int width, unsigned int height)
 
 	_renderLayers.push_back(RenderLayer(0));
 
-	if (ImageGameObject::ASSET_PATH == "") 	std::cout << "WARNING: Asset path is not defined\n";
+	if (ImageGameObject::ASSET_PATH == "") 	std::cout << "WARNING: Asset path for ImageGameObjects is not defined\n";
 	std::cout << "Renderer initialized.\n";
 }
 
@@ -35,13 +35,16 @@ void Renderer::Render()
 	{
 		//std::cout << renderLayer.layer << ": " << renderLayer.sprites.size() << '\n';
 
-		while (renderLayer.sprites.size() > 0)
+		while (renderLayer.drawables.size() > 0)
 		{
-			sf::Sprite* sprite = renderLayer.sprites[renderLayer.sprites.size() - 1];
+			sf::Drawable* sprite = renderLayer.drawables[renderLayer.drawables.size() - 1];
 
-			_window.draw(*sprite);
+			if (sprite != nullptr) 
+			{
+				_window.draw(*sprite);
+			}
 
-			renderLayer.sprites.pop_back();
+			renderLayer.drawables.pop_back();
 		}
 	}
 
@@ -53,14 +56,14 @@ bool Renderer::IsWindowActive()
 	return _window.isOpen();
 }
 
-void Renderer::ToRender(std::vector<sf::Sprite*>& sprites, int layer)
+void Renderer::ToRender(std::vector<sf::Drawable*>& drawables, int layer)
 {
-	if (sprites.size() < 1) return;
+	if (drawables.size() < 1) return;
 	if (layer < 0) layer = 1;
 
 	if (layer > this->_renderLayers[this->_renderLayers.size() - 1].layer)
 	{
-		RenderLayer newLayer(layer, sprites);
+		RenderLayer newLayer(layer, drawables);
 
 		_renderLayers.push_back(newLayer);
 		return;
@@ -70,13 +73,13 @@ void Renderer::ToRender(std::vector<sf::Sprite*>& sprites, int layer)
 	{
 		if (it->layer == layer)
 		{
-			it->Add(sprites);
+			it->Add(drawables);
 			return;
 		}
 
 		if (it->layer > layer)
 		{
-			RenderLayer newLayer(layer, sprites);
+			RenderLayer newLayer(layer, drawables);
 			_renderLayers.insert(it, newLayer);
 
 			return;
@@ -84,13 +87,13 @@ void Renderer::ToRender(std::vector<sf::Sprite*>& sprites, int layer)
 	}
 }
 
-void Renderer::ToRender(sf::Sprite* sprite, int layer)
+void Renderer::ToRender(sf::Drawable* drawable, int layer)
 {
 	if (layer < 0) layer = 1;
 
 	if (layer > this->_renderLayers[this->_renderLayers.size() - 1].layer)
 	{
-		RenderLayer newLayer(layer, sprite);
+		RenderLayer newLayer(layer, drawable);
 
 		_renderLayers.push_back(newLayer);
 		return;
@@ -100,13 +103,13 @@ void Renderer::ToRender(sf::Sprite* sprite, int layer)
 	{
 		if (it->layer == layer)
 		{
-			it->Add(sprite);
+			it->Add(drawable);
 			return;
 		}
 
 		if (it->layer > layer)
 		{
-			RenderLayer newLayer(layer, sprite);
+			RenderLayer newLayer(layer, drawable);
 			_renderLayers.insert(it, newLayer);
 
 			return;

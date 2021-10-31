@@ -80,10 +80,13 @@
     <ClInclude Include="KrokEngine\Core\SceneManager\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KrokEngine\Core\UI\UI.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="KrokEngine\Core\UI\UIElement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UI\UI.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -9,7 +9,8 @@ public:
 	void SetDefaultFont(sf::Font font);
 	void SetDefaultFont(std::string fontFile);
 
-	void AddElement(UIElement& UIelement);
+	void AddElement(UIElement& uiElement);
+	void AddElement(UIElement* uiElement);
 	void RemoveElement(UIElement& uiElement);
 
 private:

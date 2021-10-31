@@ -24,7 +24,7 @@ void UpdateManager::update(GameObject* toUpdate)
 {
 	toUpdate->Update();
 
-	std::vector<sf::Sprite*> sprites;
+	std::vector<sf::Drawable*> drawables;
 
 	int parentRenderLayer = toUpdate->GetRenderLayer();
 	Vec2 transformation = GameObject::GetAllTransformations(toUpdate);
@@ -51,11 +51,11 @@ void UpdateManager::update(GameObject* toUpdate)
 
 			int currentRenderLayer = gameObject->GetRenderLayer();
 
-			if (parentRenderLayer == currentRenderLayer) sprites.push_back(sprite);
+			if (parentRenderLayer == currentRenderLayer) drawables.push_back(sprite);
 			_renderer->ToRender(sprite, currentRenderLayer);
 			continue;
 		}
 	}
 
-	_renderer->ToRender(sprites, parentRenderLayer);
+	_renderer->ToRender(drawables, parentRenderLayer);
 }
