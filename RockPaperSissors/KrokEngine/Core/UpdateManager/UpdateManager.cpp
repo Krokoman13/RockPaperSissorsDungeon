@@ -45,10 +45,6 @@ void UpdateManager::update(GameObject* toUpdate)
 			sprite->setScale(newScale.x, newScale.y);
 			sprite->setPosition(newPos.x, newPos.y);
 
-			//std::cout << gameObject->name;
-			//std::cout << ", Position: " << (transformation.x + gameObject->localPosition.x, transformation.y + gameObject->localPosition.y);
-			//std::cout << ", Scale: " << (gameObject->GetScale().x * scaleTransf.x, gameObject->GetScale().y * scaleTransf.y) << '\n';
-
 			int currentRenderLayer = gameObject->GetRenderLayer();
 
 			if (parentRenderLayer == currentRenderLayer) drawables.push_back(sprite);

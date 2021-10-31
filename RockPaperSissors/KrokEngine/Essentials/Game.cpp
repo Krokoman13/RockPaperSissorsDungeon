@@ -16,11 +16,12 @@ void Game::Run()
 {
 	while (_renderer.IsWindowActive())
 	{
+		if (_renderer.PollEvent()) 
 		_updateManger.Update(GetCurrentScene());
 
-		std::vector<sf::Drawable*> drawables = (GetCurrentScene()->ui.GetDrawables());
-
+		std::vector<sf::Drawable*> drawables = GetCurrentScene()->ui.GetDrawables();
 		_renderer.ToRender(drawables, INT_MAX);
+
 		_renderer.Render();
 	}
 }

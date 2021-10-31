@@ -18,15 +18,10 @@ Renderer::~Renderer()
 
 void Renderer::Render()
 {
-	sf::Event event;
-
-	while (this->_window.pollEvent(event))
+	if (_event.type == sf::Event::Closed)
 	{
-		if (event.type == sf::Event::Closed)
-		{
-			this->_window.close();
-			return;
-		}
+		this->_window.close();
+		return;
 	}
 
 	this->_window.clear();
@@ -39,7 +34,7 @@ void Renderer::Render()
 		{
 			sf::Drawable* sprite = renderLayer.drawables[renderLayer.drawables.size() - 1];
 
-			if (sprite != nullptr) 
+			if (sprite != nullptr)
 			{
 				_window.draw(*sprite);
 			}
@@ -115,4 +110,10 @@ void Renderer::ToRender(sf::Drawable* drawable, int layer)
 			return;
 		}
 	}
+}
+
+const sf::Event* Renderer::PollEvent()
+{
+	_window.pollEvent(_event);
+	return &_event;
 }

@@ -13,7 +13,10 @@ public :
 	void ToRender(std::vector<sf::Drawable*>& sprites, int layer);
 	void ToRender(sf::Drawable* sprite, int layer);
 
+	const sf::Event* PollEvent();
+
 private :
+	sf::Event _event;
 	sf::RenderWindow _window;
 	std::vector<RenderLayer> _renderLayers;
 };
