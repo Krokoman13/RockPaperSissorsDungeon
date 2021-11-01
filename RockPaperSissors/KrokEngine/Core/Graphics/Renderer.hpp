@@ -4,7 +4,7 @@
 class Renderer
 {
 public :
-	Renderer(std::string name, sf::RenderWindow& _window);
+	Renderer(sf::RenderWindow& _window);
 	~Renderer();
 
 	void Render();
