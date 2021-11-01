@@ -14,5 +14,7 @@ public:
 private:
 	Renderer _renderer;
 	UpdateManager _updateManger;
+
+	sf::RenderWindow _renderWindow;
 };
 

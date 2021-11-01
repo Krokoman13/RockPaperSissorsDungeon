@@ -2,11 +2,10 @@
 #include "ImageGameObject.hpp"
 #include <iostream>
 
-Renderer::Renderer(std::string name, unsigned int width, unsigned int height)
+Renderer::Renderer(std::string name, sf::RenderWindow& window)
 {
-	this->_window.create(sf::VideoMode(width, height), name);
-
-	_renderLayers.push_back(RenderLayer(0));
+	this->_window = &window;
+	this->_renderLayers.push_back(RenderLayer(0));
 
 	if (ImageGameObject::ASSET_PATH == "") 	std::cout << "WARNING: Asset path for ImageGameObjects is not defined\n";
 	std::cout << "Renderer initialized.\n";
@@ -18,13 +17,7 @@ Renderer::~Renderer()
 
 void Renderer::Render()
 {
-	if (_event.type == sf::Event::Closed)
-	{
-		this->_window.close();
-		return;
-	}
-
-	this->_window.clear();
+	this->_window->clear();
 
 	for (RenderLayer& renderLayer : _renderLayers)
 	{
@@ -36,19 +29,14 @@ void Renderer::Render()
 
 			if (sprite != nullptr)
 			{
-				_window.draw(*sprite);
+				_window->draw(*sprite);
 			}
 
 			renderLayer.drawables.pop_back();
 		}
 	}
 
-	this->_window.display();
-}
-
-bool Renderer::IsWindowActive()
-{
-	return _window.isOpen();
+	this->_window->display();
 }
 
 void Renderer::ToRender(std::vector<sf::Drawable*>& drawables, int layer)
@@ -110,10 +98,4 @@ void Renderer::ToRender(sf::Drawable* drawable, int layer)
 			return;
 		}
 	}
-}
-
-const sf::Event* Renderer::PollEvent()
-{
-	_window.pollEvent(_event);
-	return &_event;
 }

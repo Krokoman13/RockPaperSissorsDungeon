@@ -4,20 +4,16 @@
 class Renderer
 {
 public :
-	Renderer(std::string name, unsigned int width, unsigned int height);
+	Renderer(std::string name, sf::RenderWindow& _window);
 	~Renderer();
 
 	void Render();
-	bool IsWindowActive();
 
 	void ToRender(std::vector<sf::Drawable*>& sprites, int layer);
 	void ToRender(sf::Drawable* sprite, int layer);
 
-	const sf::Event* PollEvent();
-
 private :
-	sf::Event _event;
-	sf::RenderWindow _window;
+	sf::RenderWindow* _window;
 	std::vector<RenderLayer> _renderLayers;
 };
 
