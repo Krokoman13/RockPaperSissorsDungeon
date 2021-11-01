@@ -2,7 +2,7 @@
 #include "Game.hpp"
 
 Game::Game(std::string name, unsigned int width, unsigned int height, unsigned int targetFPS) 
-	: SceneManager(new Scene("StartScreen")), _eventHandeler(_renderWindow), _renderer(name, _renderWindow), _updateManger()
+	: SceneManager(new Scene("StartScreen")), EventHandeler(_renderWindow), _renderer(name, _renderWindow), _updateManger()
 {
 	_renderWindow.create(sf::VideoMode(width, height), name);
 	_updateManger.SetRenderer(_renderer);
@@ -23,12 +23,12 @@ void Game::Run()
 	{
 		while (this->_renderWindow.pollEvent(event))
 		{
-			_eventHandeler.HandleEvent(event);
+			HandleEvent(event);
 		}
 
-		if (!_eventHandeler.Focus()) continue;
+		if (!Focus()) continue;
 
-		std::cout << _eventHandeler.MousePosition() << "\n";
+		std::cout << MousePosition() << "\n";
 
 		_updateManger.Update(GetCurrentScene());
 

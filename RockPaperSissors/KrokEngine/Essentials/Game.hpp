@@ -4,7 +4,8 @@
 #include "../Core/SceneManager/SceneManager.hpp"
 #include "../Core/EventHandeler/EventHandeler.hpp"
 
-class Game : public SceneManager
+class Game 
+	: public SceneManager, EventHandeler
 {
 public:
 	Game(std::string name, unsigned int width, unsigned int height, unsigned int targetFPS);
@@ -15,7 +16,7 @@ public:
 private:
 	Renderer _renderer;
 	UpdateManager _updateManger;
-	EventHandeler _eventHandeler;
+	//EventHandeler _eventHandeler;
 
 	sf::RenderWindow _renderWindow;
 };
