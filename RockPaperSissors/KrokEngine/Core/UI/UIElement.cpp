@@ -1,4 +1,5 @@
 #include "UIElement.hpp"
+#include "UI.hpp"
 
 std::string UIElement::ASSET_PATH = "";
 std::string UIElement::FILE_TYPE = ".png";
@@ -39,7 +40,14 @@ UIElement& UIElement::operator=(const UIElement& other)
 	this->loadTexture(other._fullpath);
 	this->_sfTtext = other._sfTtext;
 
+	this->_ui = other._ui;
+
 	return *this;
+}
+
+UIElement::~UIElement()
+{
+	if (_ui != nullptr) _ui->RemoveElement(this);
 }
 
 void UIElement::SetText(std::string text, int characterSize, sf::Uint32 style, sf::Color fillColor)
@@ -54,8 +62,7 @@ void UIElement::SetText(std::string text, sf::Font& font, int characterSize, sf:
 	this->_originalTextCharacterSize = characterSize;
 
 	this->_sfTtext.setStyle(style);
-	this->_sfTtext.setFillColor(fillColor);
-}
+	this->_sfTtext.setFillColor(fillColor);}
 
 void UIElement::SetWidth(float width)
 {
@@ -93,6 +100,11 @@ float UIElement::GetWidth()
 float UIElement::GetHeight()
 {
 	return this->_originalHeight * this->_yScale;
+}
+
+void UIElement::SetUI(UI* ui)
+{
+	this->_ui = ui;
 }
 
 std::vector<sf::Drawable*> UIElement::GetDrawables()

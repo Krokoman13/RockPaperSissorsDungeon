@@ -11,7 +11,9 @@ public:
 
 	void AddElement(UIElement& uiElement);
 	void AddElement(UIElement* uiElement);
+
 	void RemoveElement(UIElement& uiElement);
+	void RemoveElement(UIElement* uiElement);
 
 private:
 	std::vector<UIElement*> _elements;

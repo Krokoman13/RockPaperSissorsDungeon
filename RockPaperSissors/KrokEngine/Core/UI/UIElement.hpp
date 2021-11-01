@@ -3,6 +3,8 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
+class UI;
+
 class UIElement
 {
 public:
@@ -10,6 +12,7 @@ public:
     UIElement(std::string name, float x = 0, float y = 0);
     UIElement(const UIElement& other);
     UIElement& operator=(const UIElement& other);
+    ~UIElement();
 
     std::string name;
     int x;
@@ -31,9 +34,13 @@ public:
     float GetWidth();
     float GetHeight();
 
+    void SetUI(UI* ui);
+
     std::vector<sf::Drawable*> GetDrawables();
 
 private:
+    UI* _ui;
+
     std::string _fullpath;
 
     float _originalWidth = 0;

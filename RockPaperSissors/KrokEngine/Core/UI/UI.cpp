@@ -37,15 +37,22 @@ void UI::AddElement(UIElement& uiElement)
 
 void UI::AddElement(UIElement* uiElement)
 {
+    uiElement->SetUI(this);
     _elements.push_back(uiElement);
 }
 
 void UI::RemoveElement(UIElement& uiElement)
 {
+    RemoveElement(&uiElement);
+}
+
+void UI::RemoveElement(UIElement* uiElement)
+{
     for (unsigned int i = 0; i < this->_elements.size(); i++)
     {
-        if (this->_elements[i] == &uiElement)
+        if (this->_elements[i] == uiElement)
         {
+            this->_elements[i]->SetUI(nullptr);
             this->_elements.erase(this->_elements.begin() + i);
             return;
         }
