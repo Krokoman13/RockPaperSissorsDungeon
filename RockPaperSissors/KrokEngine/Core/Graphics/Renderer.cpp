@@ -2,7 +2,7 @@
 #include "ImageGameObject.hpp"
 #include <iostream>
 
-Renderer::Renderer(std::string name, sf::RenderWindow& window)
+Renderer::Renderer(sf::RenderWindow& window)
 {
 	this->_window = &window;
 	this->_renderLayers.push_back(RenderLayer(0));

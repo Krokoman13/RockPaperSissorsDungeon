@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Game.hpp"
 
-Game::Game(std::string name, unsigned int width, unsigned int height, unsigned int targetFPS) : SceneManager(new Scene("StartScreen")),  _renderer(name, _renderWindow), _updateManger()
+Game::Game(std::string name, unsigned int width, unsigned int height, unsigned int targetFPS) : SceneManager(new Scene("StartScreen")),  _renderer(_renderWindow), _updateManger()
 {
 	_renderWindow.create(sf::VideoMode(width, height), name);
 	_updateManger.SetRenderer(_renderer);
