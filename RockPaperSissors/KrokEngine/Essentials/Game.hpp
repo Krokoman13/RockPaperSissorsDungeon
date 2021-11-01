@@ -2,6 +2,7 @@
 #include <string>
 #include "../Core/UpdateManager/UpdateManager.hpp"
 #include "../Core/SceneManager/SceneManager.hpp"
+#include "../Core/EventHandeler/EventHandeler.hpp"
 
 class Game : public SceneManager
 {
@@ -14,6 +15,7 @@ public:
 private:
 	Renderer _renderer;
 	UpdateManager _updateManger;
+	EventHandeler _eventHandeler;
 
 	sf::RenderWindow _renderWindow;
 };
