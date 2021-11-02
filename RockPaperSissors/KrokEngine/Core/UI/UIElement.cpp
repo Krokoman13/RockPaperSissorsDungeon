@@ -119,13 +119,18 @@ std::vector<sf::Drawable*> UIElement::GetDrawables()
 		out.push_back(&_sfTtext);
 	}
 
-	this->_sprite.setScale(_xScale, _yScale);
+	this->getSprite()->setScale(_xScale, _yScale);
 	//this->_sprite.setOrigin(GetWidth()/2, GetHeight()/2);
-	this->_sprite.setPosition(x, y);
+	this->getSprite()->setPosition(x, y);
 
-	out.push_back(&this->_sprite);
+	out.push_back(this->getSprite());
 
 	return out;
+}
+
+sf::Sprite* UIElement::getSprite()
+{
+	return &_sprite;
 }
 
 void UIElement::loadTexture(std::string path)

@@ -39,13 +39,15 @@ public:
     std::vector<sf::Drawable*> GetDrawables();
 
 protected:
+    virtual sf::Sprite* getSprite();
+
+private:
     sf::Texture _texture;
     sf::Sprite _sprite;
     sf::Text _sfTtext;
 
     void loadTexture(std::string path);
 
-private:
     UI* _ui;
 
     std::string _fullpath;

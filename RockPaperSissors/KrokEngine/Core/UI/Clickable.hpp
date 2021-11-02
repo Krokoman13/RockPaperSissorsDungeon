@@ -1,15 +1,14 @@
 #pragma once
-#include "UIElement.hpp"
+#include "Hoverable.hpp"
 
-class Clickable : public UIElement
+class Clickable : public Hoverable
 {
 public:
 	Clickable(std::string name, std::string path, float x, float y);
 	Clickable(std::string name, float x, float y);
 
 	virtual void OnClick() = 0;
-	virtual void StartHover();
-	virtual void StopHover();
-	virtual const bool IsInside(const int x, const int y);
+
+	sf::Mouse::Button onClickButton = sf::Mouse::Button::Left;
 };
 

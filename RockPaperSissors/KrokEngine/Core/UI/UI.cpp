@@ -15,9 +15,9 @@ std::vector<sf::Drawable*> UI::GetDrawables()
     return out;
 }
 
-std::vector<Clickable*> UI::GetClickables()
+std::vector<Hoverable*> UI::GetClickables()
 {
-    return _clickables;
+    return _hoverables;
 }
 
 void UI::SetDefaultFont(sf::Font font)
@@ -45,11 +45,11 @@ void UI::AddElement(UIElement* uiElement)
     uiElement->SetUI(this);
     _elements.push_back(uiElement);
 
-    Clickable* clickable = dynamic_cast<Clickable*>(uiElement);
+    Hoverable* hoverable = dynamic_cast<Hoverable*>(uiElement);
 
-    if (clickable)
+    if (hoverable)
     {
-        _clickables.push_back(clickable);
+        _hoverables.push_back(hoverable);
     }
 }
 
@@ -70,18 +70,18 @@ void UI::RemoveElement(UIElement* uiElement)
         }
     }
 
-    Clickable* clickable = dynamic_cast<Clickable*>(uiElement);
+    Hoverable* hoverable = dynamic_cast<Hoverable*>(uiElement);
 
-    if (!clickable)
+    if (!hoverable)
     {
         return;
     }
 
-    for (unsigned int i = 0; i < this->_clickables.size(); i++)
+    for (unsigned int i = 0; i < this->_hoverables.size(); i++)
     {
-        if (this->_clickables[i] == uiElement)
+        if (this->_hoverables[i] == uiElement)
         {
-            this->_clickables.erase(this->_clickables.begin() + i);
+            this->_hoverables.erase(this->_hoverables.begin() + i);
             return;
         }
     }

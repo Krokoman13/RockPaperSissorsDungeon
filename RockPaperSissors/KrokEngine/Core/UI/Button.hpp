@@ -12,8 +12,9 @@ public:
 	void setButtonAction(std::function<void()> action);
 
 	virtual void OnClick() override;
-	virtual void StartHover() override;
-	virtual void StopHover() override;
+
+protected:
+	virtual sf::Sprite* getSprite() override;
 
 private:
 	std::function<void()> _onClickAction;

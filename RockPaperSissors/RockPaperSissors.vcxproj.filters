@@ -57,6 +57,9 @@
     <ClCompile Include="KrokEngine\Core\UI\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KrokEngine\Core\UI\Hoverable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
@@ -105,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KrokEngine\Core\UI\Button.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UI\Hoverable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

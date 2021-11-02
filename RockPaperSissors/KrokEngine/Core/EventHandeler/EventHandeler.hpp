@@ -4,6 +4,7 @@
 #include "../../Essentials/Vec2.hpp"
 
 class UIElement;
+class Hoverable;
 class Clickable;
 class UI;
 
@@ -32,8 +33,8 @@ private:
 	bool _mouseButtons[sf::Mouse::Button::ButtonCount] = {false};
 
 	bool _key[sf::Keyboard::Key::KeyCount] = { false };
-	std::vector<Clickable*> _toClick;
+	std::vector<Hoverable*> _hoveringOver;
 
-	void setToClick(std::vector<Clickable*> clickables);
+	void setHovering(std::vector<Hoverable*> clickables);
 };
 

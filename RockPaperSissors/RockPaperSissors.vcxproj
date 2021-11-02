@@ -158,6 +158,7 @@
     <ClCompile Include="KrokEngine\Core\SceneManager\SceneManager.cpp" />
     <ClCompile Include="KrokEngine\Core\UI\Button.cpp" />
     <ClCompile Include="KrokEngine\Core\UI\Clickable.cpp" />
+    <ClCompile Include="KrokEngine\Core\UI\Hoverable.cpp" />
     <ClCompile Include="KrokEngine\Core\UI\UI.cpp" />
     <ClCompile Include="KrokEngine\Core\UI\UIElement.cpp" />
     <ClCompile Include="KrokEngine\Core\UpdateManager\UpdateManager.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="KrokEngine\Core\SceneManager\SceneManager.hpp" />
     <ClInclude Include="KrokEngine\Core\UI\Button.hpp" />
     <ClInclude Include="KrokEngine\Core\UI\Clickable.hpp" />
+    <ClInclude Include="KrokEngine\Core\UI\Hoverable.hpp" />
     <ClInclude Include="KrokEngine\Core\UI\UI.hpp" />
     <ClInclude Include="KrokEngine\Core\UI\UIElement.hpp" />
     <ClInclude Include="KrokEngine\Core\UpdateManager\UpdateManager.hpp" />

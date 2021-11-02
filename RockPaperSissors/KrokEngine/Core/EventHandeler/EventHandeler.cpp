@@ -42,7 +42,7 @@ void EventHandeler::HandleEvent(sf::Event& event, UI& ui)
 		{
 			sf::Vector2i mousePosition = sf::Mouse::getPosition(*_renderWindow);
 			_mousePosition.SetXY(mousePosition.x, mousePosition.y);
-			setToClick(ui.GetClickables());
+			setHovering(ui.GetClickables());
 		}
 		break;
 	case sf::Event::MouseButtonPressed:
@@ -93,31 +93,39 @@ const bool EventHandeler::Focus()
 	return _focus;
 }
 
-void EventHandeler::setToClick(std::vector<Clickable*> clickables)
-{
-	while (_toClick.size() > 0)
-	{
-		_toClick[_toClick.size() - 1]->StopHover();
-		_toClick.pop_back();
-	}
-
-	for (Clickable* clickable : clickables)
-	{
-		if (clickable->IsInside(_mousePosition.x, _mousePosition.y))
-		{
-			clickable->StartHover();
-			_toClick.push_back(clickable);
-		}
-	}
-}
-
 void EventHandeler::HandleClicks(sf::Mouse::Button button)
 {
 	if (!IsPressed(button)) return;
 
-	for (Clickable* clickable : _toClick)
+	for (int i = _hoveringOver.size(); i--; i >= 0)
 	{
-		clickable->StopHover();
-		clickable->OnClick();
+		Clickable* clickable = dynamic_cast<Clickable*>(_hoveringOver[i]);
+
+		if (clickable)
+		{
+			if (clickable->onClickButton == button)
+			{
+				clickable->OnClick();
+				return;
+			}
+		}
+	}
+}
+
+void EventHandeler::setHovering(std::vector<Hoverable*> hoverables)
+{
+	while (_hoveringOver.size() > 0)
+	{
+		_hoveringOver[_hoveringOver.size() - 1]->hovering = false;
+		_hoveringOver.pop_back();
+	}
+
+	for (Hoverable* hoverable : hoverables)
+	{
+		if (hoverable->IsInside(_mousePosition.x, _mousePosition.y))
+		{
+			hoverable->hovering = true;
+			_hoveringOver.push_back(hoverable);
+		}
 	}
 }

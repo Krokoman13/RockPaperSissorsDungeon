@@ -21,14 +21,18 @@ void Button::OnClick()
 	this->_onClickAction();
 }
 
-void Button::StartHover()
+sf::Sprite* Button::getSprite()
 {
-	this->_sprite.setOrigin(_sprite.getTextureRect().width, _sprite.getTextureRect().height);
-	this->_sprite.setRotation(180.0f);
-}
-
-void Button::StopHover()
-{
-	this->_sprite.setOrigin(0, 0);
-	this->_sprite.setRotation(0.0f);
+	if (hovering)
+	{
+		sf::Sprite* sprite = new sf::Sprite(*UIElement::getSprite());
+		sprite->setOrigin(sprite->getTextureRect().width, sprite->getTextureRect().height);
+		sprite->setRotation(180.0f);
+		//sprite->setOrigin(0,0);
+		return sprite;
+	}
+	else
+	{
+		return UIElement::getSprite();
+	}
 }
