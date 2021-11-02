@@ -51,6 +51,12 @@
     <ClCompile Include="KrokEngine\Core\EventHandeler\EventHandeler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KrokEngine\Core\UI\Clickable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KrokEngine\Core\UI\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
@@ -93,6 +99,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KrokEngine\Core\EventHandeler\EventHandeler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UI\Clickable.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UI\Button.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

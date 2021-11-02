@@ -1,4 +1,5 @@
 #include "EventHandeler.hpp"
+#include "../UI/Clickable.hpp"
 
 EventHandeler::EventHandeler(sf::RenderWindow& renderWindow)
 {
@@ -88,4 +89,17 @@ const bool EventHandeler::IsPressed(sf::Mouse::Button mouseButton)
 const bool EventHandeler::Focus()
 {
 	return _focus;
+}
+
+void EventHandeler::HandleClicks(std::vector<Clickable*> clikcables, sf::Mouse::Button button)
+{
+	if (!IsPressed(button)) return;
+
+	for (Clickable* clickable : clikcables)
+	{
+		if (clickable->IsInside(_mousePosition.x, _mousePosition.y))
+		{
+			clickable->OnClick();
+		}
+	}
 }

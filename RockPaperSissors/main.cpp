@@ -24,14 +24,17 @@ int main()
 		arena.AddChild(new ImageGameObject(character));
 	}
 	
-	UIElement defaultButton("Default Button", 0, 0);
+	Button defaultButton("Default Button", 50, 50);
 
-	defaultButton.SetText("HI!", 50);
+	defaultButton.setButtonAction([&arena, &myGame] {
+		myGame.GoToScene(arena);
+		});
+
+	defaultButton.SetText("Start Game", 50);
 	defaultButton.SetScale(0.5f);
 
-	arena.ui.AddElement(defaultButton);
+	myGame.GetCurrentScene()->ui.AddElement(defaultButton);
 
-	myGame.GoToScene(arena);
 	myGame.Run();
 
 	return 0;

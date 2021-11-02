@@ -28,7 +28,7 @@ void Game::Run()
 
 		if (!Focus()) continue;
 
-		std::cout << MousePosition() << "\n";
+		HandleClicks(GetCurrentScene()->ui.GetClickables());
 
 		_updateManger.Update(GetCurrentScene());
 

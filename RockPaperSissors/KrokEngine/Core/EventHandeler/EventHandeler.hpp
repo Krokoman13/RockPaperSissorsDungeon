@@ -1,8 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <vector>
 #include "../../Essentials/Vec2.hpp"
 
 class UIElement;
+class Clickable;
 
 class EventHandeler
 {
@@ -16,6 +18,8 @@ public:
 	const bool IsPressed(sf::Mouse::Button mouseButton);
 
 	const bool Focus();
+
+	void HandleClicks(std::vector<Clickable*> clickables, sf::Mouse::Button button = sf::Mouse::Button::Left);
 
 private:
 	sf::RenderWindow* _renderWindow;

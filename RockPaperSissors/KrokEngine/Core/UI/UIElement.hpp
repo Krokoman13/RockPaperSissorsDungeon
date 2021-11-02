@@ -12,7 +12,7 @@ public:
     UIElement(std::string name, float x = 0, float y = 0);
     UIElement(const UIElement& other);
     UIElement& operator=(const UIElement& other);
-    ~UIElement();
+    virtual ~UIElement();
 
     std::string name;
     int x;
