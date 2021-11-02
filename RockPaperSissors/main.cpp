@@ -24,7 +24,7 @@ int main()
 		arena.AddChild(new ImageGameObject(character));
 	}
 	
-	Button defaultButton("Default Button", 50, 50);
+	Button defaultButton("Default Button", 0, 0);
 
 	defaultButton.setButtonAction([&arena, &myGame] {
 		myGame.GoToScene(arena);
@@ -33,7 +33,19 @@ int main()
 	defaultButton.SetText("Start Game", 50);
 	defaultButton.SetScale(0.5f);
 
-	myGame.GetCurrentScene()->ui.AddElement(defaultButton);
+	myGame.GetCurrentScene()->ui.AddElement(new Button(defaultButton));
+
+	defaultButton.SetText("HI");
+	defaultButton.x = 400;
+	myGame.GetCurrentScene()->ui.AddElement(new Button(defaultButton));
+
+	defaultButton.SetText("Bye");
+	defaultButton.y = 200;
+	myGame.GetCurrentScene()->ui.AddElement(new Button(defaultButton));
+
+	defaultButton.SetText("The wrong button");
+	defaultButton.x = 0;
+	myGame.GetCurrentScene()->ui.AddElement(new Button(defaultButton));
 
 	myGame.Run();
 

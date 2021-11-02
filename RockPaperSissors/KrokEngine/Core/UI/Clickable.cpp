@@ -12,7 +12,15 @@ void Clickable::OnClick()
 {
 }
 
+void Clickable::StartHover()
+{
+}
+
+void Clickable::StopHover()
+{
+}
+
 const bool Clickable::IsInside(const int x, const int y)
 {
-	return (x >= this->x && x <= this->x + this->GetHeight() && y >= this->y && y <= this->y + this->GetWidth());
+	return (x >= this->x && x <= this->x + this->GetWidth() && y >= this->y && y <= this->y + this->GetHeight());
 }

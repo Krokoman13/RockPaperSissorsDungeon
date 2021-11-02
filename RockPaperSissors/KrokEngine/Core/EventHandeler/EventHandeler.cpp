@@ -1,12 +1,13 @@
 #include "EventHandeler.hpp"
 #include "../UI/Clickable.hpp"
+#include "../UI/UI.hpp"
 
 EventHandeler::EventHandeler(sf::RenderWindow& renderWindow)
 {
 	_renderWindow = &renderWindow;
 }
 
-void EventHandeler::HandleEvent(sf::Event& event)
+void EventHandeler::HandleEvent(sf::Event& event, UI& ui)
 {
 	if (!_focus)
 	{
@@ -41,6 +42,7 @@ void EventHandeler::HandleEvent(sf::Event& event)
 		{
 			sf::Vector2i mousePosition = sf::Mouse::getPosition(*_renderWindow);
 			_mousePosition.SetXY(mousePosition.x, mousePosition.y);
+			setToClick(ui.GetClickables());
 		}
 		break;
 	case sf::Event::MouseButtonPressed:
@@ -91,15 +93,31 @@ const bool EventHandeler::Focus()
 	return _focus;
 }
 
-void EventHandeler::HandleClicks(std::vector<Clickable*> clikcables, sf::Mouse::Button button)
+void EventHandeler::setToClick(std::vector<Clickable*> clickables)
 {
-	if (!IsPressed(button)) return;
+	while (_toClick.size() > 0)
+	{
+		_toClick[_toClick.size() - 1]->StopHover();
+		_toClick.pop_back();
+	}
 
-	for (Clickable* clickable : clikcables)
+	for (Clickable* clickable : clickables)
 	{
 		if (clickable->IsInside(_mousePosition.x, _mousePosition.y))
 		{
-			clickable->OnClick();
+			clickable->StartHover();
+			_toClick.push_back(clickable);
 		}
+	}
+}
+
+void EventHandeler::HandleClicks(sf::Mouse::Button button)
+{
+	if (!IsPressed(button)) return;
+
+	for (Clickable* clickable : _toClick)
+	{
+		clickable->StopHover();
+		clickable->OnClick();
 	}
 }

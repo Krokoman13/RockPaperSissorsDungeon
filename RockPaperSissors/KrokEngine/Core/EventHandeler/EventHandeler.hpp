@@ -5,13 +5,14 @@
 
 class UIElement;
 class Clickable;
+class UI;
 
 class EventHandeler
 {
 public:
 	EventHandeler(sf::RenderWindow& renderWindow);
 
-	void HandleEvent(sf::Event& event);
+	void HandleEvent(sf::Event& event, UI& ui);
 	const Vec2 MousePosition();
 
 	const bool IsPressed(sf::Keyboard::Key key);
@@ -19,7 +20,7 @@ public:
 
 	const bool Focus();
 
-	void HandleClicks(std::vector<Clickable*> clickables, sf::Mouse::Button button = sf::Mouse::Button::Left);
+	void HandleClicks(sf::Mouse::Button button = sf::Mouse::Button::Left);
 
 private:
 	sf::RenderWindow* _renderWindow;
@@ -31,5 +32,8 @@ private:
 	bool _mouseButtons[sf::Mouse::Button::ButtonCount] = {false};
 
 	bool _key[sf::Keyboard::Key::KeyCount] = { false };
+	std::vector<Clickable*> _toClick;
+
+	void setToClick(std::vector<Clickable*> clickables);
 };
 

@@ -23,12 +23,12 @@ void Game::Run()
 	{
 		while (this->_renderWindow.pollEvent(event))
 		{
-			HandleEvent(event);
+			HandleEvent(event, GetCurrentScene()->ui);
 		}
 
 		if (!Focus()) continue;
 
-		HandleClicks(GetCurrentScene()->ui.GetClickables());
+		HandleClicks();
 
 		_updateManger.Update(GetCurrentScene());
 

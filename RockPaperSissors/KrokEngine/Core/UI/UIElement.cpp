@@ -38,7 +38,7 @@ UIElement& UIElement::operator=(const UIElement& other)
 	this->y = other.y;
 
 	this->loadTexture(other._fullpath);
-	this->_sfTtext = other._sfTtext;
+	this->SetText(other._sfTtext.getString(), *other._sfTtext.getFont(), other._sfTtext.getCharacterSize(), other._sfTtext.getStyle(), other._sfTtext.getFillColor());
 
 	this->_ui = other._ui;
 
@@ -50,12 +50,12 @@ UIElement::~UIElement()
 	if (_ui != nullptr) _ui->RemoveElement(this);
 }
 
-void UIElement::SetText(std::string text, int characterSize, sf::Uint32 style, sf::Color fillColor)
+void UIElement::SetText(const std::string text, const  int characterSize, const sf::Uint32 style, const sf::Color fillColor)
 {
 	this->SetText(text, UIElement::DEFAULT_FONT, characterSize, style, fillColor);
 }
 
-void UIElement::SetText(std::string text, sf::Font& font, int characterSize, sf::Uint32 style, sf::Color fillColor) 
+void UIElement::SetText(const std::string text, const sf::Font& font, const int characterSize, const sf::Uint32 style, const sf::Color fillColor)
 {
 	this->_sfTtext.setFont(font);
 	this->_sfTtext.setString(text);
@@ -119,8 +119,10 @@ std::vector<sf::Drawable*> UIElement::GetDrawables()
 		out.push_back(&_sfTtext);
 	}
 
-	_sprite.setPosition(x, y);
-	_sprite.setScale(_xScale, _yScale);
+	this->_sprite.setScale(_xScale, _yScale);
+	//this->_sprite.setOrigin(GetWidth()/2, GetHeight()/2);
+	this->_sprite.setPosition(x, y);
+
 	out.push_back(&this->_sprite);
 
 	return out;
@@ -136,6 +138,8 @@ void UIElement::loadTexture(std::string path)
 
 		this->_originalWidth = (float)_sprite.getTextureRect().width;
 		this->_originalHeight = (float)_sprite.getTextureRect().height;
+
+		this->_sprite.setOrigin(0, 0);
 		return;
 	}
 }

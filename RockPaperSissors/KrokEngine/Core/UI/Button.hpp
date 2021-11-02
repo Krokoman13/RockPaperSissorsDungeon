@@ -10,9 +10,12 @@ public:
 	Button(std::string name, float x, float y, std::function<void()> action = NULL);
 
 	void setButtonAction(std::function<void()> action);
+
 	virtual void OnClick() override;
+	virtual void StartHover() override;
+	virtual void StopHover() override;
 
 private:
-	std::function<void()> _action;
+	std::function<void()> _onClickAction;
 };
 
