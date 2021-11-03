@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{aa321768-48e4-4470-ba7b-9298e05b856c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{9b335fe1-36e2-4a2f-86ef-731684649362}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,23 +48,23 @@
     <ClCompile Include="KrokEngine\Core\SceneManager\Scene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KrokEngine\Core\UI\UI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="KrokEngine\Core\UI\UIElement.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="KrokEngine\Core\EventHandeler\EventHandeler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KrokEngine\Core\UI\Clickable.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="KrokEngine\Core\UI\UI.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="KrokEngine\Core\UI\UIElement.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="KrokEngine\Core\UI\Button.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="KrokEngine\Core\UI\Clickable.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
     <ClCompile Include="KrokEngine\Core\UI\Hoverable.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,26 +98,26 @@
     <ClInclude Include="KrokEngine\Core\SceneManager\Scene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KrokEngine\Core\UI\UIElement.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KrokEngine\Core\UI\UI.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KrokEngine\Core\EventHandeler\EventHandeler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="KrokEngine\Core\UI\Clickable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="KrokEngine\Core\UI\Button.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UI\Clickable.hpp">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UI\UI.hpp">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Core\UI\UIElement.hpp">
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="KrokEngine\Core\UI\Hoverable.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
