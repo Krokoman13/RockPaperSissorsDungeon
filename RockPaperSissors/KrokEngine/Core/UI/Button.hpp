@@ -13,10 +13,15 @@ public:
 
 	virtual void OnClick() override;
 
+	void LoadAlterateSprite(std::string path);
+
 protected:
 	virtual sf::Sprite* getSprite() override;
 
 private:
+	sf::Sprite _alternateSprite;
+	sf::Texture _alternateTexture;
+
 	std::function<void()> _onClickAction;
 };
 
