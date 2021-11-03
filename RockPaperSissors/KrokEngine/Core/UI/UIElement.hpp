@@ -41,13 +41,14 @@ public:
 protected:
     virtual sf::Sprite* getSprite();
 
-    virtual void loadTexture(std::string path);
     std::string _fullpath;
 
 private:
     sf::Texture _texture;
     sf::Sprite _sprite;
     sf::Text _sfTtext;
+
+    void loadTexture(std::string path);
 
     UI* _ui;
 
