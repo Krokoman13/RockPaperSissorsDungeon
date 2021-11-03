@@ -1,4 +1,5 @@
 #include "GameObject.hpp"
+#include "Game.hpp"
 
 GameObject::GameObject(Vec2 position, std::string name, GameObject* parent)
 {
@@ -76,6 +77,25 @@ int GameObject::getPositionAsChild(GameObject& toFind)
 	}
 
 	throw std::invalid_argument("Could not find a non-existent child");
+}
+
+Scene* GameObject::getCurrentScene()
+{
+	GameObject* parent = _parent;
+
+	while (parent)
+	{
+		parent = parent->GetParent();
+	}
+
+	Scene* out = dynamic_cast<Scene*>(parent);
+
+	if (out)
+	{
+		return out;
+	}
+
+	return nullptr;
 }
 
 GameObject* GameObject::GetParent()

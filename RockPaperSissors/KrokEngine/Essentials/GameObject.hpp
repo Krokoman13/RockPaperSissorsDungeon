@@ -5,6 +5,8 @@
 #include <iostream>
 #include "Vec2.hpp"
 
+class Scene;
+
 class GameObject
 {
 public:
@@ -54,9 +56,14 @@ public:
 
 protected:
 	int _renderLayer = -1;
+
 	GameObject* _parent = nullptr;
 	std::vector <GameObject*> _children;
+
 	int getPositionAsChild(GameObject& toFind);
+
 	Vec2 _scale = Vec2(1.0f, 1.0f);
+
+	Scene* getCurrentScene();
 };
 
