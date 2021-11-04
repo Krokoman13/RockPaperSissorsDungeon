@@ -49,6 +49,16 @@ void HealthBar::SetHealth(int amount)
 	this->_counter.SetText(std::to_string(_currentHealth) + '/' + std::to_string(_maxHealth), 80);
 }
 
+void HealthBar::AddHealth(int amount)
+{	
+	SetHealth(_currentHealth + amount);
+}
+
+void HealthBar::SubstractHealth(int amount)
+{
+	SetHealth(_currentHealth - amount);
+}
+
 void HealthBar::Update()
 {
 	Vec2 pos = this->GetGlobaPosition();

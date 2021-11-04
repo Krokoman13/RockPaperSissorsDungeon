@@ -9,12 +9,12 @@ class Character :
 public:
     Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower);
 
+    HealthBar health;
+
 private:
     unsigned int _rockModifier;
     unsigned int _paperModifier;
     unsigned int _scissorModifier;
-
-    HealthBar _health;
 
     GameObject* _currentWeapon;
 

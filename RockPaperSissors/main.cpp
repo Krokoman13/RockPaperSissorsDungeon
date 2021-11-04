@@ -22,16 +22,41 @@ int main()
 	arena.AddChild(character);
 
 	{
-		Button defaultButton("Default Button", 0, 0);
+		Button StartGameButton("Default Button", 0, 0);
 
-		defaultButton.setButtonAction([&arena, &myGame] {
+		StartGameButton.setButtonAction([&arena, &myGame] {
 			myGame.GoToScene(arena);
 			});
 
-		defaultButton.SetText("Start Game", 50);
-		defaultButton.SetScale(0.5f);
-		myGame.GetCurrentScene()->ui.AddElement(new Button(defaultButton));
+		StartGameButton.SetText("Start Game", 50);
+		StartGameButton.SetScale(0.5f);
+		myGame.GetCurrentScene()->ui.AddElement(new Button(StartGameButton));
 	}
+
+	{
+		Button backButton("Default Button", 0, 0);
+
+		backButton.setButtonAction([&myGame] {
+			myGame.GoToScene(0);
+			});
+
+		backButton.SetText("Default Button", 50);
+		backButton.SetScale(0.5f);
+		arena.ui.AddElement(new Button(backButton));
+	}
+
+	{
+		Button damageButton("Default Button", 500, 400);
+
+		damageButton.setButtonAction([&character] {
+			character.health.SubstractHealth(1);
+			});
+
+		damageButton.SetText("Deal 1 damage to character", 25);
+		damageButton.SetScale(0.5f);
+		arena.ui.AddElement(new Button(damageButton));
+	}
+
 
 	myGame.Run();
 
