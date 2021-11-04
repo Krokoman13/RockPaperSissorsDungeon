@@ -51,7 +51,9 @@ void SceneManager::GoToScene(unsigned int SceneIdentifier)
 	Scene* nextScene = GetScene(SceneIdentifier);
 	if (_currentScene == nextScene) return;
 
+	closeScene(_currentScene);
 	_currentScene = nextScene;
+	openScene(_currentScene);
 }
 
 void SceneManager::AddScene(Scene& scene)
@@ -81,10 +83,14 @@ void SceneManager::AddScene(Scene& scene)
 	AddScene(scene);
 }
 
+void SceneManager::reloadCurrentScene()
+{
+	closeScene(GetCurrentScene());
+	openScene(GetCurrentScene());
+}
+
 void SceneManager::closeScene(Scene* scene)
 {
-	if (_currentScene != scene) return;
-
 	std::cout << "Closing scene: " << scene->name << '\n';
 	scene->Close();
 	_currentScene = nullptr;
