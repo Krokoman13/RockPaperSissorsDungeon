@@ -28,8 +28,6 @@ void Game::Run()
 
 		if (!Focus()) continue;
 
-		HandleClicks();
-
 		_updateManger.Update(GetCurrentScene());
 
 		{

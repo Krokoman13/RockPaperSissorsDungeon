@@ -49,6 +49,7 @@ void EventHandeler::HandleEvent(sf::Event& event, UI& ui)
 		if (_mouseInScreen)
 		{
 			_mouseButtons[event.mouseButton.button] = true;
+			HandleClicks(event.mouseButton.button);
 		}
 		break;
 	case sf::Event::MouseButtonReleased:
@@ -95,8 +96,6 @@ const bool EventHandeler::Focus()
 
 void EventHandeler::HandleClicks(sf::Mouse::Button button)
 {
-	if (!IsPressed(button)) return;
-
 	for (int i = _hoveringOver.size(); i--; i >= 0)
 	{
 		Clickable* clickable = dynamic_cast<Clickable*>(_hoveringOver[i]);
