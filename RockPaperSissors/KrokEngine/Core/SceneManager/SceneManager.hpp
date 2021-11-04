@@ -19,6 +19,8 @@ public:
 	void GoToScene(unsigned int ScineIdentifier);
 
 	void AddScene(Scene& scene);
+	
+	void reloadCurrentScene();
 
 protected:
 	void closeScene(Scene* scene);
