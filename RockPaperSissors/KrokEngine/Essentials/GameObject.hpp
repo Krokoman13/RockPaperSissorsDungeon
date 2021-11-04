@@ -53,6 +53,9 @@ public:
 	virtual sf::Sprite* GetSprite();
 	//void RenerateSprites(std::vector<sf::Sprite*>& sprites, Vec2 pos = Vec2(0, 0), Vec2 scale = Vec2(1, 1));
 	virtual void Update();
+	virtual void OnLoad();
+
+	void SetScene(Scene* scene);
 
 protected:
 	int _renderLayer = -1;
@@ -64,6 +67,6 @@ protected:
 
 	Vec2 _scale = Vec2(1.0f, 1.0f);
 
-	Scene* getCurrentScene();
+	Scene* _scene;
 };
 

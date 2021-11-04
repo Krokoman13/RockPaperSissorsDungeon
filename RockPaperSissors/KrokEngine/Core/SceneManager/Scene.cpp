@@ -8,21 +8,27 @@ Scene::Scene(std::string Name, bool reloadOnOpen) : GameObject(0, 0, "Scene")
 
 void Scene::Load()
 {
-	load();
+	OnLoad();
+	loadChildren(this);
 	loaded = true;
 }
 
 void Scene::Close()
 {
-	close();
+	OnClose();
 	if (_reloadOnOpen) loaded = false;
-
 }
 
-void Scene::load()
+void Scene::OnClose()
 {
 }
 
-void Scene::close()
+void Scene::loadChildren(GameObject* gameObject)
 {
+	for (GameObject* child : gameObject->GetChildren())
+	{
+		child->SetScene(this);
+		child->OnLoad();
+		loadChildren(child);
+	}
 }
