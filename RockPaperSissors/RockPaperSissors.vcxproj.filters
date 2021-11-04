@@ -137,5 +137,8 @@
     <ClInclude Include="Game\Character.hpp">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Arena.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -16,6 +16,7 @@ void Scene::Load()
 void Scene::Close()
 {
 	OnClose();
+
 	if (_reloadOnOpen) loaded = false;
 }
 

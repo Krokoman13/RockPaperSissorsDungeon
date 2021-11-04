@@ -22,8 +22,8 @@ public:
     static std::string FILE_TYPE;
     static sf::Font DEFAULT_FONT;
 
-    void SetText(const std::string text, const int characterSize = 24, const sf::Uint32 style = sf::Text::Style::Regular, const sf::Color fillColor = sf::Color::Black);
-    void SetText(const std::string text, const sf::Font& font, const int characterSize = 24, const sf::Uint32 style = sf::Text::Style::Regular, const sf::Color fillColor = sf::Color::Black);
+    void SetText(const std::string text, unsigned int textSize = 24, const sf::Uint32 style = sf::Text::Style::Regular, const sf::Color fillColor = sf::Color::Black);
+    void SetText(const std::string text, const sf::Font& font, unsigned int textSize = 24, const sf::Uint32 style = sf::Text::Style::Regular, const sf::Color fillColor = sf::Color::Black);
 
     void SetWidth(float width);
     void SetHeight(float height);
@@ -35,6 +35,7 @@ public:
     float GetHeight();
 
     void SetUI(UI* ui);
+    void ClearUI();
 
     std::vector<sf::Drawable*> GetDrawables();
 
@@ -54,7 +55,7 @@ private:
 
     float _originalWidth = 0;
     float _originalHeight = 0;
-    int _originalTextCharacterSize;
+    unsigned int _originalTextSize;
 
     float _xScale = 1;
     float _yScale = 1;

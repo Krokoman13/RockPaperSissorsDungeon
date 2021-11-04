@@ -170,6 +170,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Arena.hpp" />
     <ClInclude Include="Game\Character.hpp" />
     <ClInclude Include="Game\HealthBar.hpp" />
     <ClInclude Include="KrokEngine\Core\EventHandeler\EventHandeler.hpp" />

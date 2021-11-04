@@ -1,12 +1,16 @@
 #include "HealthBar.hpp"
 
-HealthBar::HealthBar(int x, int y, int maxHealth) : GameObject(x, y, "HealthBar"), _bar("RedBar", "Assets/UI/HealthBar/", x, y), _counter("BorderBar", "Assets/UI/HealthBar/", x, y)
+HealthBar::HealthBar(int x, int y, int maxHealth) 
+	: GameObject(x, y, "HealthBar") 
 {
-	this->_counter.SetText(std::to_string(maxHealth) + '/' + std::to_string(maxHealth), 80);
+	_bar = new UIElement("RedBar", "Assets/UI/HealthBar/", x, y);
+	_counter = new UIElement("BorderBar", "Assets/UI/HealthBar/", x, y);
+
+	this->_counter->SetText(std::to_string(maxHealth) + '/' + std::to_string(maxHealth), 24);
 	this->_currentHealth = _maxHealth = maxHealth;
 }
 
-HealthBar::HealthBar(const HealthBar& other) : _bar(other._bar), _counter(other._counter)
+HealthBar::HealthBar(const HealthBar& other)
 {
 	operator=(other);
 }
@@ -36,8 +40,9 @@ GameObject* HealthBar::Copy()
 HealthBar::~HealthBar()
 {
 	GameObject::~GameObject();
-	_bar.~UIElement();
-	_counter.~UIElement();
+
+	_bar->ClearUI();
+	_counter->ClearUI();
 }
 
 void HealthBar::SetHealth(int amount)
@@ -46,7 +51,7 @@ void HealthBar::SetHealth(int amount)
 	else if (amount < 0) amount = 0;
 
 	this->_currentHealth = amount;
-	this->_counter.SetText(std::to_string(_currentHealth) + '/' + std::to_string(_maxHealth), 80);
+	this->_counter->SetText(std::to_string(_currentHealth) + '/' + std::to_string(_maxHealth));
 }
 
 void HealthBar::AddHealth(int amount)
@@ -63,13 +68,13 @@ void HealthBar::Update()
 {
 	Vec2 pos = this->GetGlobaPosition();
 
-	_bar.x = _counter.x = pos.x;
-	_bar.y = _counter.y = pos.y;
+	_bar->x = _counter->x = pos.x;
+	_bar->y = _counter->y = pos.y;
 
 	Vec2 scale = this->GetScale();
 
-	_bar.SetScale((float)_currentHealth / (float)_maxHealth * scale.x, scale.y);
-	_counter.SetScale(scale.x, scale.y);
+	_bar->SetScale((float)_currentHealth / (float)_maxHealth * scale.x, scale.y);
+	_counter->SetScale(scale.x, scale.y);
 }
 
 void HealthBar::OnLoad()

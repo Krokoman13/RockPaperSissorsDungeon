@@ -5,7 +5,7 @@ class UI
 {
 public:
 	std::vector<sf::Drawable*> GetDrawables();
-	std::vector<Hoverable*> GetClickables();
+	std::vector<Hoverable*> GetHoverables();
 
 	void SetDefaultFont(sf::Font font);
 	void SetDefaultFont(std::string fontFile);
@@ -15,6 +15,8 @@ public:
 
 	void RemoveElement(UIElement& uiElement);
 	void RemoveElement(UIElement* uiElement);
+
+	std::vector<UIElement*> GetElements();
 
 private:
 	std::vector<UIElement*> _elements;

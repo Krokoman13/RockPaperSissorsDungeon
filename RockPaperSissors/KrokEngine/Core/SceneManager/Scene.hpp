@@ -16,12 +16,14 @@ public:
 	void Load();
 	void Close();
 
-	SceneManager* scenemanager;
+	SceneManager* sceneManager;
 
 	virtual void OnClose();
 
-private:
+protected:
 	bool _reloadOnOpen;
+
+private:
 	void loadChildren(GameObject* gameObject);
 };
 

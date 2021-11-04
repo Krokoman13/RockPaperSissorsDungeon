@@ -42,7 +42,7 @@ void EventHandeler::HandleEvent(sf::Event& event, UI& ui)
 		{
 			sf::Vector2i mousePosition = sf::Mouse::getPosition(*_renderWindow);
 			_mousePosition.SetXY(mousePosition.x, mousePosition.y);
-			setHovering(ui.GetClickables());
+			setHovering(ui.GetHoverables());
 		}
 		break;
 	case sf::Event::MouseButtonPressed:
@@ -121,6 +121,8 @@ void EventHandeler::setHovering(std::vector<Hoverable*> hoverables)
 
 	for (Hoverable* hoverable : hoverables)
 	{
+		if (hoverable == nullptr) return;
+
 		if (hoverable->IsInside(_mousePosition.x, _mousePosition.y))
 		{
 			hoverable->hovering = true;

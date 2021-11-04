@@ -22,7 +22,7 @@ private:
     int _maxHealth;
     int _currentHealth;
 
-    UIElement _bar;
-    UIElement _counter;
+    UIElement* _bar;
+    UIElement* _counter;
 };
 

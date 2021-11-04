@@ -10,6 +10,7 @@ Character::Character(unsigned int rockPower, unsigned int paperPower, unsigned i
 	this->health.SetScale(0.17f);
 
 	this->AddChild(health);
+
 	this->equipWeapon(_paper);
 	this->AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png", 2));
 }

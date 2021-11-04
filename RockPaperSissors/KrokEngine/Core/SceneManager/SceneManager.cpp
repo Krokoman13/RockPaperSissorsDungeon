@@ -58,7 +58,7 @@ void SceneManager::GoToScene(unsigned int SceneIdentifier)
 
 void SceneManager::AddScene(Scene& scene)
 {
-	scene.scenemanager = this;
+	scene.sceneManager = this;
 
 	if (scene.identifier == scenes.size())
 	{
@@ -85,8 +85,8 @@ void SceneManager::AddScene(Scene& scene)
 
 void SceneManager::reloadCurrentScene()
 {
-	closeScene(GetCurrentScene());
-	openScene(GetCurrentScene());
+	GetCurrentScene()->Close();
+	GetCurrentScene()->Load();
 }
 
 void SceneManager::closeScene(Scene* scene)

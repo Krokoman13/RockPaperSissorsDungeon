@@ -1,4 +1,5 @@
 #include "UI.hpp"
+#include <iostream>
 
 std::vector<sf::Drawable*> UI::GetDrawables()
 {
@@ -15,7 +16,7 @@ std::vector<sf::Drawable*> UI::GetDrawables()
     return out;
 }
 
-std::vector<Hoverable*> UI::GetClickables()
+std::vector<Hoverable*> UI::GetHoverables()
 {
     return _hoverables;
 }
@@ -66,7 +67,7 @@ void UI::RemoveElement(UIElement* uiElement)
         {
             this->_elements[i]->SetUI(nullptr);
             this->_elements.erase(this->_elements.begin() + i);
-            return;
+            continue;
         }
     }
 
@@ -82,7 +83,13 @@ void UI::RemoveElement(UIElement* uiElement)
         if (this->_hoverables[i] == uiElement)
         {
             this->_hoverables.erase(this->_hoverables.begin() + i);
+            std::cout << _hoverables.size() << "\n";
             return;
         }
     }
+}
+
+std::vector<UIElement*> UI::GetElements()
+{
+    return _elements;
 }

@@ -43,24 +43,29 @@ UIElement& UIElement::operator=(const UIElement& other)
 	this->_xScale = other._xScale;
 	this->_yScale = other._yScale;
 
+	this->_originalTextSize = other._originalTextSize;
+
 	return *this;
 }
 
 UIElement::~UIElement()
 {
-	if (_ui != nullptr) _ui->RemoveElement(this);
+	if (_ui != nullptr)
+	{
+		_ui->RemoveElement(this);
+	}
 }
 
-void UIElement::SetText(const std::string text, const  int characterSize, const sf::Uint32 style, const sf::Color fillColor)
+void UIElement::SetText(const std::string text, unsigned int textSize, const sf::Uint32 style, const sf::Color fillColor)
 {
-	this->SetText(text, UIElement::DEFAULT_FONT, characterSize, style, fillColor);
+	this->SetText(text, UIElement::DEFAULT_FONT, textSize, style, fillColor);
 }
 
-void UIElement::SetText(const std::string text, const sf::Font& font, const int characterSize, const sf::Uint32 style, const sf::Color fillColor)
+void UIElement::SetText(const std::string text, const sf::Font& font, unsigned int textSize, const sf::Uint32 style, const sf::Color fillColor)
 {
 	this->_sfTtext.setFont(font);
 	this->_sfTtext.setString(text);
-	this->_originalTextCharacterSize = characterSize;
+	this->_originalTextSize = textSize;
 
 	this->_sfTtext.setStyle(style);
 	this->_sfTtext.setFillColor(fillColor);}
@@ -108,13 +113,22 @@ void UIElement::SetUI(UI* ui)
 	this->_ui = ui;
 }
 
+void UIElement::ClearUI()
+{
+	if (_ui == nullptr) return;
+
+	_ui->RemoveElement(this);
+	_ui = nullptr;
+}
+
 std::vector<sf::Drawable*> UIElement::GetDrawables()
 {
 	std::vector<sf::Drawable*> out;
 
 	if (_sfTtext.getString() != "")
 	{
-		this->_sfTtext.setCharacterSize(_originalTextCharacterSize * _xScale);
+		this->_sfTtext.setCharacterSize(this->_originalTextSize);
+		//this->_sfTtext.setScale(_xScale * _originalTextSize, _xScale * _originalTextSize);
 		this->_sfTtext.setOrigin(this->_sfTtext.getLocalBounds().width / 2., this->_sfTtext.getLocalBounds().height / 2.);
 		this->_sfTtext.setPosition(GetWidth() / 2 + x, GetHeight() / 2 -_sfTtext.getCharacterSize()/4 + y );
 		out.push_back(&_sfTtext);
