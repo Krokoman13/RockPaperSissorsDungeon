@@ -66,6 +66,15 @@ void GameObject::Update()
 {
 }
 
+void GameObject::OnLoad()
+{
+}
+
+void GameObject::SetScene(Scene* scene)
+{
+	this->_scene = scene;
+}
+
 int GameObject::getPositionAsChild(GameObject& toFind)
 {
 	for (unsigned int i = 0; i < _children.size(); i++)
@@ -77,25 +86,6 @@ int GameObject::getPositionAsChild(GameObject& toFind)
 	}
 
 	throw std::invalid_argument("Could not find a non-existent child");
-}
-
-Scene* GameObject::getCurrentScene()
-{
-	GameObject* parent = _parent;
-
-	while (parent != nullptr)
-	{
-		parent = parent->GetParent();
-
-		Scene* out = dynamic_cast<Scene*>(parent);
-
-		if (out)
-		{
-			return out;
-		}
-	}
-
-	return nullptr;
 }
 
 GameObject* GameObject::GetParent()

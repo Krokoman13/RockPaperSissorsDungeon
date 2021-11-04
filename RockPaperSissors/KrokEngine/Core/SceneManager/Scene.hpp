@@ -18,11 +18,10 @@ public:
 
 	SceneManager* scenemanager;
 
-protected:
-	virtual void load();
-	virtual void close();
+	virtual void OnClose();
 
 private:
 	bool _reloadOnOpen;
+	void loadChildren(GameObject* gameObject);
 };
 
