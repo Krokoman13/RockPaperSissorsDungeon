@@ -72,6 +72,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\HealthBar.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
@@ -124,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="KrokEngine\Core\UI\Hoverable.hpp">
       <Filter>Engine\Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\HealthBar.hpp">
+      <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

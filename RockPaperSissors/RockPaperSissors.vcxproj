@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\HealthBar.cpp" />
     <ClCompile Include="KrokEngine\Core\EventHandeler\EventHandeler.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\Renderer.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\ImageGameObject.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\HealthBar.hpp" />
     <ClInclude Include="KrokEngine\Core\EventHandeler\EventHandeler.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\Renderer.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\ImageGameObject.hpp" />

@@ -83,16 +83,16 @@ Scene* GameObject::getCurrentScene()
 {
 	GameObject* parent = _parent;
 
-	while (parent)
+	while (parent != nullptr)
 	{
 		parent = parent->GetParent();
-	}
 
-	Scene* out = dynamic_cast<Scene*>(parent);
+		Scene* out = dynamic_cast<Scene*>(parent);
 
-	if (out)
-	{
-		return out;
+		if (out)
+		{
+			return out;
+		}
 	}
 
 	return nullptr;
