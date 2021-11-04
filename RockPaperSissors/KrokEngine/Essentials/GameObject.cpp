@@ -46,14 +46,14 @@ GameObject* GameObject::Copy()
 
 GameObject::~GameObject()
 {
-	for (GameObject* child : _children)
-	{
-		delete child;
-	}
-
 	if (_parent != nullptr)
 	{
 		_parent->RemoveChild(this);
+	}
+
+	for (GameObject* child : _children)
+	{
+		delete child;
 	}
 }
 

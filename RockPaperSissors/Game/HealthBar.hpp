@@ -1,13 +1,15 @@
 #pragma once
-#include "../KrokEngine/Essentials/GameObject.hpp"
-
-class UIElement;
+#include "../KrokEngine/KrokEngine.hpp"
 
 class HealthBar :
     public GameObject
 {
 public:
     HealthBar(int x, int y, int maxHealth);
+    HealthBar(const HealthBar& other);
+    HealthBar& operator=(const HealthBar& other);
+    virtual GameObject* Copy() override;
+    virtual ~HealthBar();
 
     void SetHealth(int amount);
     void AddHealth(int amount);
@@ -20,7 +22,7 @@ private:
     int _maxHealth;
     int _currentHealth;
 
-    UIElement* _bar;
-    UIElement* _counter;
+    UIElement _bar;
+    UIElement _counter;
 };
 

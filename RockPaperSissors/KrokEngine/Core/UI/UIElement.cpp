@@ -40,7 +40,8 @@ UIElement& UIElement::operator=(const UIElement& other)
 	this->loadTexture(other._fullpath);
 	this->SetText(other._sfTtext.getString(), *other._sfTtext.getFont(), other._sfTtext.getCharacterSize(), other._sfTtext.getStyle(), other._sfTtext.getFillColor());
 
-	this->_ui = other._ui;
+	this->_xScale = other._xScale;
+	this->_yScale = other._yScale;
 
 	return *this;
 }

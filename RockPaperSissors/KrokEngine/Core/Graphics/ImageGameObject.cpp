@@ -89,7 +89,7 @@ sf::Sprite* ImageGameObject::GetSprite()
 
 void ImageGameObject::CenterImageAround(Vec2 position)
 {
-	this->_sprite.setPosition(position.x - _width / 2, position.y - _height / 2);
+	this->localPosition.SetXY(position.x - _width / 2, position.y - _height / 2);
 }
 
 const std::string ImageGameObject::GetFullPath()
