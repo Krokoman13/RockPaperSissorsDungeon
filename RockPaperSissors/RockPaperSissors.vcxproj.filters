@@ -73,7 +73,7 @@
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\HealthBar.cpp">
-      <Filter>Engine\Source Files</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -129,7 +129,7 @@
       <Filter>Engine\Header Files\UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\HealthBar.hpp">
-      <Filter>Engine\Header Files</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

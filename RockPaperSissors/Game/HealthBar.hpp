@@ -14,6 +14,7 @@ public:
     void SubstractHealth(int amount);
 
     virtual void Update() override;
+    virtual void OnLoad() override;
 
 private:
     int _maxHealth;

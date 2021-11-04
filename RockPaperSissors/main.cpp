@@ -21,7 +21,6 @@ int main()
 		ImageGameObject character("Fighter", "Assets/Blank Fighter - without arm.png", 200, 150, 1);
 		character.AddChild(new ImageGameObject("Scissor", "Assets/", 0, 50));
 		character.AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png"));
-		character.AddChild(new HealthBar(0, 0, 10));
 		arena.AddChild(new ImageGameObject(character));
 	}
 	
@@ -33,6 +32,10 @@ int main()
 
 	defaultButton.SetText("Start Game", 50);
 	defaultButton.SetScale(0.5f);
+
+	myGame.GetCurrentScene()->AddChild(new HealthBar(0, 0, 10));
+	myGame.GetCurrentScene()->ui.AddElement(defaultButton);
+
 	myGame.Run();
 
 	return 0;
