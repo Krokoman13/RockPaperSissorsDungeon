@@ -51,9 +51,9 @@ GameObject::~GameObject()
 		_parent->RemoveChild(this);
 	}
 
-	for (GameObject* child : _children)
+	while (_children.size() > 0)
 	{
-		delete child;
+		delete _children.back();
 	}
 }
 

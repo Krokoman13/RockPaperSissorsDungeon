@@ -1,6 +1,14 @@
 #include "UI.hpp"
 #include <iostream>
 
+UI::~UI()
+{
+    while (_elements.size() > 0)
+    {
+        delete _elements.back();
+    }
+}
+
 std::vector<sf::Drawable*> UI::GetDrawables()
 {
     std::vector<sf::Drawable*> out;

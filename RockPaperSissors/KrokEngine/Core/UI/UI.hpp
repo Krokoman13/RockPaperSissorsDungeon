@@ -4,6 +4,7 @@
 class UI
 {
 public:
+	~UI();
 	std::vector<sf::Drawable*> GetDrawables();
 	std::vector<Hoverable*> GetHoverables();
 
