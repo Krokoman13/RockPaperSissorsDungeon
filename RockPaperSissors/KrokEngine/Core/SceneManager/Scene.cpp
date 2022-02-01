@@ -2,12 +2,21 @@
 
 Scene::Scene(std::string Name, bool reloadOnOpen) : GameObject(0, 0, "Scene")
 {
+	this->ui = new UI();
 	this->name = Name;
 	this->_reloadOnOpen = reloadOnOpen;
 }
 
+Scene::~Scene()
+{
+	GameObject::~GameObject();
+	delete ui;
+}
+
 void Scene::Load()
 {
+	ClearChildren();
+
 	OnLoad();
 	loadChildren(this);
 	loaded = true;

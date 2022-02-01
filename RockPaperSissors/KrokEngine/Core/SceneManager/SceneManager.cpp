@@ -2,27 +2,33 @@
 
 SceneManager::SceneManager(Scene* startScene)
 {
-	scenes.push_back(startScene);
+	_scenes.push_back(startScene);
 	openScene(startScene);
 }
 
-SceneManager::SceneManager(Scene& startScene) : SceneManager(&startScene)
+SceneManager::~SceneManager()
 {
+	for (Scene* scene : _scenes)
+	{
+		delete scene;
+	}
+
+	_scenes.clear();
 }
 
 Scene* SceneManager::GetCurrentScene()
 {
 	if (_currentScene == nullptr)
 	{
-		_currentScene = scenes[0];
+		_currentScene = _scenes[0];
 	}
 
 	return _currentScene;
 }
 
-Scene* SceneManager::GetScene(Scene& scene)
+Scene* SceneManager::GetScene(Scene* scene)
 {
-	return GetScene(scene.identifier);
+	return GetScene(scene->identifier);
 }
 
 Scene* SceneManager::GetScene(std::string SceneName)
@@ -30,15 +36,15 @@ Scene* SceneManager::GetScene(std::string SceneName)
 	return GetScene(findIdentifier(SceneName));
 }
 
-Scene* SceneManager::GetScene(unsigned int SceneIdentifier)
+Scene* SceneManager::GetScene(int SceneIdentifier)
 {
-	if (SceneIdentifier >= scenes.size()) return nullptr;
-	return scenes[SceneIdentifier];
+	if (SceneIdentifier >= _scenes.size()) return nullptr;
+	return _scenes[SceneIdentifier];
 }
 
-void SceneManager::GoToScene(Scene& scene)
+void SceneManager::GoToScene(Scene* scene)
 {
-	GoToScene(scene.identifier);
+	GoToScene(scene->identifier);
 }
 
 void SceneManager::GoToScene(std::string SceneName)
@@ -46,7 +52,7 @@ void SceneManager::GoToScene(std::string SceneName)
 	GoToScene(findIdentifier(SceneName));
 }
 
-void SceneManager::GoToScene(unsigned int SceneIdentifier)
+void SceneManager::GoToScene(int SceneIdentifier)
 {
 	Scene* nextScene = GetScene(SceneIdentifier);
 	if (_currentScene == nextScene) return;
@@ -56,30 +62,30 @@ void SceneManager::GoToScene(unsigned int SceneIdentifier)
 	openScene(_currentScene);
 }
 
-void SceneManager::AddScene(Scene& scene)
+void SceneManager::AddScene(Scene* scene)
 {
-	scene.sceneManager = this;
+	scene->sceneManager = this;
 
-	if (scene.identifier == scenes.size())
+	if (scene->identifier == _scenes.size())
 	{
-		scenes.push_back(&scene);
+		_scenes.push_back(scene);
 		return;
 	}
 
-	if (scene.identifier > scenes.size())
+	if (scene->identifier > _scenes.size())
 	{
-		scenes.push_back(nullptr);
+		_scenes.push_back(nullptr);
 		AddScene(scene);
 		return;
 	}
 
-	if (scenes[scene.identifier] == nullptr)
+	if (_scenes[scene->identifier] == nullptr)
 	{
-		scenes[scene.identifier] = &scene;
+		_scenes[scene->identifier] = scene;
 		return;
 	}
 
-	scene.identifier++;
+	scene->identifier++;
 	AddScene(scene);
 }
 
@@ -111,7 +117,7 @@ void SceneManager::openScene(Scene* scene)
 
 unsigned int SceneManager::findIdentifier(std::string name)
 {
-	for (Scene* scene : scenes)
+	for (Scene* scene : _scenes)
 	{
 		if (scene == nullptr) continue;
 

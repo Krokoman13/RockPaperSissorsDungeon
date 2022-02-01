@@ -153,6 +153,9 @@
   <ItemGroup>
     <ClCompile Include="Game\Character.cpp" />
     <ClCompile Include="Game\HealthBar.cpp" />
+    <ClCompile Include="Game\Move.cpp" />
+    <ClCompile Include="Game\MoveButton.cpp" />
+    <ClCompile Include="Game\MoveSelector.cpp" />
     <ClCompile Include="KrokEngine\Core\EventHandeler\EventHandeler.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\Renderer.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\ImageGameObject.cpp" />
@@ -173,6 +176,9 @@
     <ClInclude Include="Game\Arena.hpp" />
     <ClInclude Include="Game\Character.hpp" />
     <ClInclude Include="Game\HealthBar.hpp" />
+    <ClInclude Include="Game\Move.hpp" />
+    <ClInclude Include="Game\MoveButton.hpp" />
+    <ClInclude Include="Game\MoveSelector.hpp" />
     <ClInclude Include="KrokEngine\Core\EventHandeler\EventHandeler.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\Renderer.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\ImageGameObject.hpp" />
@@ -190,6 +196,7 @@
     <ClInclude Include="KrokEngine\Essentials\Vec2.hpp" />
     <ClInclude Include="KrokEngine\KrokEngine.hpp" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="RockPaperSissorsElements.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

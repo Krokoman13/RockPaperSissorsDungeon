@@ -1,4 +1,5 @@
 #include "Hoverable.hpp"
+#include "UI.hpp"
 
 Hoverable::Hoverable(std::string name, std::string path, float x, float y) : UIElement(name, path, x, y)
 {
@@ -6,6 +7,15 @@ Hoverable::Hoverable(std::string name, std::string path, float x, float y) : UIE
 
 Hoverable::Hoverable(std::string name, float x, float y) : UIElement(name, x, y)
 {
+}
+
+void Hoverable::ClearUI()
+{
+	if (_ui != nullptr)
+	{
+		_ui->RemoveHoverable(this);
+		_ui->RemoveUIElement(this);
+	}
 }
 
 const bool Hoverable::IsInside(const int x, const int y)

@@ -78,6 +78,15 @@
     <ClCompile Include="Game\Character.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Move.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MoveButton.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\MoveSelector.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
@@ -138,6 +147,18 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Arena.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RockPaperSissorsElements.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Move.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MoveButton.hpp">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\MoveSelector.hpp">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

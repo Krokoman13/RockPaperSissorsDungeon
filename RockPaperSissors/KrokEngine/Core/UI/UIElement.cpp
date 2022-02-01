@@ -26,34 +26,26 @@ UIElement::UIElement(std::string name, float x, float y) : UIElement(name, ASSET
 {
 }
 
-UIElement::UIElement(const UIElement& other)
-{
-	operator=(other);
-}
-
-UIElement& UIElement::operator=(const UIElement& other)
-{
-	this->name = other.name;
-	this->x = other.x;
-	this->y = other.y;
-
-	this->loadTexture(other._fullpath);
-	this->SetText(other._sfTtext.getString(), *other._sfTtext.getFont(), other._sfTtext.getCharacterSize(), other._sfTtext.getStyle(), other._sfTtext.getFillColor());
-
-	this->_xScale = other._xScale;
-	this->_yScale = other._yScale;
-
-	this->_originalTextSize = other._originalTextSize;
-
-	return *this;
-}
+//UIElement& UIElement::operator=(const UIElement& other)
+//{
+//	this->name = other.name;
+//	this->x = other.x;
+//	this->y = other.y;
+//
+//	this->loadTexture(other._fullpath);
+//	this->SetText(other._sfTtext.getString(), *other._sfTtext.getFont(), other._sfTtext.getCharacterSize(), other._sfTtext.getStyle(), other._sfTtext.getFillColor());
+//
+//	this->_xScale = other._xScale;
+//	this->_yScale = other._yScale;
+//
+//	this->_originalTextSize = other._originalTextSize;
+//
+//	return *this;
+//}
 
 UIElement::~UIElement()
 {
-	if (_ui != nullptr)
-	{
-		_ui->RemoveElement(this);
-	}
+	ClearUI();
 }
 
 void UIElement::SetText(const std::string text, unsigned int textSize, const sf::Uint32 style, const sf::Color fillColor)
@@ -117,8 +109,18 @@ void UIElement::ClearUI()
 {
 	if (_ui == nullptr) return;
 
-	_ui->RemoveElement(this);
+	_ui->RemoveUIElement(this);
 	_ui = nullptr;
+}
+
+void UIElement::SetVisible(bool pVisible)
+{
+	this->visible = pVisible;
+}
+
+bool UIElement::IsVisible()
+{
+	return this->visible;
 }
 
 std::vector<sf::Drawable*> UIElement::GetDrawables()

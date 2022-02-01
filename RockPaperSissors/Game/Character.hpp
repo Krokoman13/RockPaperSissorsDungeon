@@ -3,13 +3,16 @@
 #include "Healthbar.hpp"
 #include <vector>
 
+class Move;
+class Healthbar;
+
 class Character :
     public ImageGameObject
 {
 public:
-    Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower);
-
-    HealthBar health;
+    Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2);
+    virtual ~Character() override;
+    HealthBar* health;
 
 private:
     unsigned int _rockModifier;

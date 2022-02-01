@@ -10,8 +10,6 @@ class UIElement
 public:
     UIElement(std::string name, std::string path, float x = 0, float y = 0);
     UIElement(std::string name, float x = 0, float y = 0);
-    UIElement(const UIElement& other);
-    UIElement& operator=(const UIElement& other);
     virtual ~UIElement();
 
     std::string name;
@@ -35,7 +33,10 @@ public:
     float GetHeight();
 
     void SetUI(UI* ui);
-    void ClearUI();
+    virtual void ClearUI();
+
+    void SetVisible(bool visible);
+    bool IsVisible();
 
     std::vector<sf::Drawable*> GetDrawables();
 
@@ -43,6 +44,7 @@ protected:
     virtual sf::Sprite* getSprite();
 
     std::string _fullpath;
+    UI* _ui;
 
 private:
     sf::Texture _texture;
@@ -51,13 +53,13 @@ private:
 
     void loadTexture(std::string path);
 
-    UI* _ui;
-
     float _originalWidth = 0;
     float _originalHeight = 0;
     unsigned int _originalTextSize;
 
     float _xScale = 1;
     float _yScale = 1;
+
+    bool visible = true;
 };
 

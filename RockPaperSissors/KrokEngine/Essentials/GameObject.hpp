@@ -12,15 +12,13 @@ class GameObject
 public:
 	GameObject(Vec2 position = Vec2(0,0), std::string name = "GameObject", GameObject* parent = nullptr);
 	GameObject(float x, float y, std::string name = "GameObject", GameObject* parent = nullptr);
-	GameObject(const GameObject& other);
-	GameObject& operator=(const GameObject& other);
-	virtual GameObject* Copy();
-	~GameObject();
+	virtual ~GameObject();
+
+	void ClearChildren();
 
 	std::string name;
 
 	GameObject* GetParent();
-	void SetParent(GameObject& parent);
 	void SetParent(GameObject* parent);
 
 	void ClearParent();
@@ -28,9 +26,7 @@ public:
 	const std::vector <GameObject*> GetChildren();
 	GameObject* GetChild(unsigned int i);
 
-	void AddChild(GameObject& toAdd);
 	void AddChild(GameObject* toAdd);
-	void RemoveChild(GameObject& toRemove);
 	void RemoveChild(GameObject* toRemove);
 
 	const Vec2 GetGlobaPosition();
@@ -51,7 +47,6 @@ public:
 	bool canRender = false;
 
 	virtual sf::Sprite* GetSprite();
-	//void RenerateSprites(std::vector<sf::Sprite*>& sprites, Vec2 pos = Vec2(0, 0), Vec2 scale = Vec2(1, 1));
 	virtual void Update();
 	virtual void OnLoad();
 
@@ -63,7 +58,7 @@ protected:
 	GameObject* _parent = nullptr;
 	std::vector <GameObject*> _children;
 
-	int getPositionAsChild(GameObject& toFind);
+	//int getPositionAsChild(GameObject* toFind);
 
 	Vec2 _scale = Vec2(1.0f, 1.0f);
 

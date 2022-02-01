@@ -10,39 +10,12 @@ HealthBar::HealthBar(int x, int y, int maxHealth)
 	this->_currentHealth = _maxHealth = maxHealth;
 }
 
-HealthBar::HealthBar(const HealthBar& other)
-{
-	operator=(other);
-}
-
-
-HealthBar& HealthBar::operator=(const HealthBar& other)
-{
-	GameObject::operator=(other);
-
-	if (this != &other)
-	{
-		this->_maxHealth = other._maxHealth;
-		this->_currentHealth = other._currentHealth;
-
-		this->_bar = other._bar;
-		this->_counter = other._counter;
-	}
-
-	return *this;
-}
-
-GameObject* HealthBar::Copy()
-{
-	return new HealthBar(*this);
-}
-
 HealthBar::~HealthBar()
 {
 	GameObject::~GameObject();
 
-	_bar->ClearUI();
-	_counter->ClearUI();
+	delete _bar;
+	delete _counter;
 }
 
 void HealthBar::SetHealth(int amount)
@@ -79,6 +52,6 @@ void HealthBar::Update()
 
 void HealthBar::OnLoad()
 {
-	this->_scene->ui.AddElement(this->_counter);
-	this->_scene->ui.AddElement(this->_bar);
+	this->_scene->ui->AddElement(this->_counter);
+	this->_scene->ui->AddElement(this->_bar);
 }

@@ -12,6 +12,8 @@ Game::Game(std::string name, unsigned int width, unsigned int height, unsigned i
 
 Game::~Game()
 {
+	SceneManager::~SceneManager();
+	//EventHandeler::~EventHandeler();
 }
 
 void Game::Run()
@@ -31,7 +33,7 @@ void Game::Run()
 		_updateManger.Update(GetCurrentScene());
 
 		{
-			std::vector<sf::Drawable*> drawables = GetCurrentScene()->ui.GetDrawables();
+			std::vector<sf::Drawable*> drawables = GetCurrentScene()->ui->GetDrawables();
 			_renderer.ToRender(drawables, INT_MAX);
 		}
 

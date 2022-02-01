@@ -13,7 +13,7 @@ class EventHandeler
 public:
 	EventHandeler(sf::RenderWindow& renderWindow);
 
-	void HandleEvent(sf::Event& event, UI& ui);
+	void HandleEvent(sf::Event& event, UI* ui);
 	const Vec2 MousePosition();
 
 	const bool IsPressed(sf::Keyboard::Key key);
@@ -35,6 +35,6 @@ private:
 	bool _key[sf::Keyboard::Key::KeyCount] = { false };
 	std::vector<Hoverable*> _hoveringOver;
 
-	void setHovering(std::vector<Hoverable*> clickables);
+	void setHovering(const std::vector<Hoverable*>& clickables);
 };
 

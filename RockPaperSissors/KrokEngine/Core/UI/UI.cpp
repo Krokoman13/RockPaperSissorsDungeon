@@ -15,6 +15,8 @@ std::vector<sf::Drawable*> UI::GetDrawables()
 
     for (UIElement* uiElement : _elements)
     {
+        if (!uiElement->IsVisible()) continue;
+
         for (sf::Drawable* drawable : uiElement->GetDrawables())
         {
             out.push_back(drawable);
@@ -44,11 +46,6 @@ void UI::SetDefaultFont(std::string fontFile)
     }
 }
 
-void UI::AddElement(UIElement& uiElement)
-{
-    AddElement(&uiElement);
-}
-
 void UI::AddElement(UIElement* uiElement)
 {
     uiElement->SetUI(this);
@@ -62,12 +59,19 @@ void UI::AddElement(UIElement* uiElement)
     }
 }
 
-void UI::RemoveElement(UIElement& uiElement)
+void UI::RemoveElement(UIElement* uiElement)
 {
-    RemoveElement(&uiElement);
+    RemoveUIElement(uiElement);
+
+    Hoverable* hoverable = dynamic_cast<Hoverable*>(uiElement);
+
+    if (hoverable != nullptr)
+    {
+        RemoveHoverable(hoverable);
+    }
 }
 
-void UI::RemoveElement(UIElement* uiElement)
+void UI::RemoveUIElement(UIElement* uiElement)
 {
     for (unsigned int i = 0; i < this->_elements.size(); i++)
     {
@@ -78,17 +82,13 @@ void UI::RemoveElement(UIElement* uiElement)
             continue;
         }
     }
+}
 
-    Hoverable* hoverable = dynamic_cast<Hoverable*>(uiElement);
-
-    if (!hoverable)
-    {
-        return;
-    }
-
+void UI::RemoveHoverable(Hoverable* hoverable)
+{
     for (unsigned int i = 0; i < this->_hoverables.size(); i++)
     {
-        if (this->_hoverables[i] == uiElement)
+        if (this->_hoverables[i] == hoverable)
         {
             this->_hoverables.erase(this->_hoverables.begin() + i);
             std::cout << _hoverables.size() << "\n";

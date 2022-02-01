@@ -6,10 +6,7 @@ class HealthBar :
 {
 public:
     HealthBar(int x, int y, int maxHealth);
-    HealthBar(const HealthBar& other);
-    HealthBar& operator=(const HealthBar& other);
-    virtual GameObject* Copy() override;
-    virtual ~HealthBar();
+    virtual ~HealthBar() override;
 
     void SetHealth(int amount);
     void AddHealth(int amount);

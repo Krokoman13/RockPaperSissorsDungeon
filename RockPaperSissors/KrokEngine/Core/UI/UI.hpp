@@ -11,11 +11,13 @@ public:
 	void SetDefaultFont(sf::Font font);
 	void SetDefaultFont(std::string fontFile);
 
-	void AddElement(UIElement& uiElement);
 	void AddElement(UIElement* uiElement);
 
-	void RemoveElement(UIElement& uiElement);
 	void RemoveElement(UIElement* uiElement);
+
+	void RemoveUIElement(UIElement* uiElement);
+
+	void RemoveHoverable(Hoverable* hoverable);
 
 	std::vector<UIElement*> GetElements();
 

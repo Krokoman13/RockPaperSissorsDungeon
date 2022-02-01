@@ -15,25 +15,20 @@ Button::Button(std::string name, float x, float y, std::function<void()> action)
 	SetText(name);
 }
 
-Button::Button(const Button& other) : Clickable(other.name, other._fullpath, other.x, other.y)
-{
-	operator=(other);
-}
-
-Button& Button::operator=(const Button& other)
-{
-	UIElement::operator=(other);
-
-	if (&other != this)
-	{
-		std::string tempPath = _fullpath;
-		tempPath.insert(tempPath.size() - 4, "-2");
-		LoadAlterateSprite(tempPath);
-		_onClickAction = other._onClickAction;
-	}
-
-	return *this;
-}
+//Button& Button::operator=(const Button& other)
+//{
+//	UIElement::operator=(other);
+//
+//	if (&other != this)
+//	{
+//		std::string tempPath = _fullpath;
+//		tempPath.insert(tempPath.size() - 4, "-2");
+//		LoadAlterateSprite(tempPath);
+//		_onClickAction = other._onClickAction;
+//	}
+//
+//	return *this;
+//}
 
 void Button::setButtonAction(std::function<void()> action)
 {

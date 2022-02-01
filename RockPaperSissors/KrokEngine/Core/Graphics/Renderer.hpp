@@ -9,7 +9,7 @@ public :
 
 	void Render();
 
-	void ToRender(std::vector<sf::Drawable*>& sprites, int layer);
+	void ToRender(const std::vector<sf::Drawable*>& sprites, int layer);
 	void ToRender(sf::Drawable* sprite, int layer);
 
 private :

@@ -23,23 +23,6 @@ ImageGameObject::ImageGameObject(std::string name, float x, float y, int renderl
 {
 }
 
-ImageGameObject::ImageGameObject(const ImageGameObject& other) 
-{
-	operator=(other);
-}
-
-ImageGameObject& ImageGameObject::operator=(const ImageGameObject& other)
-{
-	GameObject::operator=(other);
-
-	if (this != &other)
-	{
-		this->loadTexture(other._fullpath);
-	}
-
-	return *this;
-}
-
 void ImageGameObject::loadTexture(std::string path)
 {
 	if (this->_texture.loadFromFile(path))
@@ -95,9 +78,4 @@ void ImageGameObject::CenterImageAround(Vec2 position)
 const std::string ImageGameObject::GetFullPath()
 {
 	return this->_fullpath;
-}
-
-GameObject* ImageGameObject::Copy()
-{
-	return new ImageGameObject(*this);
 }

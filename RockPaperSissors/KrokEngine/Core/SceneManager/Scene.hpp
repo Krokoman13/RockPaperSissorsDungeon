@@ -8,10 +8,12 @@ class Scene : public GameObject
 {
 public:
 	Scene(std::string Name = "Scene", bool reloadOnOpen = false);
+	virtual ~Scene() override;
+
 	bool loaded = false;
 	unsigned int identifier = 0;
 
-	UI ui;
+	UI* ui;
 
 	void Load();
 	void Close();

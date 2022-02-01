@@ -16,34 +16,6 @@ GameObject::GameObject(float x, float y, std::string name, GameObject* parent) :
 {
 }
 
-GameObject::GameObject(const GameObject& other)
-{
-	operator=(other);
-}
-
-GameObject& GameObject::operator=(const GameObject& other)
-{
-	if (this != &other)
-	{
-		this->name = name;
-		this->_renderLayer = other._renderLayer;
-		this->localPosition = other.localPosition;
-		this->_scale = other._scale;
-
-		for (int i = 0; i < other._children.size(); i++)
-		{
-			this->AddChild(other._children[i]->Copy());
-		}
-	}
-
-	return *this;
-}
-
-GameObject* GameObject::Copy()
-{
-	return new GameObject(*this);
-}
-
 GameObject::~GameObject()
 {
 	if (_parent != nullptr)
@@ -51,6 +23,11 @@ GameObject::~GameObject()
 		_parent->RemoveChild(this);
 	}
 
+	ClearChildren();
+}
+
+void GameObject::ClearChildren()
+{
 	while (_children.size() > 0)
 	{
 		delete _children.back();
@@ -75,27 +52,9 @@ void GameObject::SetScene(Scene* scene)
 	this->_scene = scene;
 }
 
-int GameObject::getPositionAsChild(GameObject& toFind)
-{
-	for (unsigned int i = 0; i < _children.size(); i++)
-	{
-		if (_children[i] == &toFind)
-		{
-			return i;
-		}
-	}
-
-	throw std::invalid_argument("Could not find a non-existent child");
-}
-
 GameObject* GameObject::GetParent()
 {
 	return _parent;
-}
-
-void GameObject::SetParent(GameObject& parent)
-{
-	this->SetParent(&parent);
 }
 
 void GameObject::SetParent(GameObject* newParent)
@@ -129,12 +88,6 @@ GameObject* GameObject::GetChild(unsigned int i)
 	return _children[i];
 }
 
-void GameObject::AddChild(GameObject& toAdd)
-{
-	GameObject* temp = &toAdd;
-	AddChild(temp);
-}
-
 void GameObject::AddChild(GameObject* toAdd)
 {
 	if (toAdd == nullptr) throw std::invalid_argument("Cannot add a non-existing GameObject");
@@ -145,11 +98,6 @@ void GameObject::AddChild(GameObject* toAdd)
 
 	_children.push_back(toAdd);
 	toAdd->_parent = this;
-}
-
-void GameObject::RemoveChild(GameObject& toRemove)
-{
-	RemoveChild(&toRemove);
 }
 
 void GameObject::RemoveChild(GameObject* toRemove)

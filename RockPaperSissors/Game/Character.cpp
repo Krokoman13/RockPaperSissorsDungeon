@@ -1,18 +1,28 @@
 #include "Character.hpp"
+#include "MoveSelector.hpp"
 
-Character::Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower) 
-	: ImageGameObject("Fighter", "Assets/Blank Fighter - without arm.png", 0, 0, 1), health(-25, -35, rockPower*10)
+Character::Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2) 
+	: ImageGameObject("Fighter", "Assets/Blank Fighter - without arm.png", 0, 0, 1)
 {
 	this->_rockModifier = rockPower;
 	this->_paperModifier = paperPower;
 	this->_scissorModifier = scissorPower;
 
-	this->health.SetScale(0.17f);
+	this->health = new HealthBar(-25, -35, rockPower * 10);
+	this->health->SetScale(0.17f);
 
-	this->AddChild(health);
+	AddChild(health);
 
-	this->equipWeapon(_paper);
-	this->AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png", 2));
+	MoveSelector* selector = new MoveSelector(move1, move2, -10, -100);
+	AddChild(selector);
+
+	equipWeapon(_paper);
+	AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png", 2));
+}
+
+Character::~Character()
+{
+	ImageGameObject::~ImageGameObject();
 }
 
 void Character::equipWeapon(const ImageGameObject& weapon)
@@ -22,6 +32,6 @@ void Character::equipWeapon(const ImageGameObject& weapon)
 		delete _currentWeapon;
 	}
 
-	this->AddChild(new ImageGameObject(weapon));
+	AddChild(new ImageGameObject(weapon));
 	_currentWeapon = new ImageGameObject(weapon);
 }
