@@ -9,14 +9,19 @@ Hoverable::Hoverable(std::string name, float x, float y) : UIElement(name, x, y)
 {
 }
 
-void Hoverable::ClearUI()
-{
-	if (_ui != nullptr)
-	{
-		_ui->RemoveHoverable(this);
-		_ui->RemoveUIElement(this);
-	}
-}
+//void Hoverable::ClearUI()
+//{
+//	if (_ui != nullptr)
+//	{
+//		_ui->RemoveHoverable(this);
+//		_ui->RemoveUIElement(this);
+//	}
+//}
+//
+//Hoverable::~Hoverable()
+//{
+//	ClearUI();
+//}
 
 const bool Hoverable::IsInside(const int x, const int y)
 {

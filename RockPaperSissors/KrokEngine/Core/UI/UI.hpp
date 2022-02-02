@@ -15,14 +15,9 @@ public:
 
 	void RemoveElement(UIElement* uiElement);
 
-	void RemoveUIElement(UIElement* uiElement);
-
-	void RemoveHoverable(Hoverable* hoverable);
-
-	std::vector<UIElement*> GetElements();
+	const std::vector<UIElement*> GetElements();
 
 private:
-	std::vector<UIElement*> _elements;
-	std::vector<Hoverable*> _hoverables;
+	std::vector<UIElement*> _elements = {};
 };
 

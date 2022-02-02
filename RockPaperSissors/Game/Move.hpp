@@ -1,13 +1,15 @@
 #pragma once
 #include <string>
+#include <vector>
 
 enum Element;
 class Character;
+class Arena;
 
 class Move
 {
 public:
-	enum Type { Attack, Shield, Boost };
+	enum Type { Attack, Shield, Boost, Debuff };
 
 	Move(Element element, Type type, unsigned int strength, std::string iconName);
 
@@ -15,15 +17,27 @@ public:
 
 	Type type;
 
-	unsigned int strength = 1;
+	unsigned int power = 1;
 	std::string iconName;
-	void SetTarget(Character* target);
 
 	std::string explanation;
 
-	//virtual void ExecuteMove() = 0;
+	virtual void ExecuteMove(Character& moveUser);
+	virtual void SetTargets(Arena* arena, bool NPC = true) = 0;
 
-private: 
-	Character* _target = nullptr;
+protected: 
+	virtual void executeMove(Character& moveUser) = 0;
+	std::vector<Character*> _targets = {};
+};
+
+class DefaultSwordMove : public Move
+{
+public:
+	DefaultSwordMove(Element element, unsigned int power);
+
+	virtual void SetTargets(Arena* arena, bool NPC = true) override;
+
+protected:
+	virtual void executeMove(Character& moveUser) override;
 };
 

@@ -5,6 +5,9 @@
 
 class Move;
 class Healthbar;
+class Arena;
+
+enum Element;
 
 class Character :
     public ImageGameObject
@@ -12,7 +15,14 @@ class Character :
 public:
     Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2);
     virtual ~Character() override;
+
     HealthBar* health;
+    Arena* arena = nullptr;
+
+    void RecieveDamage(unsigned int amount, Element type, std::string sourceName);
+    void SetShield(Element shieldElement);
+
+    unsigned int GetModifier(Element element);
 
 private:
     unsigned int _rockModifier;
@@ -26,5 +36,7 @@ private:
     const ImageGameObject _scissor = ImageGameObject("Scissor", "Assets/", 0, 50);
 
     void equipWeapon(const ImageGameObject& weapon);
+
+    Element _shield;
 };
 

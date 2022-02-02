@@ -109,7 +109,7 @@ void UIElement::ClearUI()
 {
 	if (_ui == nullptr) return;
 
-	_ui->RemoveUIElement(this);
+	_ui->RemoveElement(this);
 	_ui = nullptr;
 }
 
