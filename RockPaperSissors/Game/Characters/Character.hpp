@@ -1,7 +1,7 @@
 #pragma once
-#include "../KrokEngine/Core/Graphics/ImageGameObject.hpp"
+#include "../../KrokEngine/Core/Graphics/ImageGameObject.hpp"
 #include "HealthBar.hpp"
-#include "RockPaperSissorsElements.hpp"
+#include "../Moves/RockPaperSissorsElements.hpp"
 #include <vector>
 
 class Move;

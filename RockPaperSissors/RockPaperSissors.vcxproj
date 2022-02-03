@@ -154,11 +154,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\Arena.cpp" />
-    <ClCompile Include="Game\Character.cpp" />
-    <ClCompile Include="Game\HealthBar.cpp" />
-    <ClCompile Include="Game\Move.cpp" />
-    <ClCompile Include="Game\MoveButton.cpp" />
-    <ClCompile Include="Game\MoveSelector.cpp" />
+    <ClCompile Include="Game\Characters\Character.cpp" />
+    <ClCompile Include="Game\Characters\HealthBar.cpp" />
+    <ClCompile Include="Game\Moves\Move.cpp" />
+    <ClCompile Include="Game\Moves\MoveButton.cpp" />
+    <ClCompile Include="Game\Moves\MoveSelector.cpp" />
     <ClCompile Include="KrokEngine\Core\EventHandeler\EventHandeler.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\Renderer.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\ImageGameObject.cpp" />
@@ -177,12 +177,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Arena.hpp" />
-    <ClInclude Include="Game\Character.hpp" />
-    <ClInclude Include="Game\HealthBar.hpp" />
-    <ClInclude Include="Game\Move.hpp" />
-    <ClInclude Include="Game\MoveButton.hpp" />
-    <ClInclude Include="Game\MoveSelector.hpp" />
-    <ClInclude Include="Game\RockPaperSissorsElements.hpp" />
+    <ClInclude Include="Game\Characters\Character.hpp" />
+    <ClInclude Include="Game\Characters\HealthBar.hpp" />
+    <ClInclude Include="Game\Moves\Move.hpp" />
+    <ClInclude Include="Game\Moves\MoveButton.hpp" />
+    <ClInclude Include="Game\Moves\MoveSelector.hpp" />
+    <ClInclude Include="Game\Moves\RockPaperSissorsElements.hpp" />
     <ClInclude Include="KrokEngine\Core\EventHandeler\EventHandeler.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\Renderer.hpp" />
     <ClInclude Include="KrokEngine\Core\Graphics\ImageGameObject.hpp" />

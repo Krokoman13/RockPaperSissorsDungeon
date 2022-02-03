@@ -1,7 +1,7 @@
 #pragma once
-#include "../KrokEngine/Essentials/GameObject.hpp"
+#include "../../KrokEngine/Essentials/GameObject.hpp"
 
-class MoveButton;
+class UIElement;
 class Move;
 
 class MoveSelector :
@@ -18,10 +18,10 @@ public:
 
 private:
     Move* _move1 = nullptr;
-    MoveButton* _moveButton1 = nullptr;
+    UIElement* _moveButton1 = nullptr;
 
     Move* _move2 = nullptr;
-    MoveButton* _moveButton2 = nullptr;
+    UIElement* _moveButton2 = nullptr;
 
     Move* _selectedMove = nullptr;
 };

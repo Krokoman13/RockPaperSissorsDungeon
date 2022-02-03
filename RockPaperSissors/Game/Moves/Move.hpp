@@ -1,8 +1,8 @@
 #pragma once
+#include "RockPaperSissorsElements.hpp"
 #include <string>
 #include <vector>
 
-enum Element;
 class Character;
 class Arena;
 

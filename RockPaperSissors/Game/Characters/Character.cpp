@@ -1,7 +1,7 @@
 #include "Character.hpp"
-#include "MoveSelector.hpp"
-#include "Arena.hpp"
-#include "RockPaperSissorsElements.hpp"
+#include "../Moves/MoveSelector.hpp"
+#include "../Arena.hpp"
+#include "../Moves/RockPaperSissorsElements.hpp"
 
 Character::Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2) 
 	: ImageGameObject("Fighter", "Assets/Blank Fighter - without arm.png", 0, 0, 1)

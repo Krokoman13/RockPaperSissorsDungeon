@@ -1,7 +1,7 @@
 #include "Arena.hpp"
-#include "Character.hpp"
-#include "Move.hpp"
-#include "RockPaperSissorsElements.hpp"
+#include "Characters/Character.hpp"
+#include "Moves/Move.hpp"
+#include "Moves/RockPaperSissorsElements.hpp"
 
 Arena::Arena() : Scene("Arena")
 {

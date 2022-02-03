@@ -1,7 +1,7 @@
 #include "Move.hpp"
 #include "RockPaperSissorsElements.hpp"
-#include "Character.hpp"
-#include "Arena.hpp"
+#include "../Characters/Character.hpp"
+#include "../Arena.hpp"
 
 Move::Move(Element element, Type type, unsigned int strength, std::string iconName)
 {

@@ -72,19 +72,19 @@
     <ClCompile Include="main.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\HealthBar.cpp">
+    <ClCompile Include="Game\Characters\HealthBar.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Character.cpp">
+    <ClCompile Include="Game\Characters\Character.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\Move.cpp">
+    <ClCompile Include="Game\Moves\Move.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\MoveButton.cpp">
+    <ClCompile Include="Game\Moves\MoveButton.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Game\MoveSelector.cpp">
+    <ClCompile Include="Game\Moves\MoveSelector.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Game\Arena.cpp">
@@ -143,25 +143,25 @@
     <ClInclude Include="KrokEngine\Core\UI\Hoverable.hpp">
       <Filter>Engine\Header Files\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Game\HealthBar.hpp">
+    <ClInclude Include="Game\Characters\HealthBar.hpp">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Character.hpp">
+    <ClInclude Include="Game\Characters\Character.hpp">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Arena.hpp">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Move.hpp">
+    <ClInclude Include="Game\Moves\Move.hpp">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\MoveButton.hpp">
+    <ClInclude Include="Game\Moves\MoveButton.hpp">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\MoveSelector.hpp">
+    <ClInclude Include="Game\Moves\MoveSelector.hpp">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Game\RockPaperSissorsElements.hpp">
+    <ClInclude Include="Game\Moves\RockPaperSissorsElements.hpp">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

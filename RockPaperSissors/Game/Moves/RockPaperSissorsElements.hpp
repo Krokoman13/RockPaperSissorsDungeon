@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 enum Element { Rock, Paper, Scissors, NONE};
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "../KrokEngine/KrokEngine.hpp"
+#include "../../KrokEngine/KrokEngine.hpp"
 
 class HealthBar :
     public GameObject

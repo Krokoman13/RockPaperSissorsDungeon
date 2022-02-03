@@ -2,7 +2,7 @@
 #include "MoveSelector.hpp"
 #include "MoveButton.hpp"
 #include "Move.hpp"
-#include "../KrokEngine/Core/SceneManager/Scene.hpp"
+#include "../../KrokEngine/Core/SceneManager/Scene.hpp"
 
 MoveSelector::MoveSelector(Move* move1, Move* move2, int x, int y) : GameObject(x, y, "MoveSelector")
 {
