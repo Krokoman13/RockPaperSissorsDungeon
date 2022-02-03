@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClCompile Include="Game\Arena.cpp" />
     <ClCompile Include="Game\Characters\Character.cpp" />
+    <ClCompile Include="Game\Characters\Fighter.cpp" />
     <ClCompile Include="Game\Characters\HealthBar.cpp" />
     <ClCompile Include="Game\Moves\Move.cpp" />
     <ClCompile Include="Game\Moves\MoveButton.cpp" />
@@ -178,6 +179,7 @@
   <ItemGroup>
     <ClInclude Include="Game\Arena.hpp" />
     <ClInclude Include="Game\Characters\Character.hpp" />
+    <ClInclude Include="Game\Characters\Fighter.hpp" />
     <ClInclude Include="Game\Characters\HealthBar.hpp" />
     <ClInclude Include="Game\Moves\Move.hpp" />
     <ClInclude Include="Game\Moves\MoveButton.hpp" />

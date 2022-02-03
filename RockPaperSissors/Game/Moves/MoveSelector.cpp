@@ -4,13 +4,22 @@
 #include "Move.hpp"
 #include "../../KrokEngine/Core/SceneManager/Scene.hpp"
 
-MoveSelector::MoveSelector(Move* move1, Move* move2, int x, int y) : GameObject(x, y, "MoveSelector")
+MoveSelector::MoveSelector(Move* move1, Move* move2, int x, int y, bool NPC) : GameObject(x, y, "MoveSelector")
 {
-	this->_move1 = move1;
-	this->_move2 = move2;
+	_move1 = move1;
+	_move2 = move2;
 
-	this->_moveButton1 = new MoveButton(move1, this, x, y);
-	this->_moveButton2 = new MoveButton(move2, this, x + 80, y);
+	if (NPC)
+	{
+		_moveButton1 = new UIElement(move1->iconName, x, y);
+		_moveButton2 = new UIElement(move2->iconName, x + 80, y);
+		return;
+	}
+
+	_moveButton1 = new MoveButton(move1, this, x, y);
+	_moveButton2 = new MoveButton(move2, this, x + 80, y);
+
+	offset = Vec2(_moveButton2->x - _moveButton1->x, _moveButton2->y - _moveButton1->y);
 }
 
 MoveSelector::~MoveSelector()
@@ -22,7 +31,7 @@ MoveSelector::~MoveSelector()
 	delete _moveButton2;
 }
 
-void MoveSelector::Select(Move* clicked)
+void MoveSelector::Select(const Move* clicked)
 {
 	if (clicked == _selectedMove)
 	{
@@ -55,16 +64,14 @@ void MoveSelector::OnLoad()
 
 void MoveSelector::Update()
 {
-	Vec2 pos = this->GetGlobaPosition();
-	Vec2 offset = Vec2(_moveButton2->x - _moveButton1->x, _moveButton2->y - _moveButton1->y);
+	Vec2 pos = globalPosition;
+	Vec2 scale = globalScale;
 
 	_moveButton1->x = pos.x;
 	_moveButton1->y = pos.y;
 
-	_moveButton2->x = pos.x + offset.x;
-	_moveButton2->y = pos.y + offset.y;
-
-	Vec2 scale = this->GetScale();
+	_moveButton2->x = pos.x + offset.x * scale.x;
+	_moveButton2->y = pos.y + offset.y * scale.y;
 
 	_moveButton1->SetScale(scale.x, scale.y);
 	_moveButton2->SetScale(scale.x, scale.y);

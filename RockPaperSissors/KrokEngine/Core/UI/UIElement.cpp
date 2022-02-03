@@ -129,9 +129,9 @@ std::vector<sf::Drawable*> UIElement::GetDrawables()
 
 	if (_sfTtext.getString() != "")
 	{
-		this->_sfTtext.setCharacterSize(this->_originalTextSize);
-		//this->_sfTtext.setScale(_xScale * _originalTextSize, _xScale * _originalTextSize);
-		this->_sfTtext.setOrigin(this->_sfTtext.getLocalBounds().width / 2., this->_sfTtext.getLocalBounds().height / 2.);
+		this->_sfTtext.setCharacterSize(_originalTextSize * _yScale * 5);
+		//this->_sfTtext.setScale(_xScale * _originalTextSize/10, _xScale * _originalTextSize/10);
+		this->_sfTtext.setOrigin(_sfTtext.getLocalBounds().width / 2., _sfTtext.getLocalBounds().height / 2.);
 		this->_sfTtext.setPosition(GetWidth() / 2 + x, GetHeight() / 2 -_sfTtext.getCharacterSize()/4 + y );
 		out.push_back(&_sfTtext);
 	}
@@ -152,16 +152,16 @@ sf::Sprite* UIElement::getSprite()
 
 void UIElement::loadTexture(std::string path)
 {
-	if (this->_texture.loadFromFile(path))
+	if (_texture.loadFromFile(path))
 	{
-		this->_sprite.setTexture(_texture);
+		_sprite.setTexture(_texture);
 
-		this->_fullpath = path;
+		_fullpath = path;
 
-		this->_originalWidth = (float)_sprite.getTextureRect().width;
-		this->_originalHeight = (float)_sprite.getTextureRect().height;
+		_originalWidth = (float)_sprite.getTextureRect().width;
+		_originalHeight = (float)_sprite.getTextureRect().height;
 
-		this->_sprite.setOrigin(0, 0);
+		_sprite.setOrigin(0, 0);
 		return;
 	}
 }

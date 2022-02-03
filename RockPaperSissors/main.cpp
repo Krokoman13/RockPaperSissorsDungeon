@@ -19,7 +19,7 @@ int main()
 			myGame.GoToScene(arena);
 			});
 
-		StartGameButton->SetText("Start Game");
+		StartGameButton->SetText("Start Game", 12);
 		StartGameButton->SetScale(0.5f);
 		myGame.GetScene(0)->ui->AddElement(StartGameButton);
 	}

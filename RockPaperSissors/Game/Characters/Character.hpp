@@ -12,7 +12,7 @@ class Character :
     public ImageGameObject
 {
 public:
-    Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2);
+    Character(bool NPC, unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2, std::string name, std::string path);
     virtual ~Character() override;
 
     HealthBar* health;
@@ -23,14 +23,16 @@ public:
 
     unsigned int GetModifier(Element element);
 
-private:
+protected:
     unsigned int _rockModifier;
     unsigned int _paperModifier;
     unsigned int _scissorModifier;
 
-    const ImageGameObject _rock = ImageGameObject("Rock", "Assets/", 50, 100);
-    const ImageGameObject _paper = ImageGameObject("Paper", "Assets/", 90, 60);
-    const ImageGameObject _scissor = ImageGameObject("Scissor", "Assets/", 0, 50);
+    virtual Move* SelectMove(unsigned int i) = 0;
+
+    //const ImageGameObject _rock = ImageGameObject("Rock", "Assets/", 50, 100);
+    //const ImageGameObject _paper = ImageGameObject("Paper", "Assets/", 90, 60);
+    //const ImageGameObject _scissor = ImageGameObject("Scissor", "Assets/", 0, 50);
 
     Element _shield;
 };

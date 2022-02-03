@@ -1,5 +1,5 @@
 #include "Arena.hpp"
-#include "Characters/Character.hpp"
+#include "Characters/Fighter.hpp"
 #include "Moves/Move.hpp"
 #include "Moves/RockPaperSissorsElements.hpp"
 
@@ -11,8 +11,9 @@ void Arena::OnLoad()
 {
 	this->AddChild(new ImageGameObject("Background", 0, 0, 0));
 
-	Character* character = new Character(3, 3, 3, new DefaultSwordMove(Element::Paper, 2), new DefaultSwordMove(Element::Rock, 2));
+	Character* character = new Fighter(3, 3, 3, 0, 1);
 	character->localPosition.SetXY(200, 150);
+	character->SetScale(0.75f);
 	this->AddChild(character);
 
 	{
@@ -22,33 +23,9 @@ void Arena::OnLoad()
 			this->sceneManager->GoToScene(0);
 			});
 
-		backButton->SetText("Back", 40);
+		backButton->SetText("Back", 30);
 		backButton->SetScale(0.25f);
 		ui->AddElement(backButton);
-	}
-
-	{
-		Button* damageButton = new Button("Default Button", 20, 430);
-
-		damageButton->setButtonAction([character] {
-			character->health->SubstractHealth(1);
-			});
-
-		damageButton->SetText("Deal 1 damage to character", 15);
-		damageButton->SetScale(0.5f);
-		this->ui->AddElement(damageButton);
-	}
-
-	{
-		Button* damageButton = new Button("Default Button", 280, 430);
-
-		damageButton->setButtonAction([character] {
-			character->health->AddHealth(1);
-			});
-
-		damageButton->SetText("Heal character with 1", 15);
-		damageButton->SetScale(0.5f);
-		this->ui->AddElement(damageButton);
 	}
 
 	{
@@ -58,7 +35,7 @@ void Arena::OnLoad()
 			this->sceneManager->reloadCurrentScene();
 			});
 
-		reloadbutton->SetText("Reload", 15);
+		reloadbutton->SetText("Reload", 12);
 		reloadbutton->SetScale(0.5f);
 		this->ui->AddElement(reloadbutton);
 	}

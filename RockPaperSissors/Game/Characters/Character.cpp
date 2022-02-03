@@ -3,19 +3,18 @@
 #include "../Arena.hpp"
 #include "../Moves/RockPaperSissorsElements.hpp"
 
-Character::Character(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2) 
-	: ImageGameObject("Fighter", "Assets/Blank Fighter - without arm.png", 0, 0, 1)
+Character::Character(bool NPC, unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, Move* move1, Move* move2, std::string name, std::string path)
+	: ImageGameObject(name, path, 0, 0, 1)
 {
-	this->_rockModifier = rockPower;
-	this->_paperModifier = paperPower;
-	this->_scissorModifier = scissorPower;
+	_rockModifier = rockPower;
+	_paperModifier = paperPower;
+	_scissorModifier = scissorPower;
 
-	this->health = new HealthBar(-25, -35, rockPower * 10);
-	this->health->SetScale(0.17f);
-
-	this->_shield = Element::NONE;
-
+	health = new HealthBar(-25, -35, rockPower * 10);
+	health->SetScale(0.17f);
 	AddChild(health);
+
+	SetShield(Element::NONE);
 
 	MoveSelector* selector = new MoveSelector(move1, move2, -10, -100);
 	AddChild(selector);

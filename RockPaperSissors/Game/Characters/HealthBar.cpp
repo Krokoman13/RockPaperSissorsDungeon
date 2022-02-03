@@ -6,7 +6,7 @@ HealthBar::HealthBar(int x, int y, int maxHealth)
 	_bar = new UIElement("RedBar", "Assets/UI/HealthBar/", x, y);
 	_counter = new UIElement("BorderBar", "Assets/UI/HealthBar/", x, y);
 
-	this->_counter->SetText(std::to_string(maxHealth) + '/' + std::to_string(maxHealth), 24);
+	this->_counter->SetText(std::to_string(maxHealth) + '/' + std::to_string(maxHealth));
 	this->_currentHealth = _maxHealth = maxHealth;
 }
 
@@ -37,12 +37,12 @@ void HealthBar::SubstractHealth(int amount)
 
 void HealthBar::Update()
 {
-	Vec2 pos = this->GetGlobaPosition();
+	Vec2 pos = globalPosition;
 
 	_bar->x = _counter->x = pos.x;
 	_bar->y = _counter->y = pos.y;
 
-	Vec2 scale = this->GetScale();
+	Vec2 scale = globalScale;
 
 	_bar->SetScale((float)_currentHealth / (float)_maxHealth * scale.x, scale.y);
 	_counter->SetScale(scale.x, scale.y);

@@ -12,6 +12,8 @@ struct Vec2
 	Vec2(float pX = 0, float pY = 0);
 	Vec2(float pX, float pY, bool normalized);
 
+	Vec2& operator =(const Vec2& other);
+
 	float GetLength();
 	Vec2 Normalized();
 	void Normalize();

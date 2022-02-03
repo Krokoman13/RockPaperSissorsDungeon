@@ -8,10 +8,10 @@ class MoveSelector :
     public GameObject
 {
 public:
-    MoveSelector(Move* move1, Move* move2, int x, int y);
+    MoveSelector(Move* move1, Move* move2, int x, int y, bool NPC = false);
     virtual ~MoveSelector();
 
-    void Select(Move* clicked);
+    void Select(const Move* clicked);
 
     virtual void OnLoad() override;
     virtual void Update() override;
@@ -24,5 +24,7 @@ private:
     UIElement* _moveButton2 = nullptr;
 
     Move* _selectedMove = nullptr;
+
+    Vec2 offset;
 };
 

@@ -90,6 +90,9 @@
     <ClCompile Include="Game\Arena.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Characters\Fighter.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
@@ -163,6 +166,9 @@
     </ClInclude>
     <ClInclude Include="Game\Moves\RockPaperSissorsElements.hpp">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Characters\Fighter.hpp">
+      <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

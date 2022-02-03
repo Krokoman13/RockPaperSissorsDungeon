@@ -32,6 +32,8 @@ void UpdateManager::update(GameObject* toUpdate)
 
 	for (int i = toUpdate->GetChildren().size() - 1; i >= 0; --i) {
 		GameObject* gameObject = toUpdate->GetChildren()[i];
+		gameObject->globalScale = Vec2(gameObject->GetScale().x * scaleTransf.x, gameObject->GetScale().y * scaleTransf.y);
+		gameObject->globalPosition = Vec2(transformation.x + gameObject->localPosition.x * scaleTransf.x, transformation.y + gameObject->localPosition.y * scaleTransf.y);
 
 		this->update(gameObject);
 
@@ -39,11 +41,8 @@ void UpdateManager::update(GameObject* toUpdate)
 		{
 			sf::Sprite* sprite = gameObject->GetSprite();
 
-			Vec2 newScale = Vec2(gameObject->GetScale().x * scaleTransf.x, gameObject->GetScale().y * scaleTransf.y);
-			Vec2 newPos = Vec2(transformation.x + gameObject->localPosition.x * scaleTransf.x, transformation.y + gameObject->localPosition.y * scaleTransf.y);
-
-			sprite->setScale(newScale.x, newScale.y);
-			sprite->setPosition(newPos.x, newPos.y);
+			sprite->setScale(gameObject->globalScale.x, gameObject->globalScale.y);
+			sprite->setPosition(gameObject->globalPosition.x, gameObject->globalPosition.y);
 
 			int currentRenderLayer = gameObject->GetRenderLayer();
 

@@ -35,6 +35,8 @@ public:
 	static const Vec2 GetAllTransformations(GameObject* parent, Vec2 transformation = Vec2(0, 0));
 
 	Vec2 localPosition;
+	Vec2 globalPosition;
+	Vec2 globalScale;
 
 	static const Vec2 GetAllScaleing(GameObject* parent, Vec2 startScale = Vec2(1, 1));
 
