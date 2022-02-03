@@ -1,6 +1,7 @@
 #pragma once
 #include "MoveSelector.hpp"
 #include "MoveButton.hpp"
+#include "Move.hpp"
 #include "../KrokEngine/Core/SceneManager/Scene.hpp"
 
 MoveSelector::MoveSelector(Move* move1, Move* move2, int x, int y) : GameObject(x, y, "MoveSelector")
@@ -14,8 +15,6 @@ MoveSelector::MoveSelector(Move* move1, Move* move2, int x, int y) : GameObject(
 
 MoveSelector::~MoveSelector()
 {
-	GameObject::~GameObject();
-
 	delete _move1;
 	delete _move2;
 

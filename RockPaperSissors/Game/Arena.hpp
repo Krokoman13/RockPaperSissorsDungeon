@@ -1,5 +1,5 @@
 #pragma once
-#include <Vector>
+#include <vector>
 #include "../KrokEngine/KrokEngine.hpp"
 
 class Character;
@@ -8,7 +8,6 @@ class Arena : public Scene
 {
 public:
 	Arena();
-	~Arena();
 
 	virtual void OnLoad() override;
 

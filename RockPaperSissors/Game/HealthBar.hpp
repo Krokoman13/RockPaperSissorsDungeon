@@ -6,7 +6,7 @@ class HealthBar :
 {
 public:
     HealthBar(int x, int y, int maxHealth);
-    virtual ~HealthBar() override;
+    virtual ~HealthBar();
 
     void SetHealth(int amount);
     void AddHealth(int amount);

@@ -20,14 +20,11 @@ Character::Character(unsigned int rockPower, unsigned int paperPower, unsigned i
 	MoveSelector* selector = new MoveSelector(move1, move2, -10, -100);
 	AddChild(selector);
 
-	equipWeapon(_paper);
 	AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png", 2));
 }
 
 Character::~Character()
 {
-	ImageGameObject::~ImageGameObject();
-
 	if (arena != nullptr)
 	{
 		arena->RemoveCharacter(this);
@@ -63,15 +60,4 @@ unsigned int Character::GetModifier(Element element)
 	default:
 		return 0;
 	}
-}
-
-void Character::equipWeapon(const ImageGameObject& weapon)
-{
-	if (_currentWeapon != nullptr)
-	{
-		delete _currentWeapon;
-	}
-
-	AddChild(new ImageGameObject(weapon));
-	_currentWeapon = new ImageGameObject(weapon);
 }

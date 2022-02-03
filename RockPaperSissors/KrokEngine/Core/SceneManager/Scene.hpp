@@ -8,7 +8,7 @@ class Scene : public GameObject
 {
 public:
 	Scene(std::string Name = "Scene", bool reloadOnOpen = false);
-	virtual ~Scene() override;
+	virtual ~Scene();
 
 	bool loaded = false;
 	unsigned int identifier = 0;

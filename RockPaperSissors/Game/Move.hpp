@@ -12,6 +12,7 @@ public:
 	enum Type { Attack, Shield, Boost, Debuff };
 
 	Move(Element element, Type type, unsigned int strength, std::string iconName);
+	virtual ~Move() = default;
 
 	Element element;
 

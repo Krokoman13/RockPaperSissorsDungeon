@@ -12,8 +12,6 @@ HealthBar::HealthBar(int x, int y, int maxHealth)
 
 HealthBar::~HealthBar()
 {
-	GameObject::~GameObject();
-
 	delete _bar;
 	delete _counter;
 }

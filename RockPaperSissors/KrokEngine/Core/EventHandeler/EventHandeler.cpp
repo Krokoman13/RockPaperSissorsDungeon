@@ -71,6 +71,8 @@ void EventHandeler::HandleEvent(sf::Event& event, UI* ui)
 			_key[event.key.code] = false;
 		}
 		break;
+	default:
+		return;
 	}
 }
 
@@ -96,9 +98,9 @@ const bool EventHandeler::Focus()
 
 void EventHandeler::HandleClicks(sf::Mouse::Button button)
 {
-	for (int i = _hoveringOver.size(); i--; i >= 0)
+	for (size_t i = _hoveringOver.size(); i != 0; i--)
 	{
-		Clickable* clickable = dynamic_cast<Clickable*>(_hoveringOver[i]);
+		Clickable* clickable = dynamic_cast<Clickable*>(_hoveringOver[i-1]);
 
 		if (clickable)
 		{

@@ -9,6 +9,7 @@ class MoveButton :
 {
 public:
     MoveButton(Move* move, MoveSelector* moveSelector,  float x, float y);
+    virtual ~MoveButton() = default;
 
     virtual void OnClick() override;
 

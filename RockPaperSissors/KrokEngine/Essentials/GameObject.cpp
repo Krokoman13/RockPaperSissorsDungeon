@@ -30,7 +30,11 @@ void GameObject::ClearChildren()
 {
 	while (_children.size() > 0)
 	{
-		delete _children.back();
+		GameObject* child = _children.back();
+		_children.pop_back();
+		child->_parent = nullptr;
+
+		delete child;
 	}
 }
 
@@ -114,7 +118,7 @@ void GameObject::RemoveChild(GameObject* toRemove)
 		}
 	}
 
-	throw std::invalid_argument("Could not remove a non-existent child");
+	//throw std::invalid_argument("Could not remove a non-existent child");
 }
 
 const Vec2 GameObject::GetGlobaPosition()

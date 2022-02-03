@@ -1,13 +1,12 @@
 #pragma once
 #include "../KrokEngine/Core/Graphics/ImageGameObject.hpp"
-#include "Healthbar.hpp"
+#include "HealthBar.hpp"
+#include "RockPaperSissorsElements.hpp"
 #include <vector>
 
 class Move;
 class Healthbar;
 class Arena;
-
-enum Element;
 
 class Character :
     public ImageGameObject
@@ -29,13 +28,9 @@ private:
     unsigned int _paperModifier;
     unsigned int _scissorModifier;
 
-    GameObject* _currentWeapon;
-
     const ImageGameObject _rock = ImageGameObject("Rock", "Assets/", 50, 100);
     const ImageGameObject _paper = ImageGameObject("Paper", "Assets/", 90, 60);
     const ImageGameObject _scissor = ImageGameObject("Scissor", "Assets/", 0, 50);
-
-    void equipWeapon(const ImageGameObject& weapon);
 
     Element _shield;
 };

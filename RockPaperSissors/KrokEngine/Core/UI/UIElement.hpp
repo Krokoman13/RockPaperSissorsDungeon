@@ -10,7 +10,7 @@ class UIElement
 public:
     UIElement(std::string name, std::string path, float x = 0, float y = 0);
     UIElement(std::string name, float x = 0, float y = 0);
-    ~UIElement();
+    virtual ~UIElement();
 
     std::string name;
     int x;
@@ -33,7 +33,7 @@ public:
     float GetHeight();
 
     void SetUI(UI* ui);
-    virtual void ClearUI();
+    void ClearUI();
 
     void SetVisible(bool visible);
     bool IsVisible();

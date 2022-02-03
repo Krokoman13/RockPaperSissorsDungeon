@@ -9,7 +9,7 @@ Scene::Scene(std::string Name, bool reloadOnOpen) : GameObject(0, 0, "Scene")
 
 Scene::~Scene()
 {
-	GameObject::~GameObject();
+	ClearChildren();
 	delete ui;
 }
 

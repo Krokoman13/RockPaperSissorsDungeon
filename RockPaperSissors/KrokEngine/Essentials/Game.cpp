@@ -12,7 +12,7 @@ Game::Game(std::string name, unsigned int width, unsigned int height, unsigned i
 
 Game::~Game()
 {
-	SceneManager::~SceneManager();
+	//SceneManager::~SceneManager();
 	//EventHandeler::~EventHandeler();
 }
 

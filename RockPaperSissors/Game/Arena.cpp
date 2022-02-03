@@ -1,15 +1,10 @@
 #include "Arena.hpp"
-#include "Character.hpp""
+#include "Character.hpp"
 #include "Move.hpp"
 #include "RockPaperSissorsElements.hpp"
 
 Arena::Arena() : Scene("Arena")
 {
-}
-
-Arena::~Arena()
-{
-	Scene::~Scene();
 }
 
 void Arena::OnLoad()
@@ -18,7 +13,7 @@ void Arena::OnLoad()
 
 	Character* character = new Character(3, 3, 3, new DefaultSwordMove(Element::Paper, 2), new DefaultSwordMove(Element::Rock, 2));
 	character->localPosition.SetXY(200, 150);
-	//this->AddChild(character);
+	this->AddChild(character);
 
 	{
 		Button* backButton = new Button("Default Button", 20, 20);

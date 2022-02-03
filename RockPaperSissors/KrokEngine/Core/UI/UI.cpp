@@ -5,7 +5,11 @@ UI::~UI()
 {
     while (_elements.size() > 0)
     {
-        delete _elements.back();
+        UIElement* element = _elements.back();
+        _elements.pop_back();
+        element->SetUI(nullptr);
+
+        delete element;
     }
 }
 

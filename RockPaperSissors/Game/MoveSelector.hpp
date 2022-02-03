@@ -9,7 +9,7 @@ class MoveSelector :
 {
 public:
     MoveSelector(Move* move1, Move* move2, int x, int y);
-    virtual ~MoveSelector() override;
+    virtual ~MoveSelector();
 
     void Select(Move* clicked);
 

@@ -9,7 +9,7 @@ class Game
 {
 public:
 	Game(std::string name, unsigned int width, unsigned int height, unsigned int targetFPS);
-	~Game();
+	virtual ~Game();
 
 	void Run();
 
