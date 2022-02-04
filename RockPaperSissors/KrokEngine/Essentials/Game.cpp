@@ -8,6 +8,8 @@ Game::Game(std::string name, unsigned int width, unsigned int height, unsigned i
 	_updateManger.SetRenderer(_renderer);
 
 	std::cout << "Game initialized.\n";
+
+	srand(time(NULL));
 }
 
 Game::~Game()

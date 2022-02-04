@@ -3,6 +3,11 @@
 
 UI::~UI()
 {
+    ClearUi();
+}
+
+void UI::ClearUi()
+{
     while (_elements.size() > 0)
     {
         UIElement* element = _elements.back();
@@ -40,7 +45,7 @@ std::vector<Hoverable*> UI::GetHoverables()
 
         if (hoverable != nullptr)
         {
-            hoverables.push_back(hoverable);
+           if (hoverable->IsVisible()) hoverables.push_back(hoverable);
         }
     }
 

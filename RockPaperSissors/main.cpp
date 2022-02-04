@@ -7,7 +7,7 @@ int main()
 	UIElement::ASSET_PATH = "Assets/UI/";
 	UIElement::DEFAULT_FONT.loadFromFile("arial.ttf");
 
-	Game myGame("Rock-Paper-Sissors-Dungeon", 1920 / 2, 1080 / 2, 60);
+	Game myGame("Rock-Paper-Sissors-Dungeon", 1280, 720, 60);
 
 	Arena* arena = new Arena();
 	myGame.AddScene(arena);

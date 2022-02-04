@@ -12,9 +12,16 @@ public:
     virtual ~MoveSelector();
 
     void Select(const Move* clicked);
+    void Select(unsigned int moveNr);
+
+    void Reset();
 
     virtual void OnLoad() override;
     virtual void Update() override;
+
+    void SetVisible(bool visible);
+
+    Move* selectedMove = nullptr;
 
 private:
     Move* _move1 = nullptr;
@@ -23,8 +30,8 @@ private:
     Move* _move2 = nullptr;
     UIElement* _moveButton2 = nullptr;
 
-    Move* _selectedMove = nullptr;
-
     Vec2 offset;
+
+    bool _NPC;
 };
 

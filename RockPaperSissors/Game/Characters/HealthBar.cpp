@@ -3,11 +3,7 @@
 HealthBar::HealthBar(int x, int y, int maxHealth) 
 	: GameObject(x, y, "HealthBar") 
 {
-	_bar = new UIElement("RedBar", "Assets/UI/HealthBar/", x, y);
-	_counter = new UIElement("BorderBar", "Assets/UI/HealthBar/", x, y);
-
-	this->_counter->SetText(std::to_string(maxHealth) + '/' + std::to_string(maxHealth));
-	this->_currentHealth = _maxHealth = maxHealth;
+	_currentHealth = _maxHealth = maxHealth;
 }
 
 HealthBar::~HealthBar()
@@ -23,6 +19,11 @@ void HealthBar::SetHealth(int amount)
 
 	this->_currentHealth = amount;
 	this->_counter->SetText(std::to_string(_currentHealth) + '/' + std::to_string(_maxHealth));
+}
+
+int HealthBar::GetHealth()
+{
+	return _currentHealth;
 }
 
 void HealthBar::AddHealth(int amount)
@@ -50,6 +51,11 @@ void HealthBar::Update()
 
 void HealthBar::OnLoad()
 {
-	this->_scene->ui->AddElement(this->_counter);
-	this->_scene->ui->AddElement(this->_bar);
+	_bar = new UIElement("RedBar", "Assets/UI/HealthBar/", globalPosition.x, globalPosition.y);
+	_counter = new UIElement("BorderBar", "Assets/UI/HealthBar/", globalPosition.x, globalPosition.y);
+
+	this->_counter->SetText(std::to_string(_maxHealth) + '/' + std::to_string(_maxHealth));
+
+	_scene->ui->AddElement(_counter);
+	_scene->ui->AddElement(_bar);
 }

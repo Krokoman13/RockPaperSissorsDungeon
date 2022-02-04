@@ -24,8 +24,6 @@ public:
 
 protected:
 	bool _reloadOnOpen;
-
-private:
 	void loadChildren(GameObject* gameObject);
 };
 

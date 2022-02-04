@@ -154,11 +154,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game\Arena.cpp" />
+    <ClCompile Include="Game\Characters\Brawler.cpp" />
     <ClCompile Include="Game\Characters\Character.cpp" />
     <ClCompile Include="Game\Characters\Fighter.cpp" />
     <ClCompile Include="Game\Characters\HealthBar.cpp" />
+    <ClCompile Include="Game\Moves\DefaultBallMove.cpp" />
+    <ClCompile Include="Game\Moves\DefaultShieldMove.cpp" />
+    <ClCompile Include="Game\Moves\DefaultSwordMove.cpp" />
     <ClCompile Include="Game\Moves\Move.cpp" />
     <ClCompile Include="Game\Moves\MoveButton.cpp" />
+    <ClCompile Include="Game\Moves\MoveExecuter.cpp" />
     <ClCompile Include="Game\Moves\MoveSelector.cpp" />
     <ClCompile Include="KrokEngine\Core\EventHandeler\EventHandeler.cpp" />
     <ClCompile Include="KrokEngine\Core\Graphics\Renderer.cpp" />
@@ -178,11 +183,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Arena.hpp" />
+    <ClInclude Include="Game\Characters\Brawler.hpp" />
     <ClInclude Include="Game\Characters\Character.hpp" />
     <ClInclude Include="Game\Characters\Fighter.hpp" />
     <ClInclude Include="Game\Characters\HealthBar.hpp" />
+    <ClInclude Include="Game\Moves\DefaultBallMove.hpp" />
+    <ClInclude Include="Game\Moves\DefaultShieldMove.hpp" />
+    <ClInclude Include="Game\Moves\DefaultSwordMove.hpp" />
     <ClInclude Include="Game\Moves\Move.hpp" />
     <ClInclude Include="Game\Moves\MoveButton.hpp" />
+    <ClInclude Include="Game\Moves\MoveExecuter.hpp" />
     <ClInclude Include="Game\Moves\MoveSelector.hpp" />
     <ClInclude Include="Game\Moves\RockPaperSissorsElements.hpp" />
     <ClInclude Include="KrokEngine\Core\EventHandeler\EventHandeler.hpp" />

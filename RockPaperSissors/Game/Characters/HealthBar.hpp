@@ -9,6 +9,7 @@ public:
     virtual ~HealthBar();
 
     void SetHealth(int amount);
+    int GetHealth();
     void AddHealth(int amount);
     void SubstractHealth(int amount);
 

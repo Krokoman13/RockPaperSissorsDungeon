@@ -1,9 +1,10 @@
 #include "Fighter.hpp"
-#include "../Moves/Move.hpp"
+#include "../Moves/DefaultSwordMove.hpp"
 
 Fighter::Fighter(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, unsigned int move1, unsigned int  move2, bool NPC)
 	: Character(NPC, rockPower, paperPower, scissorPower, SelectMove(move1), SelectMove(move2), "Fighter", "Assets/Blank Fighter - without arm.png")
 {
+	AddChild(new ImageGameObject("R - Arm", "Assets/Blank Fighter - arm.png", 2));
 }
 
 Move* Fighter::SelectMove(unsigned int i)

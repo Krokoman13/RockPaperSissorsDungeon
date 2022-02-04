@@ -16,6 +16,7 @@ Scene::~Scene()
 void Scene::Load()
 {
 	ClearChildren();
+	ui->ClearUi();
 
 	OnLoad();
 	loadChildren(this);

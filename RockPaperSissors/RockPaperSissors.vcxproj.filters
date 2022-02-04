@@ -93,6 +93,21 @@
     <ClCompile Include="Game\Characters\Fighter.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Characters\Brawler.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Moves\DefaultSwordMove.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Moves\DefaultBallMove.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Moves\DefaultShieldMove.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Moves\MoveExecuter.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
@@ -168,6 +183,21 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\Characters\Fighter.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Characters\Brawler.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Moves\DefaultSwordMove.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Moves\DefaultBallMove.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Moves\DefaultShieldMove.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Moves\MoveExecuter.hpp">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
