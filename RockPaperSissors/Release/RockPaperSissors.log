@@ -1,0 +1,70 @@
+﻿  Arena.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Arena.cpp(256,20): warning C4018: '<': signed/unsigned mismatch
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Arena.cpp(271,20): warning C4018: '<': signed/unsigned mismatch
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Arena.cpp(294,19): warning C4018: '>': signed/unsigned mismatch
+  Brawler.cpp
+  Character.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Characters\Character.cpp(41,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Characters\Character.cpp(42,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Fighter.cpp
+  HealthBar.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Characters\HealthBar.cpp(4,18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Characters\HealthBar.cpp(4,15): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Characters\HealthBar.cpp(43,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Characters\HealthBar.cpp(44,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  DefaultBallMove.cpp
+  DefaultShieldMove.cpp
+  DefaultSwordMove.cpp
+  Move.cpp
+  MoveButton.cpp
+  MoveExecuter.cpp
+  MoveSelector.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(7,94): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(7,91): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(86,67): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(86,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(97,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(98,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(100,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\Game\Moves\MoveSelector.cpp(101,26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  EventHandeler.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\EventHandeler\EventHandeler.cpp(44,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\EventHandeler\EventHandeler.cpp(44,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=int
+          ]
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\EventHandeler\EventHandeler.cpp(128,59): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\EventHandeler\EventHandeler.cpp(128,41): warning C4244: 'argument': conversion from 'float' to 'const int', possible loss of data
+  ImageGameObject.cpp
+  Renderer.cpp
+  Scene.cpp
+  SceneManager.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\SceneManager\SceneManager.cpp(41,22): warning C4018: '>=': signed/unsigned mismatch
+  Hoverable.cpp
+  UI.cpp
+  UIElement.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\UI\UIElement.cpp(11,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\UI\UIElement.cpp(12,12): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\UI\UIElement.cpp(132,63): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\UI\UIElement.cpp(134,99): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\UI\UIElement.cpp(134,60): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\UI\UIElement.cpp(141,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Core\UI\UIElement.cpp(141,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Compiling...
+  UpdateManager.cpp
+  Game.cpp
+D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\RockPaperSissors\KrokEngine\Essentials\Game.cpp(12,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  GameObject.cpp
+  Vec2.cpp
+  main.cpp
+  Generating code
+  0 of 1142 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  RockPaperSissors.vcxproj -> D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\Release\RockPaperSissors.exe

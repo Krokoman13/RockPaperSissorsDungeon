@@ -1,0 +1,6 @@
+﻿  In file included from Game\Arena.cpp:2:
+  In file included from Game/Characters/Fighter.hpp:2:
+  In file included from Game/Characters/Character.hpp:4:
+Game/Moves/RockPaperSissorsElements.hpp(6,16): warning : unused function 'CounterTo' [-Wunused-function]
+Game/Moves/RockPaperSissorsElements.hpp(24,20): warning : unused function 'ToString' [-Wunused-function]
+  RockPaperSissors.vcxproj -> D:\Files\CMGT\C++\RockPaperScissorsDungeon - Game\Code\RockPaperSissorsDungeon - GitHub\Debug\RockPaperSissors.exe
