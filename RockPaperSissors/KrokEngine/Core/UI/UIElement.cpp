@@ -26,6 +26,16 @@ UIElement::UIElement(std::string name, float x, float y) : UIElement(name, ASSET
 {
 }
 
+UIElement::UIElement(std::string name, float x, float y, float width, float heigth)
+{
+	this->name = name;
+	this->x = x;
+	this->y = y;
+	
+	this->_originalWidth = width;
+	this->_originalHeight = heigth;
+}
+
 //UIElement& UIElement::operator=(const UIElement& other)
 //{
 //	this->name = other.name;
@@ -129,10 +139,10 @@ std::vector<sf::Drawable*> UIElement::GetDrawables()
 
 	if (_sfTtext.getString() != "")
 	{
-		this->_sfTtext.setCharacterSize(_originalTextSize * _yScale * 5);
+		this->_sfTtext.setCharacterSize((unsigned int)(_originalTextSize * _yScale * 5u));
 		//this->_sfTtext.setScale(_xScale * _originalTextSize/10, _xScale * _originalTextSize/10);
-		this->_sfTtext.setOrigin(_sfTtext.getLocalBounds().width / 2., _sfTtext.getLocalBounds().height / 2.);
-		this->_sfTtext.setPosition(GetWidth() / 2 + x, GetHeight() / 2 -_sfTtext.getCharacterSize()/4 + y );
+		this->_sfTtext.setOrigin(_sfTtext.getLocalBounds().width / 2.0f, _sfTtext.getLocalBounds().height / 2.0f);
+		this->_sfTtext.setPosition(GetWidth() / 2 + x, GetHeight() / 2.0f -_sfTtext.getCharacterSize()/4.0f + y );
 		out.push_back(&_sfTtext);
 	}
 

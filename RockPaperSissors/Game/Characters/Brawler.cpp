@@ -3,12 +3,12 @@
 #include "../Moves/DefaultBallMove.hpp"
 
 Brawler::Brawler(unsigned int rockPower, unsigned int paperPower, unsigned int scissorPower, unsigned int move1, unsigned int move2, bool NPC)
-	: Character(NPC, rockPower, paperPower, scissorPower, SelectMove(move1), SelectMove(move2 + 3), "Brawler", "Assets/Blank Tank - without arm.png")
+	: Character(NPC, rockPower, paperPower, scissorPower, GetMove(move1), GetMove(move2 + 3), "Brawler", "Assets/Blank Tank - without arm.png")
 {
 	AddChild(new ImageGameObject("R - Arm", "Assets/Blank Tank - arm.png", 2));
 }
 
-Move* Brawler::SelectMove(unsigned int i)
+Move* Brawler::GetMove(unsigned int i)
 {
 	switch (i)
 	{

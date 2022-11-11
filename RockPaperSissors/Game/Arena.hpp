@@ -11,6 +11,9 @@ class Arena : public Scene
 public:
 	Arena();
 	~Arena();
+
+	std::string highScoreFileName = "";
+
 	virtual void OnLoad() override;
 
 	Character* GetNPC(unsigned int i);
@@ -28,7 +31,8 @@ public:
 	UIElement* textBox;
 
 private:
-	unsigned int _rounds;
+	int _rounds;
+	UIElement* _roundsCounter;
 
 	void updateTextBox();
 	std::deque<std::string> _textBoxText;

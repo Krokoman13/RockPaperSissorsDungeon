@@ -23,7 +23,7 @@ Hoverable::Hoverable(std::string name, float x, float y) : UIElement(name, x, y)
 //	ClearUI();
 //}
 
-const bool Hoverable::IsInside(const int x, const int y)
+const bool Hoverable::IsInside(const float x, const float y)
 {
 	return (x >= this->x && x <= this->x + this->GetWidth() && y >= this->y && y <= this->y + this->GetHeight());
 }

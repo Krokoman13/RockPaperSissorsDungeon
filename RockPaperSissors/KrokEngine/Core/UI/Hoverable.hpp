@@ -11,7 +11,7 @@ public:
 	//virtual void ClearUI() override;
 	//virtual ~Hoverable() override;
 
-	virtual const bool IsInside(const int x, const int y);
+	virtual const bool IsInside(const float x, const float y);
 	bool hovering = false;
 };
 

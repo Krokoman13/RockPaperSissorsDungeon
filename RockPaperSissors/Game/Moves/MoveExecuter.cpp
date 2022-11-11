@@ -1,7 +1,7 @@
 #include "MoveExecuter.hpp"
 #include "../Characters/Character.hpp"
 
-MoveExecuter::MoveExecuter(std::vector<Character*>& PCs, std::vector<Character*>& NPCs)
+MoveExecuter::MoveExecuter(const std::vector<Character*>& PCs, const std::vector<Character*>& NPCs)
 {
 	unsigned int count = characterCount(PCs, NPCs);
 
@@ -16,6 +16,7 @@ MoveExecuter::MoveExecuter(std::vector<Character*>& PCs, std::vector<Character*>
 
 MoveExecuter::MoveExecuter() : _charactersInOrder()
 {
+	this->_delay = 0u;
 }
 
 MoveExecuter::~MoveExecuter()
@@ -23,7 +24,7 @@ MoveExecuter::~MoveExecuter()
 	_charactersInOrder.clear();
 }
 
-void MoveExecuter::Step()
+void MoveExecuter::Step(bool forceContinue)
 {
 	if (_done) return;
 	
@@ -33,7 +34,7 @@ void MoveExecuter::Step()
 		return;
 	}
 
-	if (_delay < 1000u)
+	if (_delay < 1000u && !forceContinue)
 	{
 		_delay++;
 		return;
@@ -49,7 +50,7 @@ const bool MoveExecuter::Done()
 	return _done;
 }
 
-void MoveExecuter::addCharacterWithSpeed(unsigned int value, std::vector<Character*>& PCs, std::vector<Character*>& NPCs)
+void MoveExecuter::addCharacterWithSpeed(unsigned int value, const std::vector<Character*>& PCs, const std::vector<Character*>& NPCs)
 {
 	for (int i = 0; i < 4; i++)
 	{
@@ -72,7 +73,7 @@ void MoveExecuter::addCharacterWithSpeed(unsigned int value, std::vector<Charact
 	}
 }
 
-unsigned int MoveExecuter::characterCount(std::vector<Character*>& PCs, std::vector<Character*>& NPCs)
+unsigned int MoveExecuter::characterCount(const std::vector<Character*>& PCs, const std::vector<Character*>& NPCs)
 {
 	unsigned int count = 0;
 

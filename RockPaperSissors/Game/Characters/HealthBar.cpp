@@ -1,8 +1,10 @@
 #include "HealthBar.hpp"
 
-HealthBar::HealthBar(int x, int y, int maxHealth) 
+HealthBar::HealthBar(float x, float y, int maxHealth)
 	: GameObject(x, y, "HealthBar") 
 {
+	_bar = nullptr;
+	_counter = nullptr;
 	_currentHealth = _maxHealth = maxHealth;
 }
 
@@ -12,8 +14,9 @@ HealthBar::~HealthBar()
 	delete _counter;
 }
 
-void HealthBar::SetHealth(int amount)
+void HealthBar::SetHealth(const int pAmount)
 {
+	int amount = pAmount;
 	if (amount > _maxHealth) amount = _maxHealth;
 	else if (amount < 0) amount = 0;
 
@@ -26,14 +29,24 @@ int HealthBar::GetHealth()
 	return _currentHealth;
 }
 
-void HealthBar::AddHealth(int amount)
+void HealthBar::AddHealth(unsigned int amount)
 {	
 	SetHealth(_currentHealth + amount);
 }
 
-void HealthBar::SubstractHealth(int amount)
+void HealthBar::SubstractHealth(unsigned int amount)
 {
 	SetHealth(_currentHealth - amount);
+}
+
+const unsigned int HealthBar::GetCurrentHealth() const
+{
+	return _currentHealth;
+}
+
+const unsigned int HealthBar::GetMaxHealth() const
+{
+	return _maxHealth;
 }
 
 void HealthBar::Update()

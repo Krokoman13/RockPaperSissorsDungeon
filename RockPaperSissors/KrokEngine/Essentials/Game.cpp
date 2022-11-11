@@ -1,15 +1,16 @@
 #include <iostream>
 #include "Game.hpp"
+#include <SFML/Graphics.hpp>
 
 Game::Game(std::string name, unsigned int width, unsigned int height, unsigned int targetFPS) 
-	: SceneManager(new Scene("StartScreen")), EventHandeler(_renderWindow), _renderer(_renderWindow), _updateManger()
+	: SceneManager(new Scene("StartScreen"), this), EventHandeler(_renderWindow), _renderer(_renderWindow), _updateManger()
 {
-	_renderWindow.create(sf::VideoMode(width, height), name);
+	_renderWindow.create(sf::VideoMode(width, height), name, sf::Style::Titlebar | sf::Style::Close);
 	_updateManger.SetRenderer(_renderer);
 
 	std::cout << "Game initialized.\n";
 
-	srand(time(NULL));
+	srand((unsigned int)time(NULL));
 }
 
 Game::~Game()
@@ -41,4 +42,14 @@ void Game::Run()
 
 		_renderer.Render();
 	}
+}
+
+unsigned int Game::GetWitdth()
+{
+	return _renderWindow.getSize().x;
+}
+
+unsigned int Game::GetHeight()
+{
+	return _renderWindow.getSize().x;
 }

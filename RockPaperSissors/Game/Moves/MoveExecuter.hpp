@@ -8,16 +8,16 @@ class Character;
 class MoveExecuter
 {
 public:
-	MoveExecuter(std::vector<Character*>& PCs, std::vector<Character*>& NPCs);
+	MoveExecuter(const std::vector<Character*>& PCs, const std::vector<Character*>& NPCs);
 	MoveExecuter();
 	~MoveExecuter();
 
-	void Step();
+	void Step(bool forceContinue = false);
 	const bool Done();
 
 private:
-	void addCharacterWithSpeed(unsigned int i, std::vector<Character*>& PCs, std::vector<Character*>& NPCs);
-	static unsigned int characterCount(std::vector<Character*>& PCs, std::vector<Character*>& NPCs);
+	void addCharacterWithSpeed(unsigned int i, const std::vector<Character*>& PCs, const std::vector<Character*>& NPCs);
+	static unsigned int characterCount(const std::vector<Character*>& PCs, const std::vector<Character*>& NPCs);
 
 	std::deque<Character*> _charactersInOrder;
 

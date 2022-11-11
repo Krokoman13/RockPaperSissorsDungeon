@@ -408,3 +408,5 @@ FodyWeavers.xsd
 *.exe
 *.out
 *.app
+RockPaperSissors/Debug
+RockPaperSissors/Release

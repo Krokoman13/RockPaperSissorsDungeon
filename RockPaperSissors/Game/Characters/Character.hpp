@@ -23,11 +23,12 @@ public:
     Arena* arena = nullptr;
 
     void RecieveDamage(unsigned int amount, Element type, std::string sourceName);
+    void HealDamage(const unsigned int amount, const std::string sourceName);
     void SetShield(Element shieldElement);
-    const Element GetShield();
+    const Element GetShield() const;
 
-    unsigned int GetModifier(Element element);
-    bool MoveSelected();
+    unsigned int GetModifier(Element element) const;
+    const bool MoveSelected() const;
 
     void SelectRandomMove();
     void SetMovesVisible(bool visible);
@@ -36,16 +37,17 @@ public:
     const unsigned int GetPaperModifier() const;
     const unsigned int GetScissorModifier() const;
 
+    const bool IsDamaged() const;
+
     void ExecuteMove();
 
     bool NPC = false;
+    virtual Move* GetMove(unsigned int i) = 0;
 
 protected:
     unsigned int _rockModifier;
     unsigned int _paperModifier;
     unsigned int _scissorModifier;
-
-    virtual Move* SelectMove(unsigned int i) = 0;
 
     ImageGameObject* getImageShield(Element element);
 

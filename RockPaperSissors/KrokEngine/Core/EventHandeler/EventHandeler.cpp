@@ -41,7 +41,7 @@ void EventHandeler::HandleEvent(sf::Event& event, UI* ui)
 		if (_mouseInScreen)
 		{
 			sf::Vector2i mousePosition = sf::Mouse::getPosition(*_renderWindow);
-			_mousePosition.SetXY(mousePosition.x, mousePosition.y);
+			_mousePosition.SetXY((float)mousePosition.x, (float)mousePosition.y);
 			setHovering(ui->GetHoverables());
 		}
 		break;
@@ -113,11 +113,22 @@ void EventHandeler::HandleClicks(sf::Mouse::Button button)
 	}
 }
 
+bool EventHandeler::ButtonDown(sf::Keyboard::Key pKey)
+{
+	return _key[pKey];
+}
+
 void EventHandeler::setHovering(const std::vector<Hoverable*>& hoverables)
 {
 	while (_hoveringOver.size() > 0)
 	{
-		_hoveringOver[_hoveringOver.size() - 1]->hovering = false;
+		Hoverable* oldHoverable = _hoveringOver[_hoveringOver.size() - 1];
+
+		if (oldHoverable != nullptr)
+		{
+			oldHoverable->hovering = false;
+		}
+
 		_hoveringOver.pop_back();
 	}
 

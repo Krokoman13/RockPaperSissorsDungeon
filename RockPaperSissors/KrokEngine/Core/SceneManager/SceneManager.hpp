@@ -3,10 +3,12 @@
 #include <string>
 #include "Scene.hpp"
 
+class Game;
+
 class SceneManager
 {
 public:
-	SceneManager(Scene* startScene);
+	SceneManager(Scene* startScene, Game* game);
 	~SceneManager();
 
 	Scene* GetCurrentScene();
@@ -23,6 +25,8 @@ public:
 	
 	void reloadCurrentScene();
 
+	Game* GetGame();
+
 protected:
 	void closeScene(Scene* scene);
 	void openScene(Scene* scene);
@@ -31,5 +35,6 @@ private:
 	unsigned int findIdentifier(std::string name);
 	std::vector<Scene*> _scenes = {};
 	Scene* _currentScene;
+	Game* _game;
 };
 

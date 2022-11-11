@@ -1,9 +1,10 @@
 #include "SceneManager.hpp"
 
-SceneManager::SceneManager(Scene* startScene)
+SceneManager::SceneManager(Scene* startScene, Game* game = nullptr)
 {
 	_scenes.push_back(startScene);
 	openScene(startScene);
+	_game = game;
 }
 
 SceneManager::~SceneManager()
@@ -38,7 +39,7 @@ Scene* SceneManager::GetScene(std::string SceneName)
 
 Scene* SceneManager::GetScene(int SceneIdentifier)
 {
-	if (SceneIdentifier >= _scenes.size()) return nullptr;
+	if (SceneIdentifier >= (int)_scenes.size()) return nullptr;
 	return _scenes[SceneIdentifier];
 }
 
@@ -93,6 +94,11 @@ void SceneManager::reloadCurrentScene()
 {
 	GetCurrentScene()->Close();
 	GetCurrentScene()->Load();
+}
+
+Game* SceneManager::GetGame()
+{
+	return _game;
 }
 
 void SceneManager::closeScene(Scene* scene)

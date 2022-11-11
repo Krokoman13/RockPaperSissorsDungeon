@@ -10,11 +10,12 @@ class UIElement
 public:
     UIElement(std::string name, std::string path, float x = 0, float y = 0);
     UIElement(std::string name, float x = 0, float y = 0);
+    UIElement(std::string name, float x, float y, float width, float heigth);
     virtual ~UIElement();
 
     std::string name;
-    int x;
-    int y;
+    float x;
+    float y;
 
     static std::string ASSET_PATH;
     static std::string FILE_TYPE;

@@ -4,7 +4,7 @@
 #include "Move.hpp"
 #include "../../KrokEngine/Core/SceneManager/Scene.hpp"
 
-MoveSelector::MoveSelector(Move* move1, Move* move2, int x, int y, bool NPC) : GameObject(x, y, "MoveSelector")
+MoveSelector::MoveSelector(Move* move1, Move* move2, float x, float y, bool NPC) : GameObject(x, y, "MoveSelector")
 {
 	_move1 = move1;
 	_move2 = move2;

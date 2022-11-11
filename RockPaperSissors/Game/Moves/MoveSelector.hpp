@@ -8,7 +8,7 @@ class MoveSelector :
     public GameObject
 {
 public:
-    MoveSelector(Move* move1, Move* move2, int x, int y, bool NPC = false);
+    MoveSelector(Move* move1, Move* move2, float x, float y, bool NPC = false);
     virtual ~MoveSelector();
 
     void Select(const Move* clicked);

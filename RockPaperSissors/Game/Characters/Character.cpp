@@ -73,6 +73,12 @@ void Character::RecieveDamage(unsigned int amount, Element type, std::string sou
 	health->SubstractHealth(amount);
 }
 
+void Character::HealDamage(const unsigned int amount, const std::string sourceName)
+{
+	arena->PrintText(name + " got healed " + std::to_string(amount) + " damage by: " + sourceName + ".");
+	health->AddHealth(amount);
+}
+
 void Character::SetShield(Element shieldElement)
 {
 	if (_shield != Element::NONE)
@@ -91,12 +97,12 @@ void Character::SetShield(Element shieldElement)
 	}
 }
 
-const Element Character::GetShield()
+const Element Character::GetShield() const
 {
 	return _shield;
 }
 
-unsigned int Character::GetModifier(Element element)
+unsigned int Character::GetModifier(Element element) const
 {
 	switch (element)
 	{
@@ -111,7 +117,7 @@ unsigned int Character::GetModifier(Element element)
 	}
 }
 
-bool Character::MoveSelected()
+const bool Character::MoveSelected() const
 {
 	return selector->selectedMove != nullptr;
 }
@@ -135,6 +141,11 @@ void Character::SetMovesVisible(bool visible)
 const unsigned int Character::GetPaperModifier() const
 {
 	return _paperModifier;
+}
+
+const bool Character::IsDamaged() const
+{
+	return health->GetCurrentHealth() < health->GetMaxHealth() && health->GetCurrentHealth() > 0;
 }
 
 void Character::ExecuteMove()

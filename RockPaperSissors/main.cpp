@@ -1,5 +1,6 @@
 #include "Game/Arena.hpp"
-#include <iostream>
+#include "Game/HighScoreScreen.hpp"
+//#include <iostream>
 
 int main()
 {
@@ -10,18 +11,34 @@ int main()
 	Game myGame("Rock-Paper-Sissors-Dungeon", 1280, 720, 60);
 
 	Arena* arena = new Arena();
+	arena->highScoreFileName = "Highscores.cmgt";
 	myGame.AddScene(arena);
 
-	{
-		Button* StartGameButton = new Button("Default Button", 300, 200);
+	HighscoreScreen* scoreScreen = new HighscoreScreen(arena->highScoreFileName);
+	myGame.AddScene(scoreScreen);
 
-		StartGameButton->setButtonAction([&myGame, &arena] {
+	{
+		Button* startGameButton = new Button("Default Button", 300, 200);
+
+		startGameButton->setButtonAction([&myGame, &arena] {
 			myGame.GoToScene(arena);
 			});
 
-		StartGameButton->SetText("Start Game", 12);
-		StartGameButton->SetScale(0.5f);
-		myGame.GetScene(0)->ui->AddElement(StartGameButton);
+		startGameButton->SetText("Start Game", 12);
+		startGameButton->SetScale(0.5f);
+		myGame.GetScene(0)->ui->AddElement(startGameButton);
+	}
+
+	{
+		Button* goToHighscoreButton = new Button("Default Button", 300, 500);
+
+		goToHighscoreButton->setButtonAction([&myGame, &scoreScreen] {
+			myGame.GoToScene(scoreScreen);
+			});
+
+		goToHighscoreButton->SetText("HighScores", 12);
+		goToHighscoreButton->SetScale(0.5f);
+		myGame.GetScene(0)->ui->AddElement(goToHighscoreButton);
 	}
 
 	myGame.Run();

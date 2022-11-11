@@ -29,13 +29,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>ClangCL</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -88,7 +88,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\SFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -153,11 +154,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\HighScoreScreen.cpp" />
+    <ClCompile Include="Game\Moves\DefaultRangedAttack.cpp" />
+    <ClCompile Include="Game\Moves\DefaultHealMove.cpp" />
     <ClCompile Include="Game\Arena.cpp" />
     <ClCompile Include="Game\Characters\Brawler.cpp" />
     <ClCompile Include="Game\Characters\Character.cpp" />
     <ClCompile Include="Game\Characters\Fighter.cpp" />
     <ClCompile Include="Game\Characters\HealthBar.cpp" />
+    <ClCompile Include="Game\Characters\Mage.cpp" />
     <ClCompile Include="Game\Moves\DefaultBallMove.cpp" />
     <ClCompile Include="Game\Moves\DefaultShieldMove.cpp" />
     <ClCompile Include="Game\Moves\DefaultSwordMove.cpp" />
@@ -179,14 +184,20 @@
     <ClCompile Include="KrokEngine\Essentials\Game.cpp" />
     <ClCompile Include="KrokEngine\Essentials\GameObject.cpp" />
     <ClCompile Include="KrokEngine\Essentials\Vec2.cpp" />
+    <ClCompile Include="KrokEngine\Util\FileIO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="KrokEngine\Util\StringUtil.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\HighScoreScreen.hpp" />
+    <ClInclude Include="Game\Moves\DefaultRangedAttack.hpp" />
+    <ClInclude Include="Game\Moves\DefaultHealMove.hpp" />
     <ClInclude Include="Game\Arena.hpp" />
     <ClInclude Include="Game\Characters\Brawler.hpp" />
     <ClInclude Include="Game\Characters\Character.hpp" />
     <ClInclude Include="Game\Characters\Fighter.hpp" />
     <ClInclude Include="Game\Characters\HealthBar.hpp" />
+    <ClInclude Include="Game\Characters\Mage.hpp" />
     <ClInclude Include="Game\Moves\DefaultBallMove.hpp" />
     <ClInclude Include="Game\Moves\DefaultShieldMove.hpp" />
     <ClInclude Include="Game\Moves\DefaultSwordMove.hpp" />
@@ -211,6 +222,8 @@
     <ClInclude Include="KrokEngine\Essentials\GameObject.hpp" />
     <ClInclude Include="KrokEngine\Essentials\Vec2.hpp" />
     <ClInclude Include="KrokEngine\KrokEngine.hpp" />
+    <ClInclude Include="KrokEngine\Util\FileIO.hpp" />
+    <ClInclude Include="KrokEngine\Util\StringUtil.hpp" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

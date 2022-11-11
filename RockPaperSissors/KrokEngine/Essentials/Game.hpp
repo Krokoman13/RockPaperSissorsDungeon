@@ -13,6 +13,9 @@ public:
 
 	void Run();
 
+	unsigned int GetWitdth();
+	unsigned int GetHeight();
+
 private:
 	Renderer _renderer;
 	UpdateManager _updateManger;

@@ -108,6 +108,24 @@
     <ClCompile Include="Game\Moves\MoveExecuter.cpp">
       <Filter>Engine\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Characters\Mage.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Moves\DefaultHealMove.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Moves\DefaultRangedAttack.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\HighScoreScreen.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KrokEngine\Util\FileIO.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KrokEngine\Util\StringUtil.cpp">
+      <Filter>Engine\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KrokEngine\Essentials\Game.hpp">
@@ -198,6 +216,24 @@
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\Moves\MoveExecuter.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Characters\Mage.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Moves\DefaultHealMove.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Moves\DefaultRangedAttack.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\HighScoreScreen.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Util\FileIO.hpp">
+      <Filter>Engine\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KrokEngine\Util\StringUtil.hpp">
       <Filter>Engine\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -23,6 +23,8 @@ public:
 
 	void HandleClicks(sf::Mouse::Button button = sf::Mouse::Button::Left);
 
+	bool ButtonDown(sf::Keyboard::Key key);
+
 private:
 	sf::RenderWindow* _renderWindow;
 
@@ -35,6 +37,6 @@ private:
 	bool _key[sf::Keyboard::Key::KeyCount] = { false };
 	std::vector<Hoverable*> _hoveringOver;
 
-	void setHovering(const std::vector<Hoverable*>& clickables);
+	void setHovering(const std::vector<Hoverable*>& hoverables);
 };
 
